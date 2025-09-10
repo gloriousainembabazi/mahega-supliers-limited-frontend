@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import "../style/service.css"; 
 
@@ -7,6 +8,16 @@ function Services() {
       <div className="container">
         <h2 className="section-title">Our Services & Activities</h2>
         <ul className="services-list">
+=======
+function Services() {
+  return (
+    <section id="services" className="py-20 bg-gray-100">
+      <div className="container mx-auto p-10">
+        <h2 className="text-3xl font-bold text-blue-900 mb-10 text-center">
+          Our Services & Activities
+        </h2>
+        <ul className="space-y-6 text-lg max-w-3xl mx-auto">
+>>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
           <li>
             <strong>Material Procurement</strong> – Sourcing and supplying quality construction materials such as cement, steel, aggregates, and office essentials.
           </li>

@@ -1,5 +1,8 @@
 import React from "react";
+<<<<<<< HEAD
 import "../style/Blog.css";
+=======
+>>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
 
 function Blog() {
   const posts = [
@@ -27,6 +30,7 @@ function Blog() {
   ];
 
   return (
+<<<<<<< HEAD
     <div className="blog-container">
       <h2 className="blog-title">Our Blog</h2>
       <div className="blog-grid">
@@ -36,6 +40,19 @@ function Blog() {
             <p className="blog-post-date">{post.date}</p>
             <p className="blog-post-summary">{post.summary}</p>
             <button className="blog-button">Read More</button>
+=======
+    <div className="p-10 bg-gray-100">
+      <h2 className="text-3xl font-bold text-blue-900 mb-6">Our Blog</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <div key={post.id} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold text-blue-900">{post.title}</h3>
+            <p className="text-sm text-gray-500 mb-2">{post.date}</p>
+            <p className="text-gray-700 mb-4">{post.summary}</p>
+            <button className="bg-blue-900 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+              Read More
+            </button>
+>>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
           </div>
         ))}
       </div>
