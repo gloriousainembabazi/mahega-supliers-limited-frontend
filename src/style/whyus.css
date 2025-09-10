@@ -1,0 +1,23 @@
+.whyus-container {
+  padding: 40px 20px;
+}
+
+.whyus-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1c38d6; /* Blue color */
+  margin-bottom: 24px;
+}
+
+.whyus-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.125rem; /* Text-lg equivalent */
+  line-height: 1.8;
+}
+
+.whyus-list li::before {
+  content: "✔ ";
+  color: #1c38d6; /* Blue check mark */
+  font-weight: bold;
+}

@@ -1,0 +1,155 @@
+/* styles.css */
+
+/* General Body Background */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f2ff; /* light blue */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #bae6fd; /* light blue */
+  color: #1e3a8a; /* dark blue text */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: #1e3a8a;
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #2563eb; /* hover darker blue */
+}
+
+/* Footer */
+.footer {
+  background-color: #bae6fd; /* light blue */
+  color: #1e3a8a;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 2px 0;
+    display: inline-block;
+}
+
+.footer .footer-section {
+    margin-bottom: 1.5rem;
+}
+
+.footer .footer-section h4 {
+    font-size: 1.1rem;
+    color: #1e40af;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.footer .footer-links,
+.footer .footer-contact,
+.footer .footer-social {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .footer-links li,
+.footer .footer-contact li,
+.footer .footer-social li {
+    margin-bottom: 0.5rem;
+}
+
+.footer .footer-contact li {
+    color: #1e40af;
+    font-size: 0.98rem;
+}
+
+.footer .footer-social a {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.footer .footer-brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.footer .footer-address {
+    color: #1e40af;
+    font-size: 0.98rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer a:hover {
+  color: #2563eb;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  border-top: 1px solid #93c5fd;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #1e40af;
+}
+
+/* Card Style for Products/Services */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+  color: #1e3a8a;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #1e40af;
+  font-size: 1rem;
+}

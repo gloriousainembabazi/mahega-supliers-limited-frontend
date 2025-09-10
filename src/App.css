@@ -1,0 +1,60 @@
+/* General Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-content {
+  flex: 1;
+}
+
+/* Optional: Add basic padding for all sections */
+section {
+  padding: 40px 20px;
+}
+
+/* Center headings */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Utility for rounded cards */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Buttons */
+button {
+  background-color: #1c38d6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0f2495;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #1c38d6;
+}
+
+a:hover {
+  color: #0f2495;
+}
