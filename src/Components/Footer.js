@@ -1,109 +1,129 @@
-import React from "react";
-<<<<<<< HEAD
+// src/Components/Footer.js
+import React, { useState } from 'react'; // ✅ Added useState
+import emailjs from '@emailjs/browser';
 import "../style/Footer.css";
 
-const Footer = () => (
-    <footer className="footer">
-        {/* Quick Links Card */}
-        <div className="footer-card">
-            <h3 className="footer-card-title">Quick Links</h3>
-            <ul className="footer-card-content">
-                <li><a href="#about">About</a></li>
-                <li><a href="#why-us">Why Us</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+function Footer() {
+  const [loading, setLoading] = useState(false); // ✅ Loading state
 
-        {/* Follow Us Card */}
-        <div className="footer-card">
-            <h3 className="footer-card-title">Follow Us</h3>
-            <div className="footer-card-content" style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            </div>
-        </div>
+  // ✅ Handle Newsletter Form Submission
+  const sendNewsletter = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
 
-        {/* Contact Info Card */}
-        <div className="footer-card">
-            <h3 className="footer-card-title">Contact Us</h3>
-            <div className="footer-card-content">
-                <p>Mahega Suppliers Limited</p>
-                <p>P.O. Box 1234, Kampala, Uganda</p>
-                <p>Phone: +256 700 000 000</p>
-                <p>Email: mahega.gs@gmail.com</p>
-            </div>
-        </div>
+    setLoading(true); // ✅ Start loading
 
-        <div className="copy-right">
-            &copy; 2025 Mahega General Suppliers Limited. All rights reserved.
-             <p className="footer-links">
-                        <button type="button">Privacy Policy</button> | <button type="button">Terms of Service</button>
-                    </p>
-        </div>
-    </footer>
-);
+    emailjs.send(
+      'YOUR_SERVICE_ID',     // 👉 REPLACE WITH YOUR SERVICE ID
+      'YOUR_TEMPLATE_ID',    // 👉 REPLACE WITH YOUR TEMPLATE ID
+      { email },
+      'YOUR_PUBLIC_KEY'      // 👉 REPLACE WITH YOUR PUBLIC KEY
+    )
+    .then(() => {
+      alert('✅ Subscribed successfully! You’ll receive updates soon.');
+      e.target.reset(); // ✅ Clear form
+    })
+    .catch(() => {
+      alert('❌ Subscription failed. Please check your connection and try again.');
+    })
+    .finally(() => {
+      setLoading(false); // ✅ Stop loading (success or error)
+    });
+  };
 
-export default Footer;
-=======
-import { Link } from "react-router-dom";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
-
-
-
-
-const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10">
-      <div className="container mx-auto grid md:grid-cols-3 gap-8">
-        
-        {/* Quick Links */}
-        <div>
-          <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-section">
+          <h3>Mahega General Suppliers Ltd</h3>
+          <p>Trusted supplier of office, industrial, and agricultural products across Uganda and East Africa.</p>
+        </div>
+
+        <div className="footer-section">
+          <h4>Quick Links</h4>
           <ul>
-            <li><a href="/about" className="hover:text-blue-400">About</a></li>
-            <li><a href="/whyus" className="hover:text-blue-400">Why Us</a></li>
-            <li><a href="/products" className="hover:text-blue-400">Products</a></li>
-            <li><a href="#" className="hover:text-blue-400">Projects</a></li>
-            <li><a href="/clients" className="hover:text-blue-400">Clients</a></li>
-            <li><a href="#" className="hover:text-blue-400">Gallery</a></li>
-            <li><a href="/blog" className="hover:text-blue-400">Blog</a></li>
-            <li><a href="/contact" className="hover:text-blue-400">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
 
-        {/* Social Media */}
-        <div className="text-center">
-          <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-          <div className="flex justify-center space-x-6">
-            <a href="#" className="hover:text-blue-400">Facebook</a>
-            <a href="#" className="hover:text-blue-400">Twitter</a>
-            <a href="#" className="hover:text-blue-400">LinkedIn</a>
-            <a href="#" className="hover:text-blue-400">Instagram</a>
-          </div>
+        <div className="footer-section">
+          <h4>Contact Us</h4>
+          <p>📞 +256 700 123 456</p>
+          <p>✉️ info@mahega.co.ug</p>
+          <p>📍 Kampala, Uganda</p>
         </div>
 
-        {/* Company Address */}
-        <div className="text-center md:text-right">
-          <h3 className="text-xl font-bold mb-4">Contact Us</h3>
-          <p>Mahega Suppliers Limited</p>
-          <p>P.O. Box 1234, Kampala, Uganda</p>
-          <p>Phone: +256 700 000 000</p>
-          <p>Email: info@mahegasuppliers.com</p>
+        {/* ✅ Newsletter Signup Section */}
+        <div className="footer-section newsletter-section">
+          <h4>📬 Stay Updated</h4>
+          <p>Subscribe to our newsletter for product updates and offers.</p>
+          <form className="newsletter-form" onSubmit={sendNewsletter}>
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your email address" 
+              className="newsletter-input" 
+              required 
+            />
+            <button 
+              type="submit" 
+              className="newsletter-button"
+              disabled={loading} // ✅ Disable while sending
+              aria-busy={loading}
+            >
+              {loading ? '⏳ Subscribing...' : 'Subscribe'}
+            </button>
+          </form>
+        </div>
+
+        <div className="footer-section">
+          <h4>Follow Us</h4>
+          <div className="social-icons">
+            <a 
+              href="https://facebook.com/mahega" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our Facebook page"
+            >
+              📘
+            </a>
+            <a 
+              href="https://twitter.com/mahega" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our Twitter page"
+            >
+              🐦
+            </a>
+            <a 
+              href="https://linkedin.com/company/mahega" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Visit our LinkedIn page"
+            >
+              🔗
+            </a>
+            <a 
+              href="https://wa.me/256700123456" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Chat with us on WhatsApp"
+            >
+              💬
+            </a>
+          </div>
         </div>
       </div>
 
-      <div className="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-        © 2025 Mahega Suppliers Limited. All rights reserved.
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Mahega General Suppliers Ltd. All Rights Reserved.</p>
       </div>
     </footer>
   );
-};
+}
+
 export default Footer;
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd

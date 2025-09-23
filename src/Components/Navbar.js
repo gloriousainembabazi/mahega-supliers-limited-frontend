@@ -1,77 +1,72 @@
-<<<<<<< HEAD
-
 import React from 'react';
-import logo from "../images/Mahega General Supplies.png";
-
-
+import logo from "../images/logo.png";
 import "../style/Navbar.css";
 
 function Navbar() {
   return (
-    
-      
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo / Brand */}
-          <div>
-          <img src={logo } alt="logo" height="200" width="200" style={{marginleft:'5px'}} ></img>
-          
+        <div className="navbar-brand">
+          <img src={logo} alt="Mahega General Suppliers Ltd Logo" style={{ height: '100px', width: 'auto', objectFit: 'contain' }} />
+          <p className="navbar-logo">Mahega General Suppliers Ltd</p>
         </div>
-        <div>
-        <p className="navbar-logo "padding="100px" style={{marginTop:"10px"}}>
-                 Mahega General Suppliers Ltd
-    
-          
-        </p>
-        </div>
-        {/* Dropdown Menu */}
-        <div className="navbar-dropdown">
-          <button className="dropdown-toggle">More</button>
-          <div className="dropdown-menu">
-            <a href="/careers">Careers</a>
-            <a href="/partners">Partners</a>
-            <a href="/faq">FAQ</a>
-          </div>
-        </div>
-        {/* Navigation Links */}
-        <div className="navbar-links">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/products">Products</a>
-          <a href="/services">Services</a>
-          <a href="/Gallary">Gallary</a>
-          <a href="/clients">Clients</a>
-          <a href="/blog">Blog</a>
-          <a href="/contact">Contact</a>
-        </div>
+
+        {/* Navigation Links with Dropdowns */}
+        <ul className="navbar-links">
+          <li><a href="/">Home</a></li>
+
+          {/* About Dropdown */}
+          <li className="dropdown">
+            <a href="/about" className="dropdown-toggle">About Us</a>
+            <ul className="dropdown-menu">
+              <li><a href="/about/mission">About mahega company</a></li>
+              <li><a href="/about/mission">Our Mission</a></li>
+              <li><a href="/about/vision">Our Vision</a></li>
+              <li><a href="/about/team">Our Team</a></li>
+
+              <li><a href="/about/values">Our Values</a></li>
+            </ul>
+          </li>
+
+          {/* Products Dropdown — EXPANDED LIST */}
+          <li className="dropdown">
+            <a href="/products" className="dropdown-toggle">Products</a>
+            <ul className="dropdown-menu">
+              <li><a href="/products/stationery">Stationery & Office Supplies</a></li>
+              <li><a href="/products/computers">Computers & Printers</a></li>
+              <li><a href="/products/furniture">Office & Hotel Furniture</a></li>
+              <li><a href="/products/cleaning">Cleaning Materials</a></li>
+              <li><a href="/products/agricultural">Agricultural Inputs</a></li>
+              <li><a href="/products/livestock">Livestock & Rearing Supplies</a></li>
+              <li><a href="/products/food-beverages">Food & Beverages</a></li>
+              <li><a href="/products/medical">Medical Consumables & PPE</a></li>
+              <li><a href="/products/industrial">Industrial Pipes & Plywood</a></li>
+              <li><a href="/products/blading">Blading Equipment</a></li>
+              <li><a href="/products/export">Exported Goods</a></li>
+              <li><a href="/products/custom">Custom Product Orders</a></li>
+            </ul>
+          </li>
+
+          {/* Services Dropdown */}
+          <li className="dropdown">
+            <a href="/services" className="dropdown-toggle">Services</a>
+            <ul className="dropdown-menu">
+              <li><a href="/services/procurement">Procurement & Sourcing</a></li>
+              <li><a href="/services/logistics">Logistics & Nationwide Delivery</a></li>
+              <li><a href="/services/custom-orders">Custom/Bulk Orders</a></li>
+              <li><a href="/services/consulting">Supply Chain Consultation</a></li>
+              <li><a href="/services/export-logistics">Export Handling & Documentation</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/Gallary">Gallery</a></li>
+          <li><a href="/clients">Clients</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
       </div>
     </nav>
-    
-=======
-import React from "react";
-import { Link } from "react-router-dom";
-
-function Navbar() {
-  return (
-    <nav className="bg-blue-200 text-blue-900 shadow-md">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        {/* Logo / Brand */}
-        <h1 className="text-2xl font-bold">Mahega Suppliers Ltd</h1>
-
-        {/* Navigation Links */}
-        <div className="space-x-6 font-medium">
-          <Link to="/" className="hover:text-blue-600">Home</Link>
-          <Link to="/about" className="hover:text-blue-600">About</Link>
-          <Link to="/products" className="hover:text-blue-600">Products</Link>
-          <Link to="/services" className="hover:text-blue-600">Services</Link>
-          <Link to="/whyus" className="hover:text-blue-600">Why Us</Link>
-          <Link to="/clients" className="hover:text-blue-600">Clients</Link>
-          <Link to="/blog" className="hover:text-blue-600">Blog</Link>
-          <Link to="/contact" className="hover:text-blue-600">Contact</Link>
-        </div>
-      </div>
-    </nav>
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
   );
 }
 

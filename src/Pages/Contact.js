@@ -1,6 +1,8 @@
 import React from "react";
-<<<<<<< HEAD
-import "./contact.css"; 
+import "../style/contact.css";
+import contactimage from "../images/cars.jpg";
+
+
 
 const Contact = () => {
   return (
@@ -19,7 +21,8 @@ const Contact = () => {
       <div className="contact-container">
         {/* Left Image */}
         <div className="contact-image">
-          <img src="/images/contact-phone.jpg" alt="Contact" />
+
+          <img src={contactimage} alt="Contact" style={{ width: "200%", height: "650px",marginBottom:"0px" }} />
         </div>
 
         {/* Right Form */}
@@ -27,11 +30,11 @@ const Contact = () => {
           <form>
             <div className="form-row">
               <div className="form-group">
-                <label>Name *</label>
+                <label>FName *</label>
                 <input type="text" />
               </div>
               <div className="form-group">
-                <label>Phone *</label>
+                <label>LName *</label>
                 <input type="text" />
               </div>
             </div>
@@ -41,7 +44,7 @@ const Contact = () => {
                 <input type="email" />
               </div>
               <div className="form-group">
-                <label>Website *</label>
+                <label>contacts *</label>
                 <input type="text" />
               </div>
             </div>
@@ -57,31 +60,10 @@ const Contact = () => {
       {/* Address */}
       <div className="contact-address">
         <h2>Nakasero 1, Crested</h2>
-        <p>📍 P.O. Box 123, Kampala Central Division</p>
+        <h2>📍 P.O. Box 123, Kampala Central Division</h2>
       </div>
     </div>
   );
 };
-=======
-
-function Contact() {
-  return (
-    <div className="p-10">
-      <h2 className="text-3xl font-bold text-blue-900 mb-6">Contact Us</h2>
-      <p className="mb-6 text-lg">We’d love to hear from you. Reach out for inquiries or partnerships.</p>
-
-      <form className="grid gap-4 max-w-lg mx-auto bg-gray-100 p-6 rounded-xl shadow-md">
-        <input type="text" placeholder="Name" className="p-3 rounded-lg border" />
-        <input type="email" placeholder="Email" className="p-3 rounded-lg border" />
-        <input type="tel" placeholder="Phone" className="p-3 rounded-lg border" />
-        <textarea placeholder="Message" className="p-3 rounded-lg border" rows="4"></textarea>
-        <button className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-700">
-          Send Message
-        </button>
-      </form>
-    </div>
-  );
-}
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
 
 export default Contact;

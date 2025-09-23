@@ -1,50 +1,150 @@
+/* ============= HERO SECTION — MATCH NAVBAR/FOOTER WIDTH ============= */
+
 .hero-section {
-  background-color: #cdd7db; /* gray-100 equivalent */
-  padding: 80px 20px;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  color: #ffffff; 
+  padding: 0 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: bgFade 15s infinite;
+  background-color: #315c8d; /* Fallback */
+}
+
+/* Dark overlay for readability */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker for better text contrast */
+  z-index: 1;
+}
+
+/* ✅ Container to match navbar/footer width */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px; /* 👈 Match your navbar container width */
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
 }
 
 .hero-title {
-  font-size: 2.5rem; /* 4xl equivalent */
-  font-weight: bold;
-  color: #1e3a8a; /* blue-900 equivalent */
-  margin-bottom: 16px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
-  font-size: 1.125rem; /* lg equivalent */
-  color: #131312; /* gray-700 equivalent */
-  max-width: 600px;
-  margin: 0 auto;
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
 }
 
 .hero-buttons {
-  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  margin: 0 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 180px;
 }
 
 .btn-primary {
-  background-color: #1e3a8a; /* blue-900 */
-  color: white;
-  padding: 10px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-right: 12px;
+  background-color: #0a2d66;
+  color: #fff;
+  transition: background 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: #3742a0; /* darker shade */
+  background-color: #174a9c;
 }
 
 .btn-secondary {
-  background-color: #bfdbfe; /* blue-200 */
-  color: #1e3a8a;
-  padding: 10px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background-color: #fff;
+  color: #0a2d66;
+  transition: background 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background-color: #93c5fd; /* blue-300 */
+  background-color: #e0e0e0;
+}
+
+/* Keyframes for fading background images */
+@keyframes bgFade {
+  0% {
+    background-image: url('../images/cars.jpg');
+  }
+  33% {
+    background-image: url('../images/goat 2 rearing.jpg');
+  }
+  66% {
+    background-image: url('../images/statinary.jpg');
+  }
+  100% {
+    background-image: url('../images/office chairs.jpg');
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.15rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-container {
+    padding: 0 1.5rem;
+  }
 }

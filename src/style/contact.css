@@ -31,6 +31,7 @@
 
 .contact-image img {
   max-width: 100%;
+  
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -102,8 +103,10 @@ button:hover {
 .contact-address h2 {
   font-size: 18px;
   font-weight: bold;
+  margin-left: 100px;
 }
 
 .contact-address p {
   color: #555;
+  margin-left: 300px;
 }

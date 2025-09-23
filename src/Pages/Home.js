@@ -1,18 +1,22 @@
 import React from "react";
-<<<<<<< HEAD
 import Hero from "../Components/Hero";
 import Card from "../Components/Card";
-import "../style/Home.css"; 
+import "../style/Home.css";
 
-import product1 from "../images/boards.jpg";
-import product2 from "../images/box materials.jpg";
+
+
+
+
+// Import Images
+import product1 from "../images/statinary.jpg";
+import product2 from "../images/metalic tables.jpg";
 import product3 from "../images/cars.jpg";
 import product4 from "../images/cattle 2 rearing.jpg";
-import product5 from "../images/compound tables.jpg";
-import product6 from "../images/chairs.jpg";
-import product7  from "../images/exported goods.jpg";
+import product5 from "../images/goat 2 rearing.jpg";
+import product6 from "../images/posho making.jpg";
+import product7 from "../images/exported goods.jpg";
 import product8 from "../images/goat 2 rearing.jpg";
-import product9  from "../images/hotel tables.jpg";
+import product9 from "../images/hotel tables.jpg";
 import product10 from "../images/metalic tables.jpg";
 import product12 from "../images/office material 2.jpg";
 import product13 from "../images/office tables.jpg";
@@ -22,16 +26,13 @@ import product16 from "../images/placeholders.jpg";
 import product17 from "../images/plywood.jpg";
 import product11 from "../images/cattle rearing.jpg";
 
-
-
-
 function Home() {
+  // Products
   const productsPreview = [
     {
       title: "Assorted Stationery & Office Suppliers",
       description: "Comprehensive range of stationery and office supplies for all your business needs.",
       image: product1,
-    
       buttonText: "View Products",
     },
     {
@@ -55,7 +56,7 @@ function Home() {
     {
       title: "Agricultural & Industrial Suppliers",
       description: "Reliable supplies for agricultural and industrial operations.",
-      images:product5,
+      image: product5, 
       buttonText: "View Products",
     },
     {
@@ -78,7 +79,36 @@ function Home() {
     },
   ];
 
-  const servicesPreview1 = [
+  // Core Services
+  const coreServices = [
+    {
+      title: "Procurement & Sourcing",
+      description: "We identify and deliver the right products to meet your business or personal needs.",
+      image: product14,
+      buttonText: "View Services",
+    },
+    {
+      title: "Logistics & Delivery",
+      description: "Reliable transportation and timely delivery of supplies to your doorstep.",
+      image: product15,
+      buttonText: "View Services",
+    },
+    {
+      title: "Custom Orders",
+      description: "Tailored solutions for unique product requirements and bulk orders.",
+      image: product16,
+      buttonText: "View Services",
+    },
+    {
+      title: "Consultation & Support",
+      description: "Expert advice and support for procurement and supply chain management.",
+      image: product17,
+      buttonText: "View Services",
+    },
+  ];
+
+  // Industry Solutions
+  const industrySolutions = [
     {
       title: "Exported Goods Handling",
       description: "Professional handling and management of exported goods for businesses.",
@@ -100,7 +130,7 @@ function Home() {
     {
       title: "Export Logistics",
       description: "Reliable logistics services for exporting goods and materials.",
-      image: product12, 
+      image: product12,
       buttonText: "View Services",
     },
     {
@@ -111,126 +141,131 @@ function Home() {
     },
   ];
 
-=======
-import { Link } from "react-router-dom";
-
-// Components
-import Hero from "../components/Hero";
-import Card from "../Components/Card";
-
-// Images
-import product1 from "../images/box materials.jpg";
-import product2 from "../images/statinary.jpg";
-
-function Home() {
-  // Sample Products preview
-  const productsPreview = [
+  // Testimonials for Slider
+  const testimonials = [
     {
-      title: "Construction Materials",
-      description: "Durable and affordable building materials for all projects.",
-      image: product1,
-      buttonText: "View Products",
+      text: "Mahega delivered our office supplies ahead of schedule and at competitive rates. Highly recommended!",
+      name: "Sarah N.",
+      company: "Kampala Business Hub",
     },
     {
-      title: "Office & Stationery Supplies",
-      description: "From paper to printers, we supply all office essentials.",
-      image: product2,
-      buttonText: "View Products",
-    },
-  ];
-
-  // Sample Services preview
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-  const servicesPreview = [
-    {
-      title: "Procurement & Sourcing",
-      description: "We identify and deliver the right products to meet your business or personal needs.",
-<<<<<<< HEAD
-      image: product14, // Assorted Stationery & Office Suppliers
-=======
-      image: product1, // You can use a different image if available
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-      buttonText: "View Services",
+      text: "Their agricultural inputs improved our yield by 40%. Reliable and knowledgeable team.",
+      name: "John M.",
+      company: "Green Valley Farms",
     },
     {
-      title: "Logistics & Delivery",
-      description: "Reliable transportation and timely delivery of supplies to your doorstep.",
-<<<<<<< HEAD
-      image: product15, // Logistics2
-      buttonText: "View Services",
+      text: "We’ve been working with Mahega for 3 years. Consistent quality and excellent customer service.",
+      name: "David K.",
+      company: "MediPlus Ltd",
     },
     {
-      title: "Custom Orders",
-      description: "Tailored solutions for unique product requirements and bulk orders.",
-      image: product16, // Posho Making
-      buttonText: "View Services",
+      text: "From furniture to ICT, they handle everything. One-stop solution for our entire office setup.",
+      name: "Fatima A.",
+      company: "TechNova Solutions",
     },
     {
-      title: "Consultation & Support",
-      description: "Expert advice and support for procurement and supply chain management.",
-      image: product17, // Office Materials
-=======
-      image: product2, // You can use a different image if available
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-      buttonText: "View Services",
+      text: "Their logistics team is unmatched. Even remote areas? No problem. Always on time.",
+      name: "Robert T.",
+      company: "Export Masters Ltd",
+    },
+    {
+      text: "Custom orders were handled perfectly. They understood our needs and exceeded expectations.",
+      name: "Grace L.",
+      company: "Hotel Paradise",
     },
   ];
 
   return (
     <div>
-<<<<<<< HEAD
       <Hero />
+
+      {/* About Section */}
+      <section className="home-section about-section">
+        <div className="about-content">
+          <h2>Welcome to Mahega General Suppliers Limited</h2>
+          <p>
+            We are a leading supplier of office materials, agricultural inputs, industrial goods,
+            and logistics services across East Africa. Trusted by businesses for quality, reliability,
+            and timely delivery.
+          </p>
+          <button className="btn-primary">Learn More About Us</button>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="home-section stats-section">
+        <div className="stats-container">
+          <div className="stat-item">
+            <h3>500+</h3>
+            <p>Clients Served</p>
+          </div>
+          <div className="stat-item">
+            <h3>10+</h3>
+            <p>Years of Experience</p>
+          </div>
+          <div className="stat-item">
+            <h3>50+</h3>
+            <p>Product Categories</p>
+          </div>
+          <div className="stat-item">
+            <h3>24/7</h3>
+            <p>Support Available</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Section */}
+      <section className="home-section trust-section">
+        <h2 className="section-title">Trust in Us, Our Work and Our Words</h2>
+        <div className="trust-container">
+          <div className="trust-item">
+            <div className="trust-icon">✅</div>
+            <h3>Quality Guaranteed</h3>
+            <p>Every product is sourced and inspected to meet industry standards.</p>
+          </div>
+          <div className="trust-item">
+            <div className="trust-icon">🚚</div>
+            <h3>On-Time Delivery</h3>
+            <p>We guarantee timely delivery across Uganda and East Africa.</p>
+          </div>
+          <div className="trust-item">
+            <div className="trust-icon">🤝</div>
+            <h3>Client-Centered</h3>
+            <p>Your satisfaction is our priority — we listen, adapt, and deliver.</p>
+          </div>
+          <div className="trust-item">
+            <div className="trust-icon">📜</div>
+            <h3>Transparent Terms</h3>
+            <p>No hidden fees. Clear contracts. Honest communication always.</p>
+          </div>
+        </div>
+      </section>
 
       {/* Products Section */}
       <section className="home-section products-section">
         <h2 className="section-title">Our Products</h2>
         <div className="card-grid">
-=======
-      {/* Hero Section */}
-      <Hero />
-
-      {/* Products Preview */}
-      <section className="p-10 bg-gray-100">
-        <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">
-          Our Products
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
           {productsPreview.map((product, index) => (
             <Card
               key={index}
               title={product.title}
               description={product.description}
-<<<<<<< HEAD
               image={product.image}
-=======
-              image={product.image} // pass image to Card
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
               buttonText={product.buttonText}
             />
           ))}
         </div>
       </section>
 
-<<<<<<< HEAD
-      {/* Services Section */}
+      {/* Core Services Section */}
       <section className="home-section services-section">
-        <h2 className="section-title">Our Services</h2>
+        <h2 className="section-title">Our Core Services</h2>
         <div className="card-grid">
-=======
-      {/* Services Preview */}
-      <section className="p-10">
-        <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">
-          Our Services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-          {servicesPreview.map((service, index) => (
+          {coreServices.map((service, index) => (
             <Card
               key={index}
               title={service.title}
               description={service.description}
-<<<<<<< HEAD
               image={service.image}
               buttonText={service.buttonText}
             />
@@ -238,22 +273,44 @@ function Home() {
         </div>
       </section>
 
-      {/* Additional Services Section */}
+      {/* Industry Solutions Section */}
       <section className="home-section services-section">
-        <h2 className="section-title">More Services</h2>
+        <h2 className="section-title">Industry-Specific Solutions</h2>
         <div className="card-grid">
-          {servicesPreview1.map((service, index) => (
+          {industrySolutions.map((service, index) => (
             <Card
               key={index}
               title={service.title}
               description={service.description}
               image={service.image}
-=======
-              image={service.image} // pass image to Card
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
               buttonText={service.buttonText}
             />
           ))}
+        </div>
+      </section>
+
+      {/* Testimonials Grid - Static Cards (No Sliding) */}
+<section className="home-section testimonials-section">
+  <h2 className="section-title">What Our Clients Say</h2>
+  <div className="card-grid">
+    {testimonials.map((testimonial, index) => (
+      <div className="testimonial-card" key={index}>
+        <p className="testimonial-text">“{testimonial.text}”</p>
+        <div className="client-info">
+          <strong>{testimonial.name}</strong>
+          <span> — {testimonial.company}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+      {/* CTA Section */}
+      <section className="home-section cta-section">
+        <div className="cta-content">
+          <h2>Need Supplies Delivered? Contact Us Today!</h2>
+          <p>We offer fast, reliable delivery across Uganda and East Africa.</p>
+          <button className="btn-primary">Get In Touch</button>
         </div>
       </section>
     </div>

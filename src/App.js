@@ -1,89 +1,100 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-<<<<<<< HEAD
-import "./App.css";
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Layout
+import PageTemplate from './Components/PageTemplate';
 
 // Pages
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Services from "./Pages/Services";
-import Gallary from "./Pages/Gallary";   
-=======
+import Home from './Pages/Home';
+import AboutPage from './Pages/About'; 
+import Services from './Pages/Services';
 
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Services from "./Pages/Services";
-import WhyUs from "./Pages/WhyUs";
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-import Clients from "./Pages/Clients";
-import Contact from "./Pages/Contact";
-import Blog from "./Pages/Blog";
-import Products from "./Pages/Products";
-<<<<<<< HEAD
-import Card from "./Components/Card";
-import Navbar from "./Components/Navbar";   
-import Footer from "./Components/Footer"; 
-import Hero from "./Components/Hero";
+import "./App.css";
 
+// About Pages
+import Mission from './Pages/About/Mission';
+import Vision from './Pages/About/Vission';    
+import Team from './Pages/About/Team';
+import History from './Pages/About/History';
+import Values from './Pages/About/Values';
 
-import "./style/App.css"; 
-=======
+// Products Pages
+import Products from './Pages/Products';
+import Stationery from './Pages/Products/Stationery';
+import Computers from './Pages/Products/Computers';
+import Furniture from './Pages/Products/Furniture';
+import Cleaning from './Pages/Products/Cleaning';
+import Agricultural from './Pages/Products/Agricultural';
+import Livestock from './Pages/Products/Livestock';
+import FoodBeverages from './Pages/Products/FoodBeverages';
+import Medical from './Pages/Products/Medical';
+import Industrial from './Pages/Products/Industrial';
+import Blading from './Pages/Products/Blading';
+import Export from './Pages/Products/Export';
+import Custom from './Pages/Products/Custom';
 
-import Navbar from "./Components/Navbar";   
-import Footer from "./Components/Footer"; 
-import Image from "./images";
-import Card from "./Components/Card"; 
-import Hero from "./components/Hero";
-import logo from "./images/Mahega General Supplies.png";
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
+// Services Pages
+import Procurement from './Pages/Services/Procurement';
+import Logistics from './Pages/Services/Logistics';
+import CustomOrders from './Pages/Services/CustomOrders';
+import Consulting from './Pages/Services/Consulting';
+import ExportLogistics from './Pages/Services/ExportLogistics';
+
+// Other Pages
+import Gallary from './Pages/Gallary';        // 
+import Clients from './Pages/Clients';
+import Blog from './Pages/Blog';
+import Contact from './Pages/Contact';
 
 function App() {
   return (
     <Router>
-<<<<<<< HEAD
-      <div className="app-container">
-        {/* Navbar */}
-        <Navbar />
+      <Routes>
+        {/* Home */}
+        <Route path="/" element={<PageTemplate><Home /></PageTemplate>} />
 
-        
-        <main className="main-content">
-=======
-      <div className="flex flex-col min-h-screen font-sans">
-        {/* Navbar */}
-        <Navbar />
+        {/* ✅ Main About Page */}
+        <Route path="/about" element={<PageTemplate><AboutPage /></PageTemplate>} />
 
-        {/* Pages */}
-        <div className="flex-grow">
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-<<<<<<< HEAD
-            <Route path="/gallary" element={<Gallary />} />  
-=======
-            <Route path="/whyus" element={<WhyUs />} />
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
-            <Route path="/clients" element={<Clients />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
-<<<<<<< HEAD
-          </Routes>
-        </main>
-=======
-            <Route path="/image" element={<Image />} />
-            <Route path="/footer" element={<Footer />} />
-            <Route path="/hero" element={<Hero />} />
-            <Route path="/card" element={<Card />} />
-            <Route path="/navbar" element={<Navbar />} />
-          </Routes>
-        </div>
->>>>>>> 66080b534ee2746ba874726c84c17f6ebf5045fd
+        {/* About Subpages */}
+        <Route path="/about/mission" element={<PageTemplate><Mission /></PageTemplate>} />
+        <Route path="/about/vision" element={<PageTemplate><Vision /></PageTemplate>} />
+        <Route path="/about/team" element={<PageTemplate><Team /></PageTemplate>} />
+        <Route path="/about/history" element={<PageTemplate><History /></PageTemplate>} />
+        <Route path="/about/values" element={<PageTemplate><Values /></PageTemplate>} />
 
-        {/* Footer */}
-        <Footer />
-      </div>
+        {/* Products Pages */}
+        <Route path="/products" element={<PageTemplate><Products /></PageTemplate>} />
+        <Route path="/products/stationery" element={<PageTemplate><Stationery /></PageTemplate>} />
+        <Route path="/products/computers" element={<PageTemplate><Computers /></PageTemplate>} />
+        <Route path="/products/furniture" element={<PageTemplate><Furniture /></PageTemplate>} />
+        <Route path="/products/cleaning" element={<PageTemplate><Cleaning /></PageTemplate>} />
+        <Route path="/products/agricultural" element={<PageTemplate><Agricultural /></PageTemplate>} />
+        <Route path="/products/livestock" element={<PageTemplate><Livestock /></PageTemplate>} />
+        <Route path="/products/food-beverages" element={<PageTemplate><FoodBeverages /></PageTemplate>} />
+        <Route path="/products/medical" element={<PageTemplate><Medical /></PageTemplate>} />
+        <Route path="/products/industrial" element={<PageTemplate><Industrial /></PageTemplate>} />
+        <Route path="/products/blading" element={<PageTemplate><Blading /></PageTemplate>} />
+        <Route path="/products/export" element={<PageTemplate><Export /></PageTemplate>} />
+        <Route path="/products/custom" element={<PageTemplate><Custom /></PageTemplate>} />
+
+        {/* Services Pages */}
+        <Route path="/services/procurement" element={<PageTemplate><Procurement /></PageTemplate>} />
+        <Route path="/services/logistics" element={<PageTemplate><Logistics /></PageTemplate>} />
+        <Route path="/services/custom-orders" element={<PageTemplate><CustomOrders /></PageTemplate>} />
+        <Route path="/services/consulting" element={<PageTemplate><Consulting /></PageTemplate>} />
+        <Route path="/services/export-logistics" element={<PageTemplate><ExportLogistics /></PageTemplate>} />
+
+        {/* Other Pages */}
+        <Route path="/gallary" element={<PageTemplate><Gallary /></PageTemplate>} />
+        <Route path="/clients" element={<PageTemplate><Clients /></PageTemplate>} />
+        <Route path="/blog" element={<PageTemplate><Blog /></PageTemplate>} />
+        <Route path="/contact" element={<PageTemplate><Contact /></PageTemplate>} />
+         <Route path="/Services" element={<PageTemplate><Services /></PageTemplate>} />
+        {/* Optional: Catch-all for 404 */}
+        {/* <Route path="*" element={<PageTemplate><NotFound /></PageTemplate>} /> */}
+      </Routes>
     </Router>
   );
 }
