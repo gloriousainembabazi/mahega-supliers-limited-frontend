@@ -7,14 +7,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   color: #ffffff; 
   padding: 0 20px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   animation: bgFade 15s infinite;
-  background-color: #315c8d; /* Fallback */
+  background-color: #315c8d; 
+  opacity: 70%;
+}
+.hero-section h2{
+  color:#e48f0f
+
+  
+
+}
+.hero-section p{
+  color:#ffffff
 }
 
 /* Dark overlay for readability */
@@ -71,6 +80,7 @@
   border-radius: 8px;
   cursor: pointer;
   min-width: 180px;
+  
 }
 
 .btn-primary {

@@ -1,112 +1,189 @@
+/* src/style/contact.css */
+
 .contact-page {
-  background: #fff;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8f9fa;
+  color: #333;
 }
 
+/* HEADER */
 .contact-header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 3rem 2rem;
+  background: rgb(133, 160, 137);              
+  color: inherit;
+  margin: 0 0 3rem 0;
+  width: 100%;                    
+  border-radius: 0;               
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
 }
 
 .contact-header h1 {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 3rem;
+  margin: 0 0 1rem;
+  color: #283593;                 
+}
+
+.contact-header p {
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+  color: #131212;                 /* orange text */
 }
 
 .contact-header .subtitle {
-  max-width: 600px;
-  margin: 10px auto;
-  color: #555;
+  font-size: 1.1rem;
+  max-width: 900px;
+  margin: 1.5rem auto 0;
+  opacity: 0.9;
 }
 
+
+/* CONTACT CONTAINER */
 .contact-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  max-width: 1100px;
+  gap: 3rem;
+  padding: 0 2rem 4rem;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
+  flex-wrap: wrap;
 }
 
-.contact-image img {
-  max-width: 100%;
-  
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* GOOGLE MAP */
+.contact-map {
+  flex: 1;
+  min-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
+/* FORM */
 .contact-form {
   flex: 1;
-  background: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .form-row {
   display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .form-group {
   flex: 1;
-  display: flex;
-  flex-direction: column;
+  min-width: 250px;
 }
 
 .form-group label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: #333;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #283593;
 }
 
 .form-group input,
 .form-group textarea {
-  padding: 10px;
+  width: 100%;
+  padding: 0.8rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  outline: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #1a3b70;
-  box-shadow: 0 0 4px rgba(26, 59, 112, 0.4);
+  border-color: #3f51b5;
+  outline: none;
 }
 
-button {
-  background: #0a2d66;
-  color: #fff;
+.form-group textarea {
+  resize: vertical;
+}
+
+/* SUBMIT BUTTON */
+.contact-form button {
+  background: #3f51b5;
+  color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 6px;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
+  transition: background 0.3s;
+  align-self: flex-start;
 }
 
-button:hover {
-  background: #174a9c;
+.contact-form button:hover {
+  background: #303f9f;
 }
 
+/* ADDRESS SECTION */
 .contact-address {
   text-align: center;
-  background: #f5f6fa;
-  padding: 30px;
-  margin-top: 40px;
+  padding: 3rem 2rem;
+  background: #f3f5ff;
+  margin-top: 2rem;
 }
 
 .contact-address h2 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: 100px;
+  font-size: 2rem;
+  color: #283593;
+  margin-bottom: 1rem;
 }
 
 .contact-address p {
+  font-size: 1.1rem;
   color: #555;
-  margin-left: 300px;
+  line-height: 1.7;
+  margin: 0.5rem 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-map,
+  .contact-form {
+    width: 100%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-header {
+    padding: 3rem 1rem;
+  }
+
+  .contact-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .contact-form button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
 }

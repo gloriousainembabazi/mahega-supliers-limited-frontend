@@ -1,0 +1,338 @@
+/* src/pages/Services/ExportLogistics.css */
+
+.export-logistics-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Sidebar Styles */
+.services-sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+  color: white;
+  padding: 2rem 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.services-sidebar h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.services-nav {
+  margin-bottom: 2rem;
+}
+
+.services-nav a {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.services-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(4px);
+}
+
+.services-nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 600;
+}
+
+.service-icon {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.sidebar-cta {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-cta h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.sidebar-cta p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: #f59e0b;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.cta-button:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
+
+/* Main Content Styles */
+.export-logistics-main {
+  flex: 1;
+  padding: 0;
+  max-width: calc(100% - 280px);
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #0f766e 0%, #065f46 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-section h1 {
+  margin: 0 0 1rem 0;
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 300;
+  margin: 0;
+}
+
+.intro-section,
+.services-section,
+.process-section,
+.industries-section,
+.benefits-section,
+.success-stories-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-section h2,
+.services-section h2,
+.process-section h2,
+.industries-section h2,
+.benefits-section h2,
+.success-stories-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #475569;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Services Section */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #0f766e;
+}
+
+.service-icon-large {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #0f766e;
+}
+
+.service-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.service-card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Process Section */
+.process-timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.process-step {
+  position: relative;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-left: 4px solid #0f766e;
+}
+
+.process-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.step-content {
+  text-align: center;
+}
+
+.step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.step-content h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.step-content p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Industries Section */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.industry-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.industry-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.industry-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.industry-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+  text-align: center;
+}
+
+.industry-card p {
+  margin: 0 0 1.5rem 0;
+  color: #64748b;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.industry-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.industry-features li {
+  padding: 0.5rem 0;
+  color: #0f766e;
+  font-weight: 500;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.industry-features li:last-child {
+  border-bottom: none;
+}
+
+/* Benefits Section */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1;
+}

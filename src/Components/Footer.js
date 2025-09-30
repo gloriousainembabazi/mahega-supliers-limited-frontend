@@ -72,7 +72,7 @@ function Footer() {
             <button 
               type="submit" 
               className="newsletter-button"
-              disabled={loading} // ✅ Disable while sending
+              disabled={loading} 
               aria-busy={loading}
             >
               {loading ? '⏳ Subscribing...' : 'Subscribe'}
@@ -108,7 +108,7 @@ function Footer() {
               🔗
             </a>
             <a 
-              href="https://wa.me/256700123456" 
+              href="https://wa.me/0751120022" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Chat with us on WhatsApp"

@@ -1,8 +1,6 @@
+// src/pages/Contact.js
 import React from "react";
 import "../style/contact.css";
-import contactimage from "../images/cars.jpg";
-
-
 
 const Contact = () => {
   return (
@@ -19,10 +17,18 @@ const Contact = () => {
 
       {/* Contact Section */}
       <div className="contact-container">
-        {/* Left Image */}
-        <div className="contact-image">
-
-          <img src={contactimage} alt="Contact" style={{ width: "200%", height: "650px",marginBottom:"0px" }} />
+        {/* Left: Google Map */}
+        <div className="contact-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.929993291915!2d32.5862!3d0.3181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19c7a4c97db392bf%3A0xeebb1f4f7f76c9b1!2sCrested%20Towers%2C%20Kampala%2C%20Uganda!5e0!3m2!1sen!2sug!4v1727170000000!5m2!1sen!2sug"
+            width="100%"
+            height="650"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Mahega Suppliers Location"
+          ></iframe>
         </div>
 
         {/* Right Form */}
@@ -31,26 +37,26 @@ const Contact = () => {
             <div className="form-row">
               <div className="form-group">
                 <label>FName *</label>
-                <input type="text" />
+                <input type="text" required />
               </div>
               <div className="form-group">
                 <label>LName *</label>
-                <input type="text" />
+                <input type="text" required />
               </div>
             </div>
             <div className="form-row">
               <div className="form-group">
                 <label>Email *</label>
-                <input type="email" />
+                <input type="email" required />
               </div>
               <div className="form-group">
-                <label>contacts *</label>
-                <input type="text" />
+                <label>Phone *</label>
+                <input type="text" required />
               </div>
             </div>
             <div className="form-group">
               <label>Message</label>
-              <textarea rows="4"></textarea>
+              <textarea rows="4" placeholder="Tell us how we can help..."></textarea>
             </div>
             <button type="submit">SEND MESSAGE</button>
           </form>
@@ -59,8 +65,10 @@ const Contact = () => {
 
       {/* Address */}
       <div className="contact-address">
-        <h2>Nakasero 1, Crested</h2>
-        <h2>📍 P.O. Box 123, Kampala Central Division</h2>
+        <h2>📍 Our Office</h2>
+        <p>Crested Towers, Nakasero 1</p>
+        <p>P.O. Box 123, Kampala Central Division</p>
+        <p>📞 +256 700 000 000 | 📧 info@mahega.com</p>
       </div>
     </div>
   );

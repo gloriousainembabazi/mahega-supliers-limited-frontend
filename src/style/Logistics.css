@@ -1,0 +1,434 @@
+/* src/pages/Services/Logistics.css */
+
+.logistics-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+}
+
+/* Sidebar Styles - Same as Custom Orders */
+.services-sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  padding: 2rem 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.services-sidebar h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.services-nav {
+  margin-bottom: 2rem;
+}
+
+.services-nav a {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.services-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateX(4px);
+}
+
+.services-nav a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 600;
+}
+
+.service-icon {
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.sidebar-cta {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-cta h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.sidebar-cta p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.cta-button {
+  background-color: #f59e0b;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.cta-button:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
+
+/* Main Content Styles */
+.logistics-main {
+  flex: 1;
+  padding: 0;
+  max-width: calc(100% - 280px);
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-section h1 {
+  margin: 0 0 1rem 0;
+  font-size: 3rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-weight: 300;
+  margin: 0;
+}
+
+.intro-section,
+.stats-section,
+.coverage-section,
+.fleet-section,
+.solutions-section,
+.benefits-section,
+.cta-section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-section h2,
+.coverage-section h2,
+.fleet-section h2,
+.solutions-section h2,
+.benefits-section h2,
+.cta-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.intro-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #475569;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Stats Section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border-top: 4px solid #3b82f6;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.stat-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e40af;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Coverage Section */
+.coverage-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.coverage-item {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #3b82f6;
+  transition: all 0.3s ease;
+}
+
+.coverage-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.coverage-item strong {
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.coverage-item li {
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Fleet Section */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto 0;
+  max-width: 600px;
+}
+
+.feature-list li {
+  background: white;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #10b981;
+}
+
+/* Solutions Section */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.solution-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #3b82f6;
+}
+
+.solution-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.solution-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.solution-card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* Benefits Section */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.benefit-item {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #f59e0b;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item strong {
+  color: #1e293b;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  text-align: center;
+  border-radius: 20px;
+  margin: 2rem auto;
+  padding: 4rem 2rem;
+}
+
+.cta-section h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: #475569;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button-primary {
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .logistics-container {
+    flex-direction: column;
+  }
+  
+  .services-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .logistics-main {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .intro-section h2,
+  .coverage-section h2,
+  .fleet-section h2,
+  .solutions-section h2,
+  .benefits-section h2,
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .stats-grid,
+  .solutions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intro-section,
+  .stats-section,
+  .coverage-section,
+  .fleet-section,
+  .solutions-section,
+  .benefits-section,
+  .cta-section {
+    padding: 2rem 1rem;
+  }
+}

@@ -42,7 +42,7 @@ function Navbar() {
               <li><a href="/products/food-beverages">Food & Beverages</a></li>
               <li><a href="/products/medical">Medical Consumables & PPE</a></li>
               <li><a href="/products/industrial">Industrial Pipes & Plywood</a></li>
-              <li><a href="/products/blading">Blading Equipment</a></li>
+              <li><a href="/products/branding">Custom Branding</a></li>
               <li><a href="/products/export">Exported Goods</a></li>
               <li><a href="/products/custom">Custom Product Orders</a></li>
             </ul>
@@ -63,7 +63,7 @@ function Navbar() {
           <li><a href="/Gallary">Gallery</a></li>
           <li><a href="/clients">Clients</a></li>
           <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
     </nav>

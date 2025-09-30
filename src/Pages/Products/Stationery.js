@@ -81,7 +81,7 @@ function Stationery() {
               <li><a href="/products/food-beverages">Food & Beverages</a></li>
               <li><a href="/products/medical">Medical & PPE</a></li>
               <li><a href="/products/industrial">Industrial Materials</a></li>
-              <li><a href="/products/blading">Blading Equipment</a></li>
+              <li><a href="/products/branding">Custom Branding</a></li>
               <li><a href="/products/export">Exported Goods</a></li>
               <li><a href="/products/custom">Custom Orders</a></li>
             </ul>

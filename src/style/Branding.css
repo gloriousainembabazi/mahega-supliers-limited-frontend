@@ -1,0 +1,436 @@
+/* src/style/branding.css */
+/* ============= BRANDING PAGE STYLING ============= */
+
+.branding-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+/* ============= HERO SECTION ============= */
+
+.hero-section {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://via.placeholder.com/1920x800/e65100/ffffff?text=Custom+Branding') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin: 0;
+  max-width: 800px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* ============= PAGE CONTENT ============= */
+
+.page-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+/* ============= SIDEBAR STYLING ============= */
+
+.content-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.product-sidebar {
+  flex: 0 0 280px;
+  background: #fff3e0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+  border: 1px solid #ffcc80;
+}
+
+.product-sidebar h3 {
+  color: #e65100; /* Orange heading for creativity */
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #fb8c00;
+}
+
+.product-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-links li {
+  margin-bottom: 0.75rem;
+}
+
+.product-links a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background: white;
+  border: 1px solid #ffe0b2;
+}
+
+.product-links a:hover {
+  background: #fb8c00;
+  color: white;
+  padding-left: 1rem;
+  border-color: #fb8c00;
+}
+
+/* ============= MAIN CONTENT ============= */
+
+.main-content {
+  flex: 1;
+}
+
+/* ============= STATS SECTION ============= */
+
+.product-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 3rem 0;
+  background: #fff8e1;
+  padding: 2.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid #ffecb3;
+}
+
+.stat-box {
+  text-align: center;
+  flex: 1 1 200px;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fb8c00;
+}
+
+.stat-box h3 {
+  font-size: 1.8rem;
+  color: #bf360c;
+  margin: 0;
+  font-weight: 700;
+}
+
+.stat-box p {
+  margin: 0.5rem 0 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* ============= FEATURE / BENEFIT LISTS ============= */
+
+.feature-list,
+.benefit-list {
+  margin: 2rem 0;
+  padding-left: 2rem;
+}
+
+.feature-list li,
+.benefit-list li {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  color: #e65100;
+}
+
+.feature-list li:before,
+.benefit-list li:before {
+  content: "🎨 ";
+  color: #fb8c00;
+}
+
+/* ============= PRODUCT GRID ============= */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.product-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ffe0b2;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: #fb8c00;
+}
+
+.product-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.02);
+}
+
+.product-card h3 {
+  font-size: 1.15rem;
+  color: #bf360c;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  flex: 1;
+  margin: 0;
+}
+
+/* ============= CTA SECTION ============= */
+
+.cta-box {
+  background: linear-gradient(135deg, #e65100, #bf360c);
+  color: white;
+  padding: 3.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 4rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cta-box h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.cta-box p {
+  font-size: 1.15rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.95;
+  line-height: 1.7;
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #e65100;
+  padding: 0.9rem 2.5rem;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ============= CONTACT FORM ============= */
+
+.contact-form-section {
+  margin: 4rem 0;
+  padding: 3rem;
+  background: #fffde7;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #fff9c4;
+}
+
+.contact-form-section h2 {
+  text-align: center;
+  color: #bf360c;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ffcc80;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: center;
+  width: 200px;
+  background: #fb8c00;
+  color: white;
+}
+
+.contact-form button:hover {
+  background: #f57c00;
+}
+
+/* ============= SECTION HEADINGS ============= */
+
+.main-content h2 {
+  color: #bf360c;
+  font-size: 2rem;
+  margin: 3rem 0 1.5rem;
+  position: relative;
+  text-align: center;
+}
+
+.main-content h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #fb8c00;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* ============= RESPONSIVE DESIGN ============= */
+
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 50vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .content-layout {
+    flex-direction: column;
+  }
+
+  .product-sidebar {
+    position: static;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 40vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .product-stats {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cta-box {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .contact-form-section {
+    padding: 2rem 1rem;
+  }
+
+  .contact-form {
+    gap: 0.75rem;
+  }
+
+  .main-content h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    height: 35vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .product-card {
+    padding: 1rem;
+  }
+
+  .product-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

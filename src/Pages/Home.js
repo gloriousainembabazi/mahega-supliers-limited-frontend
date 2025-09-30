@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../Components/Hero";
+import Hero from  "../Components/Hero";
 import Card from "../Components/Card";
 import "../style/Home.css";
 
@@ -33,49 +33,49 @@ function Home() {
       title: "Assorted Stationery & Office Suppliers",
       description: "Comprehensive range of stationery and office supplies for all your business needs.",
       image: product1,
-      buttonText: "View Products",
+      
     },
     {
       title: "Computers, Printers & ICT Consumables",
       description: "Latest computers, printers, and ICT consumables for efficient office operations.",
       image: product2,
-      buttonText: "View Products",
+      
     },
     {
       title: "Furniture & Fittings",
       description: "Quality furniture and fittings to enhance your workspace.",
       image: product3,
-      buttonText: "View Products",
+      
     },
     {
       title: "Cleaning Materials & Consumables",
       description: "Effective cleaning materials and consumables for a spotless environment.",
       image: product4,
-      buttonText: "View Products",
+      
     },
     {
       title: "Agricultural & Industrial Suppliers",
       description: "Reliable supplies for agricultural and industrial operations.",
       image: product5, 
-      buttonText: "View Products",
+      
     },
     {
       title: "Beverages & Food Supplies",
       description: "Wide selection of beverages and food supplies for offices and events.",
       image: product6,
-      buttonText: "View Products",
+      
     },
     {
       title: "Medical Consumables & PPE",
       description: "Essential medical consumables and personal protective equipment.",
       image: product7,
-      buttonText: "View Products",
+      
     },
     {
-      title: "Blading",
-      description: "Professional blading solutions for various applications.",
+      title: "Branding",
+      description: "Professional branding solutions for various applications.",
       image: product8,
-      buttonText: "View Products",
+      
     },
   ];
 
@@ -85,25 +85,25 @@ function Home() {
       title: "Procurement & Sourcing",
       description: "We identify and deliver the right products to meet your business or personal needs.",
       image: product14,
-      buttonText: "View Services",
+      
     },
     {
       title: "Logistics & Delivery",
       description: "Reliable transportation and timely delivery of supplies to your doorstep.",
       image: product15,
-      buttonText: "View Services",
+      
     },
     {
       title: "Custom Orders",
       description: "Tailored solutions for unique product requirements and bulk orders.",
       image: product16,
-      buttonText: "View Services",
+      
     },
     {
       title: "Consultation & Support",
       description: "Expert advice and support for procurement and supply chain management.",
       image: product17,
-      buttonText: "View Services",
+      
     },
   ];
 
@@ -113,31 +113,31 @@ function Home() {
       title: "Exported Goods Handling",
       description: "Professional handling and management of exported goods for businesses.",
       image: product9,
-      buttonText: "View Services",
+      
     },
     {
       title: "Office Material Supply",
       description: "Supplying a wide range of office materials for efficient operations.",
       image: product10,
-      buttonText: "View Services",
+      
     },
     {
       title: "Cattle Rearing Support",
       description: "Support and solutions for modern cattle rearing and livestock management.",
       image: product11,
-      buttonText: "View Services",
+      
     },
     {
       title: "Export Logistics",
       description: "Reliable logistics services for exporting goods and materials.",
       image: product12,
-      buttonText: "View Services",
+      
     },
     {
       title: "Goat Rearing Solutions",
       description: "Expert solutions and support for goat rearing and livestock farming.",
       image: product13,
-      buttonText: "View Services",
+      
     },
   ];
 

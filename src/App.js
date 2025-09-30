@@ -30,7 +30,7 @@ import Livestock from './Pages/Products/Livestock';
 import FoodBeverages from './Pages/Products/FoodBeverages';
 import Medical from './Pages/Products/Medical';
 import Industrial from './Pages/Products/Industrial';
-import Blading from './Pages/Products/Blading';
+import Branding from './Pages/Products/Branding';
 import Export from './Pages/Products/Export';
 import Custom from './Pages/Products/Custom';
 
@@ -75,7 +75,7 @@ function App() {
         <Route path="/products/food-beverages" element={<PageTemplate><FoodBeverages /></PageTemplate>} />
         <Route path="/products/medical" element={<PageTemplate><Medical /></PageTemplate>} />
         <Route path="/products/industrial" element={<PageTemplate><Industrial /></PageTemplate>} />
-        <Route path="/products/blading" element={<PageTemplate><Blading /></PageTemplate>} />
+        <Route  path="/products/branding" element={<PageTemplate>< Branding /></PageTemplate>} />
         <Route path="/products/export" element={<PageTemplate><Export /></PageTemplate>} />
         <Route path="/products/custom" element={<PageTemplate><Custom /></PageTemplate>} />
 
