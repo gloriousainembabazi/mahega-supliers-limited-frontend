@@ -59,7 +59,7 @@ function FoodBeverages() {
       <section className="hero-section">
         <div className="hero-content">
           <h1>☕ Bulk Food & Beverage Supplies</h1>
-          <p>Wholesale snacks, drinks, and catering essentials for offices, hotels, and events across Uganda.</p>
+          <p>Wholesale snacks, drinks and catering essentials for offices, hotels and events across Uganda.</p>
         </div>
       </section>
 
@@ -91,7 +91,7 @@ function FoodBeverages() {
             <section>
               <h2>☕ Bulk Supplies for Offices, Hotels & Events</h2>
               <p>
-                Stock your pantry, café, or event with our wide selection of beverages, snacks, and catering essentials — 
+                Stock your pantry, café or event with our wide selection of beverages, snacks and catering essentials — 
                 all at wholesale prices with reliable delivery.
               </p>
             </section>
@@ -115,11 +115,11 @@ function FoodBeverages() {
             </section>
 
             <section>
-              <h2>✨ Key Features</h2>
+              <h2> Key Features</h2>
               <ul className="feature-list">
                 <li> Expiry date guaranteed — fresh stock always</li>
                 <li> Halal-certified & allergen-free options available</li>
-                <li> Custom combo packs for conferences, weddings, and offices</li>
+                <li> Custom combo packs for conferences, weddings and offices</li>
                 <li> Scheduled weekly or monthly deliveries</li>
                 <li> Emergency restocking within 24 hours</li>
                 <li> Branded vending machine refills</li>
@@ -197,7 +197,7 @@ function FoodBeverages() {
                 <div className="product-card">
                   <img src={cutlerySetsImg} alt="Cutlery Sets" className="product-image" />
                   <h3>Cutlery Sets</h3>
-                  <p>Plastic, bamboo, and biodegradable options.</p>
+                  <p>Plastic, bamboo and biodegradable options.</p>
                 </div>
                 <div className="product-card">
                   <img src={servingTraysImg} alt="Serving Trays" className="product-image" />
@@ -213,13 +213,13 @@ function FoodBeverages() {
             </section>
 
             <section>
-              <h2>🌟 Why Choose Us?</h2>
+              <h2> Why Choose Us?</h2>
               <ul className="benefit-list">
                 <li> Emergency restocking available 24/7</li>
                 <li> Branded vending machine supplies with your logo</li>
                 <li> Menu planning & portioning support for cafeterias</li>
                 <li> Transparent pricing with volume discounts</li>
-                <li> Delivery across Kampala, Entebbe, and major towns</li>
+                <li> Delivery across Kampala, Entebbe and major towns</li>
                 <li> Dedicated account manager for large clients</li>
               </ul>
             </section>
@@ -248,7 +248,7 @@ function FoodBeverages() {
                 />
                 <textarea 
                   name="message" 
-                  placeholder="Tell us your venue type, expected consumption, and delivery needs..." 
+                  placeholder="Tell us your venue type, expected consumption and delivery needs..." 
                   rows="5" 
                   required
                 ></textarea>

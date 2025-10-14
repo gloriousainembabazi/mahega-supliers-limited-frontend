@@ -227,10 +227,10 @@ function Logistics() {
             Every client receives:
           </p>
           <ul className="feature-list">
-            <li>✅ Order confirmation SMS/email</li>
-            <li>✅ Live tracking link (where applicable)</li>
-            <li>✅ Driver contact details before delivery</li>
-            <li>✅ Proof of delivery (signed receipt or photo)</li>
+            <li> Order confirmation SMS/email</li>
+            <li> Live tracking link (where applicable)</li>
+            <li> Driver contact details before delivery</li>
+            <li> Proof of delivery (signed receipt or photo)</li>
           </ul>
         </section>
 
@@ -248,7 +248,7 @@ function Logistics() {
         </section>
 
         <section className="benefits-section">
-          <h2>🌟 Why Clients Choose Our Logistics</h2>
+          <h2> Why Clients Choose Our Logistics</h2>
           <ul className="benefits-list">
             {benefits.map((benefit, index) => (
               <li key={index} className="benefit-item">

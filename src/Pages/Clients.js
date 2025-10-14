@@ -1,5 +1,10 @@
 import React from "react";
 import "../style/client.css";
+import RaisingvillageImg from '../images/raising village.png';
+import healthPartnersImg from '../images/health partners 2.png';
+import PoliceforceImg from '../images/uganda police 2.png';
+import vivoImg from '../images/vivo energy.png';
+import ugandabreweriesImg from '../images/Uganda breweries.jpeg';
 
 const Clients = () => {
     return (
@@ -11,20 +16,41 @@ const Clients = () => {
                         <h2 className="section-title">Our Valued Clients & Partners</h2>
                         <div className="clients-grid">
                             <div className="client-logo">
-                                <img src="https://placehold.co/150x80/e5e7eb/6b7280?text=Raising+The+Village" alt="Raising The Village" />
-                            </div>
+                                <div className="partner-logo">
+                                                <img src={RaisingvillageImg} alt="Raising village" />
+                                              </div>
+                                              <h4>Raising the village</h4>
+                                            </div>
+                                
+
                             <div className="client-logo">
-                                <img src="https://placehold.co/150x80/e5e7eb/6b7280?text=Uganda+Breweries" alt="Uganda Breweries Limited" />
-                            </div>
+                                <div className="partner-logo">
+                <img src={ugandabreweriesImg} alt="Uganda Breweries" />
+              </div>
+              <h4>ugandaBreweriesImg</h4>
+            </div>
+
                             <div className="client-logo">
-                                <img src="https://placehold.co/150x80/e5e7eb/6b7280?text=Vivo+Energy" alt="Vivo Energy" />
-                            </div>
+                                <div className="partner-logo">
+                                                <img src={vivoImg} alt="Vivo Energy" />
+                                              </div>
+                                              <h4>Vivo Energy</h4>
+                                            </div>
+                                
                             <div className="client-logo">
-                                <img src="https://placehold.co/150x80/e5e7eb/6b7280?text=Uganda+Police+Force" alt="Uganda Police Force" />
-                            </div>
+                                <div className="partner-logo">
+                <img src={PoliceforceImg} alt="Police Force" />
+              </div>
+              <h4>Police Force</h4>
+            </div>
+                        
                             <div className="client-logo">
-                                <img src="https://placehold.co/150x80/e5e7eb/6b7280?text=HealthPartners" alt="HealthPartners" />
-                            </div>
+                                <div className="partner-logo">
+                                                <img src={healthPartnersImg} alt="Health Partners" />
+                                              </div>
+                                              <h4>Health Partners</h4>
+                                            </div>
+                                
                         </div>
                     </div>
                 </section>

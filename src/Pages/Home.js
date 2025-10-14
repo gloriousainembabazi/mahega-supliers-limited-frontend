@@ -9,22 +9,23 @@ import "../style/Home.css";
 
 // Import Images
 import product1 from "../images/statinary.jpg";
-import product2 from "../images/metalic tables.jpg";
-import product3 from "../images/cars.jpg";
-import product4 from "../images/cattle 2 rearing.jpg";
-import product5 from "../images/goat 2 rearing.jpg";
+import product2 from "../images/latops.jpeg";
+import product3 from "../images/steel bars.jpeg";
+import product4 from "../images/cleaning kits.jpeg";
+import product5 from "../images/seeds.jpeg";
 import product6 from "../images/posho making.jpg";
-import product7 from "../images/exported goods.jpg";
-import product8 from "../images/goat 2 rearing.jpg";
+import product7 from "../images/hospital grade.jpeg";
+import product8 from "../images/branded uniform 2.jpeg";
 import product9 from "../images/hotel tables.jpg";
 import product10 from "../images/metalic tables.jpg";
 import product12 from "../images/office material 2.jpg";
-import product13 from "../images/office tables.jpg";
+import product13 from "../images/goat 2 rearing.jpg";
 import product14 from "../images/office use.jpg";
 import product15 from "../images/pipes.jpg";
 import product16 from "../images/placeholders.jpg";
 import product17 from "../images/plywood.jpg";
 import product11 from "../images/cattle rearing.jpg";
+import product18 from "../images/goat feeding.jpeg"
 
 function Home() {
   // Products
@@ -77,6 +78,13 @@ function Home() {
       image: product8,
       
     },
+     {
+      title: " Livestock Solutions",
+      description: "Quality inputs for crops, cattle, goats, and modern farming in Uganda..",
+      image: product18,
+      
+    },
+    
   ];
 
   // Core Services

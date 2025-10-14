@@ -8,26 +8,15 @@ function Navbar() {
       <div className="navbar-container">
         {/* Logo / Brand */}
         <div className="navbar-brand">
-          <img src={logo} alt="Mahega General Suppliers Ltd Logo" style={{ height: '100px', width: 'auto', objectFit: 'contain' }} />
-          <p className="navbar-logo">Mahega General Suppliers Ltd</p>
+          <img src={logo} alt="Mahega General Suppliers Ltd Logo" style={{ height: '70px', width: 'auto', objectFit: 'contain' }} />
+          <p className="navbar-logo">Mahega General Supplies Ltd</p>
         </div>
 
         {/* Navigation Links with Dropdowns */}
         <ul className="navbar-links">
           <li><a href="/">Home</a></li>
 
-          {/* About Dropdown */}
-          <li className="dropdown">
-            <a href="/about" className="dropdown-toggle">About Us</a>
-            <ul className="dropdown-menu">
-              <li><a href="/about/mission">About mahega company</a></li>
-              <li><a href="/about/mission">Our Mission</a></li>
-              <li><a href="/about/vision">Our Vision</a></li>
-              <li><a href="/about/team">Our Team</a></li>
-
-              <li><a href="/about/values">Our Values</a></li>
-            </ul>
-          </li>
+          <li><a href="/about">About Us</a></li>
 
           {/* Products Dropdown — EXPANDED LIST */}
           <li className="dropdown">
@@ -64,6 +53,17 @@ function Navbar() {
           <li><a href="/clients">Clients</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/contact">Contact Us</a></li>
+          
+          {/* Dashboard Link with Icon */}
+          <li>
+            <a href="/admin" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              Dashboard
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

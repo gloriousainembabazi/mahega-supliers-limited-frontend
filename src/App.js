@@ -10,11 +10,12 @@ import Home from './Pages/Home';
 import AboutPage from './Pages/About'; 
 import Services from './Pages/Services';
 
-import "./App.css";
+// Admin Pages
+import AdminDashboard from './Pages/Admin/AdminDashboard';
 
 // About Pages
 import Mission from './Pages/About/Mission';
-import Vision from './Pages/About/Vission';    
+import Vision from './Pages/About/Vision';    
 import Team from './Pages/About/Team';
 import History from './Pages/About/History';
 import Values from './Pages/About/Values';
@@ -42,10 +43,19 @@ import Consulting from './Pages/Services/Consulting';
 import ExportLogistics from './Pages/Services/ExportLogistics';
 
 // Other Pages
-import Gallary from './Pages/Gallary';        // 
+import Gallary from './Pages/Gallary';
 import Clients from './Pages/Clients';
 import Blog from './Pages/Blog';
 import Contact from './Pages/Contact';
+
+// Optional: 404 Page
+const NotFound = () => (
+  <div style={{ padding: '2rem', textAlign: 'center' }}>
+    <h2>404 - Page Not Found</h2>
+    <p>The page you're looking for doesn't exist.</p>
+    <a href="/">Go back home</a>
+  </div>
+);
 
 function App() {
   return (
@@ -54,17 +64,15 @@ function App() {
         {/* Home */}
         <Route path="/" element={<PageTemplate><Home /></PageTemplate>} />
 
-        {/* ✅ Main About Page */}
+        {/* About */}
         <Route path="/about" element={<PageTemplate><AboutPage /></PageTemplate>} />
-
-        {/* About Subpages */}
         <Route path="/about/mission" element={<PageTemplate><Mission /></PageTemplate>} />
         <Route path="/about/vision" element={<PageTemplate><Vision /></PageTemplate>} />
         <Route path="/about/team" element={<PageTemplate><Team /></PageTemplate>} />
         <Route path="/about/history" element={<PageTemplate><History /></PageTemplate>} />
         <Route path="/about/values" element={<PageTemplate><Values /></PageTemplate>} />
 
-        {/* Products Pages */}
+        {/* Products */}
         <Route path="/products" element={<PageTemplate><Products /></PageTemplate>} />
         <Route path="/products/stationery" element={<PageTemplate><Stationery /></PageTemplate>} />
         <Route path="/products/computers" element={<PageTemplate><Computers /></PageTemplate>} />
@@ -75,11 +83,12 @@ function App() {
         <Route path="/products/food-beverages" element={<PageTemplate><FoodBeverages /></PageTemplate>} />
         <Route path="/products/medical" element={<PageTemplate><Medical /></PageTemplate>} />
         <Route path="/products/industrial" element={<PageTemplate><Industrial /></PageTemplate>} />
-        <Route  path="/products/branding" element={<PageTemplate>< Branding /></PageTemplate>} />
+        <Route path="/products/branding" element={<PageTemplate><Branding /></PageTemplate>} /> 
         <Route path="/products/export" element={<PageTemplate><Export /></PageTemplate>} />
         <Route path="/products/custom" element={<PageTemplate><Custom /></PageTemplate>} />
 
-        {/* Services Pages */}
+        {/* Services */}
+        <Route path="/services" element={<PageTemplate><Services /></PageTemplate>} />
         <Route path="/services/procurement" element={<PageTemplate><Procurement /></PageTemplate>} />
         <Route path="/services/logistics" element={<PageTemplate><Logistics /></PageTemplate>} />
         <Route path="/services/custom-orders" element={<PageTemplate><CustomOrders /></PageTemplate>} />
@@ -91,9 +100,12 @@ function App() {
         <Route path="/clients" element={<PageTemplate><Clients /></PageTemplate>} />
         <Route path="/blog" element={<PageTemplate><Blog /></PageTemplate>} />
         <Route path="/contact" element={<PageTemplate><Contact /></PageTemplate>} />
-         <Route path="/Services" element={<PageTemplate><Services /></PageTemplate>} />
-        {/* Optional: Catch-all for 404 */}
-        {/* <Route path="*" element={<PageTemplate><NotFound /></PageTemplate>} /> */}
+
+        
+        <Route path="/admin" element={<PageTemplate><AdminDashboard /></PageTemplate>} />
+
+        
+        <Route path="*" element={<PageTemplate><NotFound /></PageTemplate>} />
       </Routes>
     </Router>
   );

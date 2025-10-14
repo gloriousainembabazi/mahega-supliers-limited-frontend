@@ -17,7 +17,7 @@ function Procurement() {
     timeline: '',
     requirements: ''
   });
-n
+
   const services = [
     { id: 'consulting', name: 'Supply Chain Consulting', icon: '📊' },
     { id: 'custom-orders', name: 'Custom Orders', icon: '🛒' },

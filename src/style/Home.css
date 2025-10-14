@@ -61,7 +61,7 @@ body {
   font-size: 1.2rem; /* Increased */
   max-width: 800px;
   margin: 0 auto 2.5rem; /* Increased */
-  color: #0830e6;
+  color: #121213;
   line-height: 1.7;
   text-align: center;
 }
@@ -123,7 +123,7 @@ body {
   font-size: 3rem; /* Increased from 2.5rem */
   font-weight: 700;
   margin: 0;
-  color: #007c00;
+  color: #151B54;
   text-align: center;
 }
 
@@ -500,6 +500,7 @@ body {
   .btn-primary {
     padding: 0.9rem 2rem;
     font-size: 1.05rem;
+    color: #151B54;
   }
 
   .slider-track {
