@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from "../images/logo.png";
 import "../style/Navbar.css";
 
@@ -14,26 +15,26 @@ function Navbar() {
 
         {/* Navigation Links with Dropdowns */}
         <ul className="navbar-links">
-          <li><a href="/">Home</a></li>
+          <li><Link to="/">Home</Link></li>
 
-          <li><a href="/about">About Us</a></li>
+          <li><Link to="/about">About Us</Link></li>
 
           {/* Products Dropdown — EXPANDED LIST */}
           <li className="dropdown">
-            <a href="/products" className="dropdown-toggle">Products</a>
+            <Link to="/products" className="dropdown-toggle">Products</Link>
             <ul className="dropdown-menu">
-              <li><a href="/products/stationery">Stationery & Office Supplies</a></li>
-              <li><a href="/products/computers">Computers & Printers</a></li>
-              <li><a href="/products/furniture">Office & Hotel Furniture</a></li>
-              <li><a href="/products/cleaning">Cleaning Materials</a></li>
-              <li><a href="/products/agricultural">Agricultural Inputs</a></li>
-              <li><a href="/products/livestock">Livestock & Rearing Supplies</a></li>
-              <li><a href="/products/food-beverages">Food & Beverages</a></li>
-              <li><a href="/products/medical">Medical Consumables & PPE</a></li>
-              <li><a href="/products/industrial">Industrial Pipes & Plywood</a></li>
-              <li><a href="/products/branding">Custom Branding</a></li>
-              <li><a href="/products/export">Exported Goods</a></li>
-              <li><a href="/products/custom">Custom Product Orders</a></li>
+              <li><Link to="/products/stationery">Stationery & Office Supplies</Link></li>
+              <li><a href="/products/computers">Computers & Printers</Link></li>
+              <li><a href="/products/furniture">Office & Hotel Furniture</Link></li>
+              <li><a href="/products/cleaning">Cleaning Materials</Link></li>
+              <li><a href="/products/agricultural">Agricultural Inputs</Link></li>
+              <li><a href="/products/livestock">Livestock & Rearing Supplies</Link></li>
+              <li><a href="/products/food-beverages">Food & Beverages</Link></li>
+              <li><a href="/products/medical">Medical Consumables & PPE</Link></li>
+              <li><a href="/products/industrial">Industrial Pipes & Plywood</Link></li>
+              <li><a href="/products/branding">Custom Branding</Link></li>
+              <li><a href="/products/export">Exported Goods</Link></li>
+              <li><a href="/products/custom">Custom Product Orders</Link></li>
             </ul>
           </li>
 
@@ -41,18 +42,18 @@ function Navbar() {
           <li className="dropdown">
             <a href="/services" className="dropdown-toggle">Services</a>
             <ul className="dropdown-menu">
-              <li><a href="/services/procurement">Procurement & Sourcing</a></li>
-              <li><a href="/services/logistics">Logistics & Nationwide Delivery</a></li>
-              <li><a href="/services/custom-orders">Custom/Bulk Orders</a></li>
-              <li><a href="/services/consulting">Supply Chain Consultation</a></li>
-              <li><a href="/services/export-logistics">Export Handling & Documentation</a></li>
+              <li><a href="/services/procurement">Procurement & Sourcing</Link></li>
+              <li><a href="/services/logistics">Logistics & Nationwide Delivery</Link></li>
+              <li><a href="/services/custom-orders">Custom/Bulk Orders</Link></li>
+              <li><a href="/services/consulting">Supply Chain Consultation</Link></li>
+              <li><a href="/services/export-logistics">Export Handling & Documentation</Link></li>
             </ul>
           </li>
 
-          <li><a href="/Gallary">Gallery</a></li>
-          <li><a href="/clients">Clients</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/Gallary">Gallery</Link></li>
+          <li><a href="/clients">Clients</Link></li>
+          <li><a href="/blog">Blog</Link></li>
+          <li><a href="/contact">Contact Us</Link></li>
           
           {/* Dashboard Link with Icon */}
           <li>
@@ -62,8 +63,7 @@ function Navbar() {
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
-            </a>
-          </li>
+            </Link></li>
         </ul>
       </div>
     </nav>

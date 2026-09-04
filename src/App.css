@@ -1,60 +1,422 @@
-/* General Layout */
-.app-container {
+﻿/* ========================================
+   HOME PAGE - EXACT MATCH TO SCREENSHOT
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: #f5f7fc;
+  color: #1e2b3c;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========================================
+   TOP NAVIGATION
+   ======================================== */
+
+.top-bar-logistics {
+  background: #0a1a2b;
+  color: #fff;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  border-bottom: 3px solid #e6b91e;
+}
+
+.top-bar-logistics .container {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.main-content {
-  flex: 1;
+.logo-area-logistics {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Optional: Add basic padding for all sections */
-section {
-  padding: 40px 20px;
+.logo-icon-logistics {
+  font-size: 2rem;
+  color: #e6b91e;
 }
 
-/* Center headings */
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.brand-logistics {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
 }
 
-/* Utility for rounded cards */
-.card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease;
+.brand-logistics span {
+  color: #e6b91e;
 }
 
-.card:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+.nav-links-logistics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
 }
 
-/* Buttons */
-button {
-  background-color: #1c38d6;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #0f2495;
-}
-
-/* Links */
-a {
+.nav-links-logistics a {
+  color: #eef2f6;
   text-decoration: none;
-  color: #1c38d6;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: 0.2s;
 }
 
-a:hover {
-  color: #0f2495;
+.nav-links-logistics a:hover {
+  color: #f5c842;
+}
+
+.search-dash-logistics {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.search-dash-logistics i {
+  color: #bcc9d6;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.search-dash-logistics i:hover {
+  color: #f5c842;
+}
+
+.btn-dashboard {
+  background: transparent;
+  border: 1px solid #e6b91e;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn-dashboard:hover {
+  background: rgba(230, 185, 30, 0.1);
+}
+
+/* ========================================
+   HERO SECTION - LIGHT GRAY
+   ======================================== */
+
+.hero-section-advancing {
+  padding: 80px 0 60px;
+  background: #f0f4f8;
+  border-bottom: 1px solid #e0e6ed;
+}
+
+.hero-content-advancing {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-content-advancing h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0a1a2b;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.hero-content-advancing p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #3d5166;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   SERVICES SECTION - LIGHT GRAY
+   ======================================== */
+
+.services-section {
+  padding: 70px 0;
+  background: #f8f9fa;
+}
+
+.section-title-dark {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0a1a2b;
+  margin-bottom: 45px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f6;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a1a2b;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a5f72;
+}
+
+/* ========================================
+   TEAM SECTION - LIGHT BLUE
+   ======================================== */
+
+.team-section {
+  padding: 70px 0;
+  background: #e8edf5;
+}
+
+.section-title-light {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0a1a2b;
+  margin-bottom: 45px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef2f6;
+}
+
+.team-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a1a2b;
+  margin-bottom: 15px;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4a5f72;
+}
+
+/* ========================================
+   CLIENTS SECTION - LIGHT GRAY
+   ======================================== */
+
+.clients-section-home {
+  padding: 70px 0;
+  background: #f8f9fa;
+}
+
+.clients-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clients-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #3d5166;
+}
+
+/* ========================================
+   CONTACT SECTION - LIGHT BLUE
+   ======================================== */
+
+.contact-section-home {
+  padding: 70px 0 80px;
+  background: #e8edf5;
+}
+
+.contact-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #3d5166;
+  margin-bottom: 30px;
+}
+
+.contact-btn-home {
+  display: inline-block;
+  padding: 14px 45px;
+  background: #e6b91e;
+  color: #0a1a2b;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-btn-home:hover {
+  background: #f5c842;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer-logistics {
+  background: #0a1a2b;
+  color: #cbdae6;
+  padding: 50px 0 20px;
+  border-top: 4px solid #e6b91e;
+}
+
+.footer-logistics-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.footer-brand-logistics {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-brand-logistics h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-brand-logistics p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 350px;
+  color: #b0c8dd;
+}
+
+.footer-links-logistics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.footer-column-logistics {
+  min-width: 150px;
+}
+
+.footer-column-logistics h4 {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-column-logistics a {
+  display: block;
+  color: #b0c8dd;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 6px 0;
+  transition: 0.2s;
+}
+
+.footer-column-logistics a:hover {
+  color: #f5c842;
+}
+
+.footer-column-logistics p {
+  color: #b0c8dd;
+  font-size: 0.9rem;
+  padding: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-column-logistics p i {
+  color: #e6b91e;
+  width: 20px;
+}
+
+.footer-bottom-logistics {
+  border-top: 1px solid #1d3449;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #7a94ad;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-content-advancing h1 {
+    font-size: 2.2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .top-bar-logistics .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .nav-links-logistics {
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .footer-logistics-content {
+    flex-direction: column;
+  }
+  
+  .footer-links-logistics {
+    flex-direction: column;
+    gap: 30px;
+  }
 }

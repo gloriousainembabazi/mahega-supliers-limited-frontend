@@ -1,63 +1,316 @@
-.products-section {
-  padding: 60px 20px;
-  background-color: #bac1cf; /* light gray */
+﻿.products-page {
+  --products-bg: #0b1247;
+  --products-card: #0b0f10;
+  --products-yellow: #ffe000;
+  --products-blue: #1ea7f2;
+  --products-text: #f0f2f4;
+  --products-muted: #d2d5da;
+  --products-border: #525c68;
+  --products-line: #39456d;
+
+  width: 100%;
+  min-height: 100vh;
+  background: var(--products-bg);
+  color: var(--products-text);
+  font-family: "Open Sans", Arial, sans-serif;
+  box-sizing: border-box;
 }
 
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #1c38d6; /* dark blue */
-  margin-bottom: 40px;
-  text-align: center;
-  border-bottom: 2px solid #1e40af;
+.products-content {
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 50px 0 80px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.products-search {
+  width: min(620px, 100%);
+  height: 44px;
+  margin: 0 auto 36px;
+  background: #f7f7f8;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  color: #4c5562;
+  font-size: 21px;
+  padding-left: 13px;
+  line-height: 1;
+}
+
+.products-search input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #424952;
+  padding: 0 12px;
+  font-size: 13px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.products-search input::placeholder {
+  color: #7f8792;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+.products-heading,
+.logistics-heading {
+  border-bottom: 1px solid var(--products-line);
   padding-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* Grid Layout */
+.products-heading h1,
+.logistics-heading h2 {
+  margin: 0;
+  color: var(--products-yellow);
+  font-family: "Montserrat", "Open Sans", Arial, sans-serif;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.products-heading h1 {
+  font-size: 28px;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
 .products-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
 }
 
-@media (min-width: 768px) {
+.product-category-card {
+  background: var(--products-card);
+  border: 1px solid var(--products-border);
+  min-height: 176px;
+  padding: 17px 15px 12px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-icon {
+  color: var(--products-blue);
+  font-size: 24px;
+  line-height: 1;
+  min-height: 29px;
+  margin-bottom: 9px;
+}
+
+.product-category-card h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Montserrat", "Open Sans", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.product-category-card p {
+  margin: 0;
+  color: var(--products-muted);
+  font-size: 11px;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.product-card-footer {
+  border-top: 1px solid #2c333b;
+  padding-top: 9px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-count {
+  background: #f1f7fb;
+  color: #15202c;
+  border-radius: 2px;
+  padding: 3px 6px;
+  font-size: 9px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.product-arrow {
+  color: var(--products-yellow);
+  font-size: 20px;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.product-arrow:hover {
+  transform: translateX(4px);
+}
+
+.no-products-found {
+  border: 1px solid var(--products-border);
+  background: var(--products-card);
+  color: var(--products-muted);
+  padding: 25px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* =========================
+   LOGISTICS
+========================= */
+
+.logistics-section {
+  margin-top: 52px;
+}
+
+.logistics-heading h2 {
+  font-size: 26px;
+}
+
+.logistics-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--products-border);
+}
+
+.logistics-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: var(--products-card);
+}
+
+.logistics-table thead {
+  background: #373b3f;
+}
+
+.logistics-table th,
+.logistics-table td {
+  padding: 11px 12px;
+  text-align: left;
+  font-size: 11px;
+  border-bottom: 1px solid #252b31;
+}
+
+.logistics-table th {
+  color: #ffffff;
+  font-family: "Montserrat", "Open Sans", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.logistics-table td {
+  color: #e1e3e7;
+}
+
+.logistics-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.order-id {
+  color: var(--products-yellow) !important;
+  font-weight: 700;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 4px 8px;
+  font-size: 9px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.status-icon {
+  font-size: 10px;
+}
+
+.status-transit {
+  color: #60baff;
+  border-color: #0d9dec;
+  background: rgba(14, 130, 207, 0.18);
+}
+
+.status-processing {
+  color: #53c5ff;
+  border-color: #0d9dec;
+  background: rgba(14, 130, 207, 0.18);
+}
+
+.status-delivered {
+  color: #f6e200;
+  border-color: #d4bc00;
+  background: rgba(212, 188, 0, 0.12);
+}
+
+.status-delayed {
+  color: #ff7272;
+  border-color: #a83232;
+  background: rgba(168, 50, 50, 0.14);
+}
+
+/* =========================
+   PAGE BACKGROUND
+========================= */
+
+body:has(.products-page),
+body:has(.products-page) #root {
+  background: var(--products-bg);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1050px) {
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 800px) {
+  .products-content {
+    width: calc(100% - 40px);
+    padding-top: 35px;
+  }
+
   .products-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Product Card */
-.product-card {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s ease;
-}
+@media (max-width: 560px) {
+  .products-content {
+    width: calc(100% - 26px);
+  }
 
-.product-card:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-}
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 
-.product-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1e3a8a; /* blue */
-  margin-bottom: 10px;
-}
+  .products-heading h1 {
+    font-size: 24px;
+  }
 
-.product-card ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  color: #4b5563; /* gray */
-}
-
-.product-card p {
-  color: #4b5563; /* gray */
+  .logistics-heading h2 {
+    font-size: 23px;
+  }
 }

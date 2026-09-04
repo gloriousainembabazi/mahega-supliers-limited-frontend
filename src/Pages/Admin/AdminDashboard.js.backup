@@ -1,0 +1,987 @@
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect, useCallback } from 'react';
+import { io } from 'socket.io-client';
+import {
+    BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
+    LineChart, Line, PieChart, Pie, Cell, AreaChart, Area
+} from 'recharts';
+import './AdminDashboard.css';
+
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000';
+
+const getAuthToken = () => {
+    return localStorage.getItem('token') || localStorage.getItem('authToken');
+};
+
+const getUser = () => {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+};
+
+const AdminDashboard = () => {
+    const [activeSection, setActiveSection] = useState('dashboard');
+    const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [adminProfile, setAdminProfile] = useState(null);
+    const [analytics, setAnalytics] = useState({
+        totalProducts: 0,
+        totalOrders: 0,
+        totalCustomers: 0,
+        totalServices: 0,
+        unreadMessages: 0,
+        totalRevenue: 0,
+        monthlyRevenue: 0
+    });
+    
+    const [products, setProducts] = useState([]);
+    const [productsLoading, setProductsLoading] = useState(false);
+    const [editingProductId, setEditingProductId] = useState(null);
+    const [productForm, setProductForm] = useState({
+        name: '',
+        description: '',
+        price: '',
+        brand: '',
+        stock_quantity: '',
+        category_id: '',
+        image_url: ''
+    });
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imagePreview, setImagePreview] = useState(null);
+    
+    const [orders, setOrders] = useState([]);
+    const [ordersLoading, setOrdersLoading] = useState(false);
+    const [services, setServices] = useState([]);
+    const [servicesLoading, setServicesLoading] = useState(false);
+    const [customers, setCustomers] = useState([]);
+    const [customersLoading, setCustomersLoading] = useState(false);
+    const [messages, setMessages] = useState([]);
+    const [messagesLoading, setMessagesLoading] = useState(false);
+    const [unreadMessages, setUnreadMessages] = useState(0);
+    
+    const [socket, setSocket] = useState(null);
+
+    const revenueData = [
+        { month: 'Jan', revenue: 4000, orders: 24, customers: 10 },
+        { month: 'Feb', revenue: 3000, orders: 18, customers: 8 },
+        { month: 'Mar', revenue: 5000, orders: 32, customers: 15 },
+        { month: 'Apr', revenue: 4500, orders: 28, customers: 12 },
+        { month: 'May', revenue: 6000, orders: 40, customers: 20 },
+        { month: 'Jun', revenue: 7000, orders: 45, customers: 25 },
+        { month: 'Jul', revenue: 5500, orders: 35, customers: 18 },
+        { month: 'Aug', revenue: 8000, orders: 50, customers: 30 },
+        { month: 'Sep', revenue: 7500, orders: 48, customers: 28 },
+        { month: 'Oct', revenue: 9000, orders: 55, customers: 35 },
+        { month: 'Nov', revenue: 8500, orders: 52, customers: 32 },
+        { month: 'Dec', revenue: 10000, orders: 60, customers: 40 }
+    ];
+
+    const productCategoryData = [
+        { name: 'Electronics', value: 35 },
+        { name: 'Furniture', value: 25 },
+        { name: 'Office Supplies', value: 20 },
+        { name: 'Food & Beverage', value: 15 },
+        { name: 'Other', value: 5 }
+    ];
+
+    const orderStatusData = [
+        { name: 'Pending', value: 12 },
+        { name: 'Processing', value: 18 },
+        { name: 'Completed', value: 45 },
+        { name: 'Cancelled', value: 8 }
+    ];
+
+    const COLORS = ['#e67e22', '#2ecc71', '#3498db', '#e74c3c', '#9b59b6'];
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('user');
+        window.location.href = '/admin/login';
+    };
+
+    const loadProfile = useCallback(async () => {
+        const token = getAuthToken();
+        if (!token) return;
+        try {
+            const res = await fetch(`${API_BASE}/auth/me`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setAdminProfile(data);
+            }
+        } catch (err) {
+            console.error('Failed to load profile:', err);
+        }
+    }, []);
+
+    const fetchProducts = useCallback(async () => {
+        setProductsLoading(true);
+        const token = getAuthToken();
+        if (!token) { setProductsLoading(false); return; }
+        try {
+            const res = await fetch(`${API_BASE}/products`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setProducts(data || []);
+                setAnalytics(prev => ({ ...prev, totalProducts: data?.length || 0 }));
+            }
+        } catch (err) {
+            console.error('Failed to fetch products:', err);
+        } finally {
+            setProductsLoading(false);
+        }
+    }, []);
+
+    const handleProductSubmit = async (e) => {
+        e.preventDefault();
+        const token = getAuthToken();
+        if (!token) {
+            alert('Please login again');
+            return;
+        }
+
+        if (!productForm.name || !productForm.price || !productForm.brand) {
+            alert('Please fill in all required fields (Name, Price, Brand)');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('name', productForm.name);
+        formData.append('brand', productForm.brand);
+        formData.append('price', productForm.price);
+        if (productForm.description) formData.append('description', productForm.description);
+        if (productForm.stock_quantity) formData.append('stock_quantity', productForm.stock_quantity);
+        if (productForm.category_id) formData.append('category_id', productForm.category_id);
+        if (selectedImage) formData.append('image', selectedImage);
+
+        try {
+            let res;
+            if (editingProductId) {
+                res = await fetch(`${API_BASE}/products/${editingProductId}`, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `Bearer ${token}` },
+                    body: formData
+                });
+            } else {
+                res = await fetch(`${API_BASE}/products`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${token}` },
+                    body: formData
+                });
+            }
+
+            if (res.ok) {
+                alert(editingProductId ? 'Product updated!' : 'Product created!');
+                setEditingProductId(null);
+                setProductForm({
+                    name: '',
+                    description: '',
+                    price: '',
+                    brand: '',
+                    stock_quantity: '',
+                    category_id: '',
+                    image_url: ''
+                });
+                setSelectedImage(null);
+                setImagePreview(null);
+                fetchProducts();
+            } else {
+                const error = await res.json();
+                alert(`Failed: ${error.message || 'Unknown error'}`);
+            }
+        } catch (err) {
+            console.error('Product submission failed:', err);
+            alert('Failed to save product');
+        }
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setSelectedImage(file);
+            setImagePreview(URL.createObjectURL(file));
+        }
+    };
+
+    const downloadImage = (imageUrl) => {
+        if (!imageUrl) return;
+        const filename = imageUrl.split('/').pop();
+        window.open(`${API_BASE}/products/download/${filename}`, '_blank');
+    };
+
+    const deleteProduct = async (id) => {
+        if (!window.confirm('Delete this product?')) return;
+        const token = getAuthToken();
+        if (!token) {
+            alert('Please login again');
+            return;
+        }
+
+        try {
+            const res = await fetch(`${API_BASE}/products/${id}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                alert('Product deleted!');
+                fetchProducts();
+            } else {
+                alert('Failed to delete product');
+            }
+        } catch (err) {
+            console.error('Delete failed:', err);
+            alert('Failed to delete product');
+        }
+    };
+
+    const fetchOrders = useCallback(async () => {
+        setOrdersLoading(true);
+        const token = getAuthToken();
+        if (!token) { setOrdersLoading(false); return; }
+        try {
+            const res = await fetch(`${API_BASE}/orders`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setOrders(data || []);
+                const total = data?.reduce((sum, order) => sum + (order.total_amount || 0), 0) || 0;
+                setAnalytics(prev => ({ 
+                    ...prev, 
+                    totalOrders: data?.length || 0,
+                    totalRevenue: total,
+                    monthlyRevenue: total / 12
+                }));
+            }
+        } catch (err) {
+            console.error('Failed to fetch orders:', err);
+        } finally {
+            setOrdersLoading(false);
+        }
+    }, []);
+
+    const fetchServices = useCallback(async () => {
+        setServicesLoading(true);
+        const token = getAuthToken();
+        if (!token) { setServicesLoading(false); return; }
+        try {
+            const res = await fetch(`${API_BASE}/services`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setServices(data || []);
+                setAnalytics(prev => ({ ...prev, totalServices: data?.length || 0 }));
+            }
+        } catch (err) {
+            console.error('Failed to fetch services:', err);
+        } finally {
+            setServicesLoading(false);
+        }
+    }, []);
+
+    const fetchCustomers = useCallback(async () => {
+        setCustomersLoading(true);
+        const token = getAuthToken();
+        if (!token) { setCustomersLoading(false); return; }
+        try {
+            const res = await fetch(`${API_BASE}/customers`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setCustomers(data || []);
+                setAnalytics(prev => ({ ...prev, totalCustomers: data?.length || 0 }));
+            }
+        } catch (err) {
+            console.error('Failed to fetch customers:', err);
+        } finally {
+            setCustomersLoading(false);
+        }
+    }, []);
+
+    const fetchMessages = useCallback(async () => {
+        setMessagesLoading(true);
+        const token = getAuthToken();
+        if (!token) { setMessagesLoading(false); return; }
+        try {
+            const res = await fetch(`${API_BASE}/contact-messages`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setMessages(data.messages || []);
+                const unread = (data.messages || []).filter(msg => !msg.read).length;
+                setUnreadMessages(unread);
+                setAnalytics(prev => ({ ...prev, unreadMessages: unread }));
+            } else {
+                setMessages([]);
+            }
+        } catch (err) {
+            console.error('Failed to fetch messages:', err);
+            setMessages([]);
+        } finally {
+            setMessagesLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        const token = getAuthToken();
+        if (!token) {
+            window.location.href = '/admin/login';
+            return;
+        }
+        loadProfile();
+        fetchProducts();
+        fetchOrders();
+        fetchServices();
+        fetchCustomers();
+        fetchMessages();
+    }, [loadProfile, fetchProducts, fetchOrders, fetchServices, fetchCustomers, fetchMessages]);
+
+    useEffect(() => {
+        const token = getAuthToken();
+        if (!token) return;
+        const newSocket = io(SOCKET_URL, {
+            transports: ['websocket', 'polling'],
+            withCredentials: true,
+            auth: { token }
+        });
+        setSocket(newSocket);
+        newSocket.on('connect', () => {
+            console.log('Admin connected to socket');
+            newSocket.emit('join_admin_room', { user_id: getUser()?.id });
+        });
+        newSocket.on('new_contact_message', (data) => {
+            setUnreadMessages(prev => prev + 1);
+            setMessages(prev => [data.message, ...prev]);
+            setAnalytics(prev => ({ ...prev, unreadMessages: prev.unreadMessages + 1 }));
+        });
+        newSocket.on('message_read', () => {
+            setUnreadMessages(prev => Math.max(0, prev - 1));
+        });
+        newSocket.on('all_messages_read', () => {
+            setUnreadMessages(0);
+        });
+        return () => {
+            newSocket.off('connect');
+            newSocket.off('new_contact_message');
+            newSocket.off('message_read');
+            newSocket.off('all_messages_read');
+            newSocket.disconnect();
+        };
+    }, []);
+
+    const navItems = [
+        { id: 'dashboard', icon: '📊', label: 'Dashboard' },
+        { id: 'products', icon: '📦', label: 'Products' },
+        { id: 'orders', icon: '🛒', label: 'Orders' },
+        { id: 'services', icon: '🔧', label: 'Services' },
+        { id: 'customers', icon: '👥', label: 'Customers' },
+        { id: 'messages', icon: '📩', label: 'Messages' },
+        { id: 'logout', icon: '🚪', label: 'Logout' }
+    ];
+
+    const markMessagesAsRead = async () => {
+        const token = getAuthToken();
+        if (!token) return;
+        try {
+            const unreadMsgs = messages.filter(m => !m.read);
+            for (const msg of unreadMsgs) {
+                await fetch(`${API_BASE}/contact-messages/${msg.id}/mark-read`, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+            }
+            setUnreadMessages(0);
+            setMessages(prev => prev.map(m => ({ ...m, read: true })));
+            setAnalytics(prev => ({ ...prev, unreadMessages: 0 }));
+        } catch (err) {
+            console.error('Failed to mark messages as read:', err);
+        }
+    };
+
+    return (
+        <div className="admin-dashboard">
+            <div className={sidebarOpen ? "admin-sidebar open" : "admin-sidebar closed"}>
+                <div className="sidebar-header">
+                    <h2 className="sidebar-logo">
+                        {sidebarOpen ? '🛒 Mahega Admin' : '🛒'}
+                    </h2>
+                    <button 
+                        className="sidebar-toggle-btn"
+                        onClick={() => setSidebarOpen(!sidebarOpen)}
+                    >
+                        {sidebarOpen ? '◀' : '▶'}
+                    </button>
+                </div>
+                
+                <nav className="sidebar-nav">
+                    {navItems.map((item) => (
+                        <button
+                            key={item.id}
+                            className={activeSection === item.id ? "nav-item active" : "nav-item"}
+                            onClick={() => {
+                                if (item.id === 'logout') {
+                                    handleLogout();
+                                } else {
+                                    setActiveSection(item.id);
+                                }
+                            }}
+                        >
+                            <span className="nav-icon">{item.icon}</span>
+                            {sidebarOpen && (
+                                <>
+                                    <span className="nav-label">{item.label}</span>
+                                    {item.id === 'messages' && unreadMessages > 0 && (
+                                        <span className="nav-badge">{unreadMessages}</span>
+                                    )}
+                                </>
+                            )}
+                        </button>
+                    ))}
+                </nav>
+
+                {sidebarOpen && adminProfile && (
+                    <div className="sidebar-footer">
+                        <div className="sidebar-user">
+                            <div className="sidebar-user-avatar">👤</div>
+                            <div className="sidebar-user-info">
+                                <div className="sidebar-user-name">{adminProfile.name || 'Admin'}</div>
+                                <div className="sidebar-user-role">Administrator</div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <div className="dashboard-content">
+                <div className="dashboard-topbar">
+                    <h1 className="dashboard-title">Dashboard</h1>
+                    <div className="topbar-right">
+                        <div className="notification-wrapper">
+                            <button 
+                                className="notification-btn"
+                                onClick={() => {
+                                    setActiveSection('messages');
+                                    markMessagesAsRead();
+                                }}
+                            >
+                                🔔
+                                {unreadMessages > 0 && (
+                                    <span className="notification-badge">{unreadMessages}</span>
+                                )}
+                            </button>
+                        </div>
+                        <div className="profile-wrapper">
+                            <div className="profile-icon">
+                                <span className="profile-avatar">👤</span>
+                                <span className="profile-name">
+                                    {adminProfile?.name || 'Admin'}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="dashboard-body">
+                    {activeSection === 'dashboard' && (
+                        <div className="section-content">
+                            <div className="dashboard-cards">
+                                <div className="card" style={{ borderLeft: '4px solid #e67e22' }}>
+                                    <div className="card-icon">💰</div>
+                                    <div className="card-content">
+                                        <h3>${analytics.totalRevenue?.toLocaleString() || 0}</h3>
+                                        <p>Total Revenue</p>
+                                    </div>
+                                </div>
+                                <div className="card" style={{ borderLeft: '4px solid #2ecc71' }}>
+                                    <div className="card-icon">📦</div>
+                                    <div className="card-content">
+                                        <h3>{analytics.totalProducts}</h3>
+                                        <p>Products</p>
+                                    </div>
+                                </div>
+                                <div className="card" style={{ borderLeft: '4px solid #3498db' }}>
+                                    <div className="card-icon">🛒</div>
+                                    <div className="card-content">
+                                        <h3>{analytics.totalOrders}</h3>
+                                        <p>Orders</p>
+                                    </div>
+                                </div>
+                                <div className="card" style={{ borderLeft: '4px solid #f39c12' }}>
+                                    <div className="card-icon">👥</div>
+                                    <div className="card-content">
+                                        <h3>{analytics.totalCustomers}</h3>
+                                        <p>Customers</p>
+                                    </div>
+                                </div>
+                                <div className="card" style={{ borderLeft: '4px solid #e74c3c' }}>
+                                    <div className="card-icon">📩</div>
+                                    <div className="card-content">
+                                        <h3>{analytics.unreadMessages}</h3>
+                                        <p>Unread Messages</p>
+                                    </div>
+                                </div>
+                                <div className="card" style={{ borderLeft: '4px solid #9b59b6' }}>
+                                    <div className="card-icon">🔧</div>
+                                    <div className="card-content">
+                                        <h3>{analytics.totalServices}</h3>
+                                        <p>Services</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="charts-grid">
+                                <div className="chart-card">
+                                    <h3>Revenue & Orders Overview</h3>
+                                    <ResponsiveContainer width="100%" height={300}>
+                                        <AreaChart data={revenueData}>
+                                            <CartesianGrid strokeDasharray="3 3" />
+                                            <XAxis dataKey="month" />
+                                            <YAxis yAxisId="left" />
+                                            <YAxis yAxisId="right" orientation="right" />
+                                            <Tooltip />
+                                            <Legend />
+                                            <Area 
+                                                yAxisId="left"
+                                                type="monotone" 
+                                                dataKey="revenue" 
+                                                stroke="#e67e22" 
+                                                fill="#e67e22" 
+                                                fillOpacity={0.3}
+                                                name="Revenue ($)"
+                                            />
+                                            <Line 
+                                                yAxisId="right"
+                                                type="monotone" 
+                                                dataKey="orders" 
+                                                stroke="#3498db" 
+                                                name="Orders"
+                                            />
+                                        </AreaChart>
+                                    </ResponsiveContainer>
+                                </div>
+
+                                <div className="chart-card">
+                                    <h3>Customer Growth</h3>
+                                    <ResponsiveContainer width="100%" height={300}>
+                                        <LineChart data={revenueData}>
+                                            <CartesianGrid strokeDasharray="3 3" />
+                                            <XAxis dataKey="month" />
+                                            <YAxis />
+                                            <Tooltip />
+                                            <Legend />
+                                            <Line 
+                                                type="monotone" 
+                                                dataKey="customers" 
+                                                stroke="#2ecc71" 
+                                                strokeWidth={2}
+                                                name="Customers"
+                                            />
+                                        </LineChart>
+                                    </ResponsiveContainer>
+                                </div>
+
+                                <div className="chart-card">
+                                    <h3>Product Categories</h3>
+                                    <ResponsiveContainer width="100%" height={280}>
+                                        <PieChart>
+                                            <Pie
+                                                data={productCategoryData}
+                                                cx="50%"
+                                                cy="50%"
+                                                labelLine={false}
+                                                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                                                outerRadius={100}
+                                                fill="#8884d8"
+                                                dataKey="value"
+                                            >
+                                                {productCategoryData.map((entry, index) => (
+                                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                                ))}
+                                            </Pie>
+                                            <Tooltip />
+                                            <Legend />
+                                        </PieChart>
+                                    </ResponsiveContainer>
+                                </div>
+
+                                <div className="chart-card">
+                                    <h3>Order Status</h3>
+                                    <ResponsiveContainer width="100%" height={280}>
+                                        <BarChart data={orderStatusData}>
+                                            <CartesianGrid strokeDasharray="3 3" />
+                                            <XAxis dataKey="name" />
+                                            <YAxis />
+                                            <Tooltip />
+                                            <Legend />
+                                            <Bar dataKey="value" fill="#e67e22" name="Orders" />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === 'products' && (
+                        <div className="section-content">
+                            <div className="section-header">
+                                <h2>Products ({products.length})</h2>
+                                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                    <button 
+                                        onClick={() => fetchProducts()}
+                                        style={{
+                                            padding: '8px 16px',
+                                            background: '#3498db',
+                                            color: 'white',
+                                            border: 'none',
+                                            borderRadius: '4px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        🔄 Refresh
+                                    </button>
+                                    <button 
+                                        className="add-btn"
+                                        onClick={() => {
+                                            setEditingProductId(null);
+                                            setProductForm({
+                                                name: '',
+                                                description: '',
+                                                price: '',
+                                                brand: '',
+                                                stock_quantity: '',
+                                                category_id: '',
+                                                image_url: ''
+                                            });
+                                            setSelectedImage(null);
+                                            setImagePreview(null);
+                                        }}
+                                    >
+                                        + Add Product
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div className="form-container">
+                                <h3>{editingProductId ? 'Edit Product' : 'New Product'}</h3>
+                                <form onSubmit={handleProductSubmit}>
+                                    <div className="form-row">
+                                        <div className="form-group">
+                                            <label>Product Name *</label>
+                                            <input
+                                                type="text"
+                                                value={productForm.name}
+                                                onChange={(e) => setProductForm({...productForm, name: e.target.value})}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Brand *</label>
+                                            <input
+                                                type="text"
+                                                value={productForm.brand}
+                                                onChange={(e) => setProductForm({...productForm, brand: e.target.value})}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="form-row">
+                                        <div className="form-group">
+                                            <label>Price * ($)</label>
+                                            <input
+                                                type="number"
+                                                step="0.01"
+                                                value={productForm.price}
+                                                onChange={(e) => setProductForm({...productForm, price: e.target.value})}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Stock Quantity</label>
+                                            <input
+                                                type="number"
+                                                value={productForm.stock_quantity}
+                                                onChange={(e) => setProductForm({...productForm, stock_quantity: e.target.value})}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="form-row">
+                                        <div className="form-group">
+                                            <label>Category ID</label>
+                                            <input
+                                                type="number"
+                                                value={productForm.category_id}
+                                                onChange={(e) => setProductForm({...productForm, category_id: e.target.value})}
+                                                placeholder="Optional"
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <label>Image URL</label>
+                                            <input
+                                                type="text"
+                                                value={productForm.image_url}
+                                                onChange={(e) => setProductForm({...productForm, image_url: e.target.value})}
+                                                placeholder="https://example.com/image.jpg"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="form-row">
+                                        <div className="form-group">
+                                            <label>Upload Image</label>
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={handleImageChange}
+                                            />
+                                            {imagePreview && (
+                                                <div style={{ marginTop: '10px' }}>
+                                                    <img src={imagePreview} alt="Preview" style={{ maxWidth: '100px', maxHeight: '100px', borderRadius: '8px' }} />
+                                                    <button type="button" onClick={() => { setSelectedImage(null); setImagePreview(null); }} style={{ marginLeft: '10px', padding: '4px 8px', background: '#e74c3c', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Remove</button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="form-group full-width">
+                                        <label>Description</label>
+                                        <textarea
+                                            value={productForm.description}
+                                            onChange={(e) => setProductForm({...productForm, description: e.target.value})}
+                                            rows="3"
+                                            placeholder="Product description..."
+                                        />
+                                    </div>
+                                    <div className="form-actions">
+                                        <button type="submit" className="submit-btn">
+                                            {editingProductId ? 'Update Product' : 'Create Product'}
+                                        </button>
+                                        {editingProductId && (
+                                            <button 
+                                                type="button" 
+                                                className="cancel-btn"
+                                                onClick={() => {
+                                                    setEditingProductId(null);
+                                                    setProductForm({
+                                                        name: '',
+                                                        description: '',
+                                                        price: '',
+                                                        brand: '',
+                                                        stock_quantity: '',
+                                                        category_id: '',
+                                                        image_url: ''
+                                                    });
+                                                    setSelectedImage(null);
+                                                    setImagePreview(null);
+                                                }}
+                                            >
+                                                Cancel
+                                            </button>
+                                        )}
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div className="list-container">
+                                <h3>Products List ({products.length})</h3>
+                                {productsLoading ? (
+                                    <p>Loading products...</p>
+                                ) : (
+                                    <div className="list-grid">
+                                        {products.map(product => (
+                                            <div key={product.id} className="list-card">
+                                                {product.image_url && (
+                                                    <div style={{ position: 'relative' }}>
+                                                        <img 
+                                                            src={product.image_url.startsWith('http') ? product.image_url : `http://localhost:5000${product.image_url}`} 
+                                                            alt={product.name}
+                                                            style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '8px 8px 0 0' }}
+                                                            onError={(e) => e.target.style.display = 'none'}
+                                                        />
+                                                        <button 
+                                                            onClick={() => downloadImage(product.image_url)}
+                                                            style={{ position: 'absolute', top: '8px', right: '8px', background: 'rgba(0,0,0,0.6)', color: 'white', border: 'none', borderRadius: '50%', padding: '6px 10px', cursor: 'pointer', fontSize: '14px' }}
+                                                            title="Download Image"
+                                                        >
+                                                            ⬇️
+                                                        </button>
+                                                    </div>
+                                                )}
+                                                <div className="card-header">
+                                                    <h4>{product.name}</h4>
+                                                    <span className="price">${product.price}</span>
+                                                </div>
+                                                <div className="card-body">
+                                                    <p>{product.description || 'No description'}</p>
+                                                    <div className="card-meta">
+                                                        <span>Brand: {product.brand}</span>
+                                                        <span>Stock: {product.stock_quantity || 0}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="card-actions">
+                                                    <button 
+                                                        className="edit-btn"
+                                                        onClick={() => {
+                                                            setEditingProductId(product.id);
+                                                            setProductForm({
+                                                                name: product.name || '',
+                                                                description: product.description || '',
+                                                                price: product.price || '',
+                                                                brand: product.brand || '',
+                                                                stock_quantity: product.stock_quantity || '',
+                                                                category_id: product.category_id || '',
+                                                                image_url: product.image_url || ''
+                                                            });
+                                                            setSelectedImage(null);
+                                                            setImagePreview(null);
+                                                        }}
+                                                    >
+                                                        ✏️ Edit
+                                                    </button>
+                                                    <button 
+                                                        className="delete-btn"
+                                                        onClick={() => deleteProduct(product.id)}
+                                                    >
+                                                        🗑️ Delete
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === 'messages' && (
+                        <div className="section-content">
+                            <div className="section-header">
+                                <h2>Customer Messages</h2>
+                                {unreadMessages > 0 && (
+                                    <button className="mark-read-btn" onClick={markMessagesAsRead}>
+                                        Mark All as Read ({unreadMessages})
+                                    </button>
+                                )}
+                            </div>
+                            <div className="messages-list">
+                                {messagesLoading ? (
+                                    <p className="loading-text">Loading messages...</p>
+                                ) : messages.length > 0 ? (
+                                    messages.map(msg => (
+                                        <div key={msg.id} className={`message-card ${msg.read ? 'read' : 'unread'}`}>
+                                            <div className="message-header">
+                                                <strong>{msg.name}</strong>
+                                                <span className="message-email">&lt;{msg.email}&gt;</span>
+                                                <span className="message-date">
+                                                    {new Date(msg.created_at).toLocaleString()}
+                                                </span>
+                                                <span className={`message-status ${msg.read ? 'read-status' : 'unread-status'}`}>
+                                                    {msg.read ? '✅ Read' : '🔄 Unread'}
+                                                </span>
+                                            </div>
+                                            <div className="message-body">
+                                                <p><strong>Subject:</strong> {msg.subject || 'No Subject'}</p>
+                                                <p>{msg.message}</p>
+                                                {msg.phone && <p><strong>Phone:</strong> {msg.phone}</p>}
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className="empty-state">
+                                        <p>📭 No messages yet.</p>
+                                        <p className="sub-text">When customers contact you, their messages will appear here.</p>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
+
+                    {activeSection === 'orders' && (
+                        <div className="section-content">
+                            <h2>Orders ({orders.length})</h2>
+                            {ordersLoading ? (
+                                <p>Loading orders...</p>
+                            ) : orders.length > 0 ? (
+                                <div className="list-container">
+                                    {orders.map(order => (
+                                        <div key={order.id} className="order-card">
+                                            <div className="order-header">
+                                                <span className="order-id">Order #{order.id}</span>
+                                                <span className={`order-status ${order.status?.toLowerCase()}`}>
+                                                    {order.status || 'Pending'}
+                                                </span>
+                                                <span className="order-total">${order.total_amount || 0}</span>
+                                            </div>
+                                            <div className="order-body">
+                                                <p>User ID: {order.user_id}</p>
+                                                <p>Created: {new Date(order.created_at).toLocaleString()}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p>No orders yet.</p>
+                            )}
+                        </div>
+                    )}
+
+                    {activeSection === 'customers' && (
+                        <div className="section-content">
+                            <h2>Customers ({customers.length})</h2>
+                            {customersLoading ? (
+                                <p>Loading customers...</p>
+                            ) : customers.length > 0 ? (
+                                <div className="list-grid">
+                                    {customers.map(customer => (
+                                        <div key={customer.id} className="list-card">
+                                            <div className="card-header">
+                                                <h4>{customer.name}</h4>
+                                            </div>
+                                            <div className="card-body">
+                                                <p>Email: {customer.email}</p>
+                                                <p>Phone: {customer.phone}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p>No customers yet.</p>
+                            )}
+                        </div>
+                    )}
+
+                    {activeSection === 'services' && (
+                        <div className="section-content">
+                            <h2>Services ({services.length})</h2>
+                            {servicesLoading ? (
+                                <p>Loading services...</p>
+                            ) : services.length > 0 ? (
+                                <div className="list-grid">
+                                    {services.map(service => (
+                                        <div key={service.id} className="list-card">
+                                            <div className="card-header">
+                                                <h4>{service.name}</h4>
+                                                <span className="price">${service.price}</span>
+                                            </div>
+                                            <div className="card-body">
+                                                <p>{service.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p>No services yet.</p>
+                            )}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default AdminDashboard;

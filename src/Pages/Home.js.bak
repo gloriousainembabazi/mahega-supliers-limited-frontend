@@ -1,0 +1,79 @@
+﻿// src/Pages/Home.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
+
+const Home = () => {
+  return (
+    <div className="home-page">
+      {/* Hero Section */}
+      <section className="hero-section-advancing">
+        <div className="container hero-content-advancing">
+          <h1>Advancing Industrial Excellence in East Africa</h1>
+          <p>Our mission is to empower businesses to achieve their full potential by providing them with the tools and resources they need to succeed. We believe that every business has the potential to be successful, and we are committed to helping them reach their goals.</p>
+        </div>
+      </section>
+
+      {/* Our Services Section */}
+      <section className="services-section">
+        <div className="container">
+          <h2 className="section-title-dark">Our Services</h2>
+          <div className="services-grid">
+            <div className="service-card">
+              <h3>Custom Procurement Solutions</h3>
+              <p>We offer customized procurement solutions to help businesses save time and money. We work with you to identify your needs and develop a plan to meet them. We also provide training and support to help you implement your procurement strategy.</p>
+            </div>
+            <div className="service-card">
+              <h3>Supply Chain Management</h3>
+              <p>We help businesses improve their supply chain management by providing them with tools and resources to track their inventory, manage their suppliers, and improve their overall supply chain performance.</p>
+            </div>
+            <div className="service-card">
+              <h3>Data Analytics</h3>
+              <p>We help businesses use data analytics to improve their decision-making and performance. We provide businesses with the tools and resources they need to collect, analyze, and interpret data.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Team Section */}
+      <section className="team-section">
+        <div className="container">
+          <h2 className="section-title-light">Our Team</h2>
+          <div className="team-grid">
+            <div className="team-card">
+              <h3>Our Team Profile</h3>
+              <p>Our team is made up of experienced professionals who are passionate about helping businesses succeed. We have a wide range of skills and expertise, and we are committed to helping businesses achieve their goals.</p>
+            </div>
+            <div className="team-card">
+              <h3>Our Team Values</h3>
+              <p>We believe that our team is our most valuable asset. We are committed to creating a positive and supportive work environment where everyone can thrive.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Clients Section */}
+      <section className="clients-section-home">
+        <div className="container">
+          <h2 className="section-title-dark">Our Clients</h2>
+          <div className="clients-content">
+            <p>We have worked with a wide range of businesses to help them achieve their goals. We have a proven track record of success, and we are confident that we can help you too.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Us Section */}
+      <section className="contact-section-home">
+        <div className="container">
+          <h2 className="section-title-light">Contact Us</h2>
+          <div className="contact-content">
+            <p>If you are interested in learning more about our services, please contact us today. We would be happy to answer any questions you may have.</p>
+            <Link to="/contact" className="contact-btn-home">Get In Touch</Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;

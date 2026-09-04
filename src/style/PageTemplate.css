@@ -1,201 +1,1363 @@
-/* ============= PAGE TEMPLATE BASE ============= */
+/* =========================================================
+   MAHEGA GENERAL SUPPLIES LIMITED
+   PAGE TEMPLATE
+   PROFESSIONAL NAVIGATION + FOOTER
+   DARK NAVY + GOLD THEME
+   ========================================================= */
 
 
-.page-header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  font-weight: 700;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
 }
 
-.page-content {
-  width: 1400px;
+.page-template {
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #333333;
+  overflow-x: hidden;
+}
+
+.page-template a {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.page-template .container {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem 4rem;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+/* =========================================================
+   TOP NAVIGATION BAR
+   ========================================================= */
+
+.top-bar-logistics {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: #101820;
+  border-bottom: 3px solid #d4a72c;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+.nav-container {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+
+/* =========================================================
+   LOGO AREA
+   ========================================================= */
+
+.logo-area-logistics {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mahega-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* =========================================================
+   COMPANY NAME
+   ========================================================= */
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+
+/* MAHEGA */
+.brand-name {
+  color: #d4a72c;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+
+/* GENERAL SUPPLIES LIMITED */
+.brand-subtitle {
+  color: #d4a72c;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+
+/* Logo hover */
+.logo-area-logistics:hover .brand-name,
+.logo-area-logistics:hover .brand-subtitle {
+  color: #f0c75e;
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION
+   ========================================================= */
+
+.nav-links-logistics {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.nav-links-logistics > a,
+.dropdown-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 31px 13px;
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* Navigation hover */
+.nav-links-logistics > a:hover,
+.dropdown-title:hover {
+  color: #d4a72c;
+  background: rgba(212, 167, 44, 0.08);
+}
+
+
+/* =========================================================
+   ACTIVE / HOVER GOLD LINE
+   ========================================================= */
+
+.nav-links-logistics > a::after,
+.dropdown-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: 0;
+  height: 2px;
+  background: #d4a72c;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+.nav-links-logistics > a:hover::after,
+.dropdown-title:hover::after {
+  width: 55%;
+}
+
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.nav-dropdown {
+  position: relative;
+  height: 100%;
+}
+
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+  color: #d4a72c;
+  font-size: 0.8rem;
+  margin-left: 2px;
+  transition: transform 0.25s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   DROPDOWN MENU
+   ========================================================= */
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+
+  width: 280px;
+  max-height: 75vh;
+  overflow-y: auto;
+
+  padding: 10px 0;
+
+  background: #ffffff;
+  border-top: 4px solid #d4a72c;
+  border-radius: 0 0 10px 10px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.2);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+
+/* Show dropdown */
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* =========================================================
+   DROPDOWN LINKS
+   ========================================================= */
+
+.dropdown-menu a {
+  display: block;
+  padding: 11px 20px;
+
+  color: #263746;
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  border-bottom: 1px solid #eef0f2;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+  background: #f8f2df;
+  color: #b48618;
+  padding-left: 26px;
+}
+
+
+/* =========================================================
+   VIEW ALL LINKS
+   ========================================================= */
+
+.dropdown-menu .view-all-link {
+  margin-top: 5px;
+  border-top: 2px solid #d4a72c;
+  color: #173f63;
+  font-weight: 800;
+  background: #fafafa;
+}
+
+.dropdown-menu .view-all-link:hover {
+  background: #173f63;
+  color: #ffffff;
+  padding-left: 20px;
+}
+
+
+/* =========================================================
+   DROPDOWN SCROLLBAR
+   ========================================================= */
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #d4a72c;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.main-content {
+  width: 100%;
+  min-height: 500px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16, 24, 32, 0.97),
+      rgba(23, 63, 99, 0.95)
+    );
+
+  padding: 65px 30px;
+  color: #ffffff;
+  text-align: center;
+
+  border-bottom: 4px solid #d4a72c;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 2.7rem;
+  line-height: 1.2;
+  font-weight: 800;
+
+  text-shadow:
+    1px 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+.page-content {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+  padding: 0 30px 4rem;
+
   box-sizing: border-box;
-  color: #333;
-  margin-top: 1px;
+  color: #333333;
 }
 
 .page-content section {
   margin: 3rem 0;
 }
 
+
+/* =========================================================
+   CONTENT HEADINGS
+   ========================================================= */
+
 .page-content h2 {
-  color: #0c76e0;
+  color: #173f63;
+
   margin: 2.5rem 0 1rem;
-  font-size: 1.8rem;
+
+  font-size: 1.9rem;
+  font-weight: 800;
+
   position: relative;
   padding-bottom: 0.5rem;
 }
 
 .page-content h2::after {
-  content: '';
+  content: "";
+
   display: block;
-  width: 50px;
-  height: 3px;
-  background: #0056b3;
-  margin-top: 0.5rem;
+
+  width: 55px;
+  height: 4px;
+
+  margin-top: 0.6rem;
+
+  background: #d4a72c;
+  border-radius: 5px;
 }
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
 
 .page-content p,
 .page-content li {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: #555;
+  color: #555555;
   margin-bottom: 1rem;
 }
 
-/* ============= GRID / CARDS ============= */
+
+/* =========================================================
+   GRID / CARDS
+   ========================================================= */
+
 .product-grid,
 .solution-grid,
 .logistics-stats,
 .product-stats,
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
   gap: 2rem;
+
   width: 100%;
 }
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
 
 .product-card,
 .solution-card,
 .stat-box,
 .contact-card {
-  background: #fff;
+  position: relative;
+
+  background: #ffffff;
+
   padding: 2rem;
+
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+  border: 1px solid #e5e9ed;
+
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.07);
+
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.product-card::before,
+.solution-card::before,
+.stat-box::before,
+.contact-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
   width: 100%;
+  height: 3px;
+
+  background: #d4a72c;
+
+  border-radius: 12px 12px 0 0;
 }
 
 .product-card:hover,
 .solution-card:hover,
 .stat-box:hover,
 .contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+
+  border-color: #d4a72c;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.12);
 }
+
+
+/* =========================================================
+   CARD ICONS
+   ========================================================= */
 
 .product-icon,
 .solution-icon,
 .stat-icon {
   font-size: 2.5rem;
+
   margin-bottom: 1rem;
-  color: #0056b3;
+
+  color: #d4a72c;
 }
+
+
+/* =========================================================
+   CARD HEADINGS
+   ========================================================= */
 
 .product-card h3,
 .solution-card h3,
 .stat-box h3 {
   font-size: 1.3rem;
-  color: #2c3e50;
+
+  color: #173f63;
+
   margin-bottom: 0.75rem;
+
+  font-weight: 750;
 }
+
+
+/* =========================================================
+   CARD TEXT
+   ========================================================= */
 
 .product-card p,
 .solution-card p,
 .stat-box p {
   font-size: 0.95rem;
-  color: #666;
-  line-height: 1.5;
+
+  color: #666666;
+
+  line-height: 1.6;
 }
 
-/* ============= CTA SECTION ============= */
+
+/* =========================================================
+   CTA SECTION
+   ========================================================= */
+
 .cta-box {
-  background: linear-gradient(135deg, #0056b3, #003d82);
-  color: white;
-  padding: 3rem 2rem;
-  border-radius: 12px;
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #101820,
+      #173f63
+    );
+
+  color: #ffffff;
+
+  padding: 3.5rem 2rem;
+
+  border-radius: 14px;
+
   text-align: center;
+
   margin: 3rem 0;
+
+  overflow: hidden;
+
+  border-bottom: 4px solid #d4a72c;
+}
+
+.cta-box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  top: -120px;
+  right: -80px;
+
+  border-radius: 50%;
+
+  background: rgba(212, 167, 44, 0.12);
 }
 
 .cta-box h2 {
-  font-size: 2rem;
+  position: relative;
+
+  color: #ffffff;
+
+  font-size: 2.1rem;
+
   margin-bottom: 1rem;
 }
 
+.cta-box h2::after {
+  display: none;
+}
+
 .cta-box p {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.9);
+
   font-size: 1.1rem;
+
   max-width: 700px;
+
   margin: 0 auto 2rem;
 }
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 .btn-primary,
 .btn-secondary {
   padding: 0.85rem 2rem;
+
   border-radius: 6px;
-  font-weight: 600;
+
+  font-weight: 700;
+
   font-size: 1rem;
+
   cursor: pointer;
+
   transition: all 0.3s ease;
+
   display: inline-block;
+
   text-decoration: none;
 }
 
+
+/* Primary */
+
 .btn-primary {
-  background-color: #fff;
-  color: #0056b3;
-  border: 2px solid #fff;
+  background: #d4a72c;
+
+  color: #101820;
+
+  border: 2px solid #d4a72c;
 }
 
 .btn-primary:hover {
-  background-color: transparent;
-  color: #fff;
+  background: #ffffff;
+
+  color: #173f63;
+
+  border-color: #ffffff;
+
   transform: translateY(-2px);
 }
 
+
+/* Secondary */
+
 .btn-secondary {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  background: transparent;
+
+  color: #ffffff;
+
+  border: 2px solid #d4a72c;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: #d4a72c;
+
+  color: #101820;
+
   transform: translateY(-2px);
 }
 
-/* ============= RESPONSIVE DESIGN ============= */
-@media (max-width: 1024px) {
-  .product-grid,
-  .solution-grid,
-  .logistics-stats,
-  .product-stats,
-  .contact-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+/* =========================================================
+   FOOTER
+   NO IMAGE LOGO
+   ========================================================= */
+
+.footer-logistics {
+  width: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #101820,
+      #142c40
+    );
+
+  color: #ffffff;
+
+  border-top: 4px solid #d4a72c;
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+   ========================================================= */
+
+.footer-logistics-content {
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 1.2fr)
+    2.8fr;
+
+  gap: 60px;
+
+  padding: 65px 0 45px;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+   NO LOGO IMAGE
+   ========================================================= */
+
+.footer-brand-logistics {
+  padding-right: 30px;
+}
+
+.footer-brand-logistics h2 {
+  margin: 0;
+
+  color: #d4a72c;
+
+  font-size: 2rem;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* Gold line */
+
+.footer-gold-line {
+  display: block;
+
+  width: 55px;
+  height: 4px;
+
+  margin: 13px 0 20px;
+
+  background: #d4a72c;
+
+  border-radius: 5px;
+}
+
+
+/* Footer description */
+
+.footer-brand-logistics p {
+  margin: 0;
+
+  max-width: 360px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 0.95rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER LINKS GRID
+   ========================================================= */
+
+.footer-links-logistics {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   FOOTER COLUMN
+   ========================================================= */
+
+.footer-column-logistics {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+
+/* Footer heading */
+
+.footer-column-logistics h4 {
+  position: relative;
+
+  margin: 0 0 20px;
+
+  color: #d4a72c;
+
+  font-size: 1.05rem;
+
+  font-weight: 800;
+}
+
+.footer-column-logistics h4::after {
+  content: "";
+
+  display: block;
+
+  width: 30px;
+  height: 2px;
+
+  margin-top: 8px;
+
+  background: #d4a72c;
+}
+
+
+/* Footer links */
+
+.footer-column-logistics a {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+
+  transition:
+    color 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.footer-column-logistics a:hover {
+  color: #d4a72c;
+
+  padding-left: 5px;
+}
+
+
+/* Footer contact paragraphs */
+
+.footer-column-logistics p {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  margin: 0 0 13px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 0.88rem;
+
+  line-height: 1.6;
+}
+
+.footer-column-logistics p i {
+  color: #d4a72c;
+
+  margin-top: 4px;
+
+  min-width: 14px;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom-logistics {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 22px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* Copyright */
+
+.footer-bottom-logistics p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 0.82rem;
+}
+
+
+/* Bottom links */
+
+.footer-bottom-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+}
+
+.footer-bottom-links a {
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 0.82rem;
+
+  transition: color 0.25s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: #d4a72c;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .page-template .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .nav-links-logistics {
+    gap: 0;
+  }
+
+  .nav-links-logistics > a,
+  .dropdown-title {
+    padding-left: 9px;
+    padding-right: 9px;
+
+    font-size: 0.84rem;
+  }
+
+  .brand-name {
+    font-size: 1.25rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.68rem;
+  }
+
+  .mahega-logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .footer-logistics-content {
+    gap: 40px;
   }
 }
 
-@media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 2rem;
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+  .nav-container {
+    min-height: 75px;
   }
+
+  .nav-links-logistics > a,
+  .dropdown-title {
+    padding: 28px 7px;
+
+    font-size: 0.78rem;
+  }
+
+  .nav-links-logistics > a::after,
+  .dropdown-title::after {
+    bottom: 14px;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .mahega-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer-logistics-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand-logistics {
+    padding-right: 0;
+  }
+
+  .footer-brand-logistics p {
+    max-width: 600px;
+  }
+
+  .footer-links-logistics {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .page-template .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  /* Navigation */
+
+  .top-bar-logistics {
+    position: relative;
+  }
+
+  .nav-container {
+    min-height: auto;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    gap: 15px;
+  }
+
+
+  /* Logo */
+
+  .logo-area-logistics {
+    justify-content: center;
+  }
+
+  .mahega-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.68rem;
+  }
+
+
+  /* Navigation links */
+
+  .nav-links-logistics {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 2px;
+  }
+
+  .nav-links-logistics > a,
+  .dropdown-title {
+    padding: 10px 8px;
+
+    font-size: 0.78rem;
+  }
+
+  .nav-links-logistics > a::after,
+  .dropdown-title::after {
+    display: none;
+  }
+
+
+  /* Dropdown */
+
+  .dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 2px);
+
+    width: 260px;
+
+    max-height: 60vh;
+  }
+
+
+  /* Page header */
+
+  .page-header {
+    padding: 50px 20px;
+  }
+
+  .page-header h1 {
+    font-size: 2.1rem;
+  }
+
+
+  /* Content */
+
+  .page-content {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  /* Grids */
+
   .product-grid,
   .solution-grid,
   .logistics-stats,
   .product-stats,
   .contact-grid {
     grid-template-columns: 1fr;
+
+    gap: 1.4rem;
   }
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    max-width: 300px;
+
+
+  /* CTA */
+
+  .cta-box {
+    padding: 2.7rem 1.5rem;
+  }
+
+  .cta-box h2 {
+    font-size: 1.8rem;
+  }
+
+
+  /* Footer */
+
+  .footer-logistics-content {
+    padding: 50px 0 35px;
+
+    gap: 40px;
+  }
+
+  .footer-links-logistics {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px 25px;
+  }
+
+  .footer-bottom-logistics {
+    flex-direction: column;
+
+    text-align: center;
+
+    align-items: center;
   }
 }
 
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
 @media (max-width: 480px) {
+
+  .page-template .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  /* Logo */
+
+  .mahega-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+
+    letter-spacing: 0.4px;
+  }
+
+  .brand-subtitle {
+    font-size: 0.56rem;
+
+    letter-spacing: 0.25px;
+  }
+
+
+  /* Navigation */
+
+  .nav-links-logistics {
+    gap: 1px;
+  }
+
+  .nav-links-logistics > a,
+  .dropdown-title {
+    padding: 8px 5px;
+
+    font-size: 0.7rem;
+  }
+
+  .dropdown-arrow {
+    font-size: 0.65rem;
+  }
+
+
+  /* Dropdown */
+
+  .dropdown-menu {
+    width: 245px;
+
+    left: 50%;
+  }
+
+  .dropdown-menu a {
+    padding: 10px 16px;
+
+    font-size: 0.82rem;
+  }
+
+
+  /* Page heading */
+
+  .page-header {
+    padding: 40px 15px;
+  }
+
   .page-header h1 {
     font-size: 1.8rem;
   }
-  .cta-box h2 {
-    font-size: 1.75rem;
+
+
+  /* Content headings */
+
+  .page-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .page-content p,
+  .page-content li {
+    font-size: 0.98rem;
+  }
+
+
+  /* Cards */
+
+  .product-card,
+  .solution-card,
+  .stat-box,
+  .contact-card {
+    padding: 1.5rem;
+  }
+
+
+  /* Buttons */
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+
+    max-width: 300px;
+
+    text-align: center;
+  }
+
+
+  /* Footer */
+
+  .footer-links-logistics {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand-logistics h2 {
+    font-size: 1.7rem;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .footer-bottom-logistics p {
+    font-size: 0.76rem;
   }
 }
 
 
+/* =========================================================
+   EXTRA SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .mahega-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size: 0.9rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.5rem;
+  }
+
+  .nav-links-logistics > a,
+  .dropdown-title {
+    padding: 7px 4px;
+
+    font-size: 0.64rem;
+  }
+
+  .dropdown-menu {
+    width: 225px;
+  }
+}

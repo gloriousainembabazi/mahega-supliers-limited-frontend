@@ -1,329 +1,1102 @@
-/* src/style/industrial.css */
-/* ============= INDUSTRIAL MATERIALS PAGE — MATCHES OTHER PAGES ============= */
+/* =========================================================
+   MAHEGA INDUSTRIAL PAGE
+   DARK CHARCOAL + GOLD
+   FULL WIDTH
+   NO SIDEBAR
+   ========================================================= */
 
 .industrial-page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #ffffff;
-  color: #333;
+  --mahega-dark: #111415;
+  --mahega-navy: #1d2021;
+  --mahega-gold: #d5a928;
+  --mahega-gold-light: #e3bd45;
+  --mahega-white: #ffffff;
+  --mahega-text: #333333;
+  --mahega-muted: #6b6b6b;
+  --mahega-light: #f6f6f4;
+  --mahega-border: #e5e2d9;
+
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--mahega-white);
+  color: var(--mahega-text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
-/* ============= HERO SECTION ============= */
+.industrial-page *,
+.industrial-page *::before,
+.industrial-page *::after {
+  box-sizing: border-box;
+}
 
-.hero-section {
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.industrial-hero-section {
   position: relative;
-  height: 60vh;
+
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-              url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf323?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  min-height: 560px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: white;
-  margin-bottom: 3rem;
-}
 
-.hero-content h1 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin: 0 0 1.2rem;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-}
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
-.hero-content p {
-  font-size: 1.4rem;
-  margin: 0;
-  max-width: 800px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-}
+  transition:
+    background-image 1s ease-in-out;
 
-/* ============= PAGE LAYOUT ============= */
-
-.page-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem 4rem;
-}
-
-.content-layout {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-/* ============= SIDEBAR ============= */
-
-.product-sidebar {
-  flex: 0 0 260px;
-  background: #e3f2fd;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  align-self: flex-start;
-  position: sticky;
-  top: 20px;
-}
-
-.product-sidebar h3 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  color: #0d47a1;
-  font-size: 1.3rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 2px solid #90caf9;
-}
-
-.product-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.product-links li {
-  margin-bottom: 0.8rem;
-}
-
-.product-links a {
-  text-decoration: none;
-  color: #0d47a1;
-  font-weight: 500;
-  transition: color 0.2s, padding-left 0.2s;
-  display: block;
-  padding: 0.3rem 0;
-}
-
-.product-links a:hover {
-  color: #01579b;
-  padding-left: 8px;
-}
-
-/* ============= MAIN CONTENT ============= */
-
-.main-content {
-  flex: 1;
-  min-width: 300px;
-}
-
-.main-content h2 {
-  font-size: 2rem;
-  margin: 2.2rem 0 1.4rem;
-  color: #0d47a1;
-}
-
-.main-content p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 1.6rem;
-  color: #263238;
-}
-
-/* ============= STATS ============= */
-
-.product-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
-
-.stat-box {
-  background: #e3f2fd;
-  padding: 1.4rem 1.2rem;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 130px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  flex: 1;
-}
-
-.stat-icon {
-  font-size: 2rem;
-  margin-bottom: 0.6rem;
-}
-
-.stat-box h3 {
-  font-size: 1.8rem;
-  margin: 0;
-  color: #1976d2;
-}
-
-.stat-box p {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* ============= FEATURES & BENEFITS ============= */
-
-.feature-list,
-.benefit-list {
-  padding-left: 1.8rem;
-  font-size: 1.05rem;
-  line-height: 1.9;
-}
-
-.feature-list li,
-.benefit-list li {
-  margin-bottom: 0.7rem;
-  position: relative;
-}
-
-.feature-list li::before,
-.benefit-list li::before {
-  content: "✓";
-  color: #1976d2;
-  font-weight: bold;
-  position: absolute;
-  left: -1.8rem;
-}
-
-/* ============= PRODUCT GRID ============= */
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.8rem;
-  margin: 1.5rem 0 2.5rem;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
+
+/* Dark overlay */
+
+.industrial-hero-section::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 20, 21, 0.82),
+      rgba(17, 20, 21, 0.52)
+    );
+
+  z-index: 1;
 }
 
-.product-image {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
 
-.product-card h3 {
-  padding: 1rem 1rem 0.5rem;
-  margin: 0;
-  font-size: 1.25rem;
-  color: #0d47a1;
-}
+/* Hero content */
 
-.product-card p {
-  padding: 0 1rem 1rem;
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
-}
+.industrial-hero-content {
+  position: relative;
+  z-index: 2;
 
-/* ============= CTA BOX ============= */
+  width: min(1000px, 90%);
 
-.cta-box {
-  background: #e3f2fd;
-  padding: 2rem;
-  border-radius: 12px;
   text-align: center;
-  margin: 2.5rem 0;
-  border-left: 4px solid #1976d2;
-}
-
-.cta-box h2 {
-  margin-top: 0;
-  color: #0d47a1;
-}
-
-.cta-box p {
-  margin-bottom: 1.2rem;
-}
-
-.btn-primary {
-  background: #1976d2;
   color: white;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+
+  padding: 60px 20px;
 }
 
-.btn-primary:hover {
-  background: #0d47a1;
+
+.industrial-hero-label {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  padding: 8px 18px;
+
+  border: 1px solid rgba(213, 169, 40, 0.8);
+
+  color: var(--mahega-gold-light);
+
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 2px;
 }
 
-/* ============= CONTACT FORM ============= */
 
-.contact-form-section h2 {
-  margin-top: 2rem;
+.industrial-hero-content h1 {
+  margin: 0 auto 22px;
+
+  max-width: 900px;
+
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+
+  line-height: 1.08;
+
+  font-weight: 700;
+
+  color: white;
+
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.55);
 }
 
-.contact-form {
+
+.industrial-hero-content p {
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  font-size: 1.2rem;
+
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* Hero changing-image indicators */
+
+.industrial-hero-indicators {
   display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 32px;
+}
+
+
+.hero-indicator {
+  display: block;
+
+  width: 28px;
+  height: 4px;
+
+  border-radius: 4px;
+
+  background: rgba(255, 255, 255, 0.4);
+
+  transition: all 0.3s ease;
+}
+
+
+.hero-indicator.active {
+  width: 48px;
+
+  background: var(--mahega-gold);
+}
+
+
+/* =========================================================
+   MAIN PAGE CONTENT
+   ========================================================= */
+
+.industrial-page-content {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 0 5% 80px;
+}
+
+
+.industrial-main-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+   ========================================================= */
+
+.industrial-main-content section {
+  width: 100%;
+}
+
+
+.section-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: var(--mahega-gold);
+
+  font-size: 0.78rem;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.industrial-section-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+  margin-bottom: 22px;
+}
+
+
+.section-line {
+  display: block;
+
+  width: 5px;
+  min-width: 5px;
+
+  height: 80px;
+
+  margin-top: 5px;
+
+  background: var(--mahega-gold);
+
+  border-radius: 4px;
+}
+
+
+.industrial-section-heading h2,
+.industrial-section-title h2,
+.industrial-feature-content h2,
+.industrial-benefits-content h2 {
+  margin: 0;
+
+  color: var(--mahega-dark);
+
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.industrial-intro-section {
+  padding: 70px 0 20px;
+}
+
+
+.industrial-intro-section > p {
+  max-width: 1000px;
+
+  margin: 0 0 20px 23px;
+
+  color: #555;
+
+  font-size: 1.08rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.industrial-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin: 45px 0 70px;
+}
+
+
+.industrial-stat-box {
+  min-height: 145px;
+
+  display: flex;
+
   flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 25px;
+
+  background: var(--mahega-dark);
+
+  border-bottom: 4px solid var(--mahega-gold);
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: inherit;
+
+.industrial-stat-box:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.industrial-stat-box h3 {
+  margin: 0 0 8px;
+
+  color: var(--mahega-gold-light);
+
+  font-size: 2rem;
+
+  font-weight: 700;
+}
+
+
+.industrial-stat-box p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   KEY FEATURES
+   IMAGE LEFT / CONTENT RIGHT
+   ========================================================= */
+
+.industrial-feature-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 55px;
+
+  align-items: center;
+
+  margin: 20px 0 85px;
+
+  padding: 0;
+}
+
+
+.industrial-feature-image {
+  width: 100%;
+
+  height: 440px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.industrial-feature-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+
+.industrial-feature-image:hover img {
+  transform: scale(1.04);
+}
+
+
+.industrial-feature-content {
+  padding: 10px 0;
+}
+
+
+.industrial-feature-content h2 {
+  margin-bottom: 18px;
+}
+
+
+.industrial-feature-content > p {
+  margin: 0 0 25px;
+
+  color: #666;
+
+  font-size: 1.02rem;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FEATURE LIST
+   ========================================================= */
+
+.industrial-feature-list,
+.industrial-benefit-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+.industrial-feature-list li,
+.industrial-benefit-list li {
+  position: relative;
+
+  margin-bottom: 15px;
+
+  padding-left: 30px;
+
+  color: #444;
+
   font-size: 1rem;
+
+  line-height: 1.65;
 }
 
-.contact-form button {
-  padding: 0.9rem;
-  background: #1976d2;
+
+.industrial-feature-list li::before,
+.industrial-benefit-list li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 9px;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--mahega-gold);
+
+  box-shadow:
+    0 0 0 4px rgba(213, 169, 40, 0.12);
+}
+
+
+/* =========================================================
+   PRODUCTS SECTION
+   ========================================================= */
+
+.industrial-products-section {
+  margin-bottom: 90px;
+}
+
+
+.industrial-section-title {
+  margin-bottom: 35px;
+
+  text-align: left;
+}
+
+
+.industrial-section-title h2 {
+  margin-bottom: 12px;
+}
+
+
+.industrial-section-title p {
+  max-width: 800px;
+
+  margin: 0;
+
+  color: #666;
+
+  font-size: 1.02rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   PRODUCT GRID
+   ========================================================= */
+
+.industrial-product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+
+.industrial-product-card {
+  overflow: hidden;
+
+  background: white;
+
+  border: 1px solid var(--mahega-border);
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.industrial-product-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.13);
+}
+
+
+.industrial-product-card img {
+  display: block;
+
+  width: 100%;
+
+  height: 210px;
+
+  object-fit: cover;
+}
+
+
+.product-card-content {
+  padding: 20px;
+}
+
+
+.product-card-content h3 {
+  margin: 0 0 9px;
+
+  color: var(--mahega-dark);
+
+  font-size: 1.15rem;
+
+  line-height: 1.3;
+}
+
+
+.product-card-content p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 0.93rem;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   WHY CHOOSE MAHEGA
+   CONTENT LEFT / IMAGE RIGHT
+   ========================================================= */
+
+.industrial-benefits-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 55px;
+
+  align-items: center;
+
+  margin-bottom: 80px;
+
+  padding: 55px;
+
+  background: var(--mahega-light);
+
+  border-top: 1px solid var(--mahega-border);
+
+  border-bottom: 1px solid var(--mahega-border);
+}
+
+
+.industrial-benefits-content {
+  width: 100%;
+}
+
+
+.industrial-benefits-content h2 {
+  margin-bottom: 18px;
+}
+
+
+.industrial-benefits-content > p {
+  margin: 0 0 25px;
+
+  color: #666;
+
+  font-size: 1.02rem;
+
+  line-height: 1.75;
+}
+
+
+.industrial-benefits-image {
+  width: 100%;
+
+  height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+}
+
+
+.industrial-benefits-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+
+.industrial-benefits-image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.industrial-cta {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 35px;
+
+  margin-bottom: 80px;
+
+  padding: 45px 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--mahega-dark),
+      var(--mahega-navy)
+    );
+
+  border-left: 5px solid var(--mahega-gold);
+}
+
+
+.industrial-cta h2 {
+  margin: 0 0 12px;
+
   color: white;
+
+  font-size: 2rem;
+}
+
+
+.industrial-cta p {
+  max-width: 750px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.industrial-btn {
+  flex-shrink: 0;
+
+  padding: 13px 28px;
+
+  background: var(--mahega-gold);
+
+  color: var(--mahega-dark);
+
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+
+  border-radius: 3px;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
   cursor: pointer;
-  transition: background 0.3s;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
-.contact-form button:hover:not(:disabled) {
-  background: #0d47a1;
+
+.industrial-btn:hover {
+  background: var(--mahega-gold-light);
+
+  transform: translateY(-2px);
 }
 
-.contact-form button:disabled {
-  background: #90caf9;
+
+.industrial-btn:disabled {
+  opacity: 0.6;
+
   cursor: not-allowed;
+
+  transform: none;
 }
 
-/* ============= RESPONSIVE ============= */
 
-@media (max-width: 900px) {
-  .content-layout {
-    flex-direction: column;
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.industrial-contact-section {
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+
+.industrial-contact-section
+.industrial-section-title {
+  text-align: center;
+
+  margin-bottom: 35px;
+}
+
+
+.industrial-contact-section
+.industrial-section-title p {
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.industrial-contact-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+.industrial-contact-form input,
+.industrial-contact-form textarea {
+  width: 100%;
+
+  padding: 15px 17px;
+
+  background: white;
+
+  border: 1px solid #d8d8d8;
+
+  border-radius: 3px;
+
+  outline: none;
+
+  color: #333;
+
+  font-family: inherit;
+
+  font-size: 1rem;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.industrial-contact-form input:focus,
+.industrial-contact-form textarea:focus {
+  border-color: var(--mahega-gold);
+
+  box-shadow:
+    0 0 0 3px rgba(213, 169, 40, 0.12);
+}
+
+
+.industrial-contact-form textarea {
+  resize: vertical;
+
+  min-height: 150px;
+}
+
+
+.industrial-contact-form .industrial-btn {
+  align-self: flex-start;
+
+  min-width: 160px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .industrial-product-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
   }
 
-  .product-sidebar {
-    position: static;
-    flex: none;
+  .industrial-feature-section,
+  .industrial-benefits-section {
+    gap: 35px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .industrial-hero-section {
+    min-height: 500px;
+  }
+
+
+  .industrial-page-content {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+
+  .industrial-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  .industrial-feature-section,
+  .industrial-benefits-section {
+    grid-template-columns: 1fr;
+  }
+
+
+  .industrial-feature-image,
+  .industrial-benefits-image {
+    height: 360px;
+  }
+
+
+  .industrial-benefits-section {
+    padding: 35px;
+  }
+
+
+  .industrial-product-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .industrial-cta {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .industrial-hero-section {
+    min-height: 470px;
+  }
+
+
+  .industrial-hero-content {
+    width: 94%;
+
+    padding: 40px 10px;
+  }
+
+
+  .industrial-hero-label {
+    font-size: 0.68rem;
+
+    letter-spacing: 1.4px;
+
+    padding: 7px 12px;
+  }
+
+
+  .industrial-hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+
+  .industrial-hero-content p {
+    font-size: 1rem;
+
+    line-height: 1.65;
+  }
+
+
+  .industrial-page-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+  }
+
+
+  .industrial-intro-section {
+    padding-top: 45px;
+  }
+
+
+  .industrial-section-heading {
+    gap: 12px;
+  }
+
+
+  .section-line {
+    width: 4px;
+    min-width: 4px;
+
+    height: 65px;
+  }
+
+
+  .industrial-intro-section > p {
+    margin-left: 16px;
+
+    font-size: 0.98rem;
+  }
+
+
+  .industrial-stats {
+    margin-top: 30px;
+
+    margin-bottom: 50px;
+
+    gap: 14px;
+  }
+
+
+  .industrial-stat-box {
+    min-height: 125px;
+  }
+
+
+  .industrial-feature-section {
+    margin-bottom: 60px;
+
+    gap: 28px;
+  }
+
+
+  .industrial-feature-image,
+  .industrial-benefits-image {
+    height: 280px;
+  }
+
+
+  .industrial-product-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  .industrial-product-card img {
+    height: 220px;
+  }
+
+
+  .industrial-benefits-section {
+    margin-left: -20px;
+    margin-right: -20px;
+
+    padding: 35px 20px;
+
+    gap: 30px;
+  }
+
+
+  .industrial-cta {
+    margin-bottom: 55px;
+
+    padding: 32px 25px;
+  }
+
+
+  .industrial-cta h2 {
+    font-size: 1.7rem;
+  }
+
+
+  .industrial-contact-section
+  .industrial-section-title {
+    text-align: left;
+  }
+
+
+  .industrial-contact-form .industrial-btn {
     width: 100%;
   }
 
-  .hero-content h1 {
-    font-size: 2.4rem;
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .industrial-hero-content h1 {
+    font-size: 1.9rem;
   }
 
-  .hero-content p {
-    font-size: 1.2rem;
+
+  .industrial-hero-content p {
+    font-size: 0.92rem;
   }
 
-  .product-stats {
-    flex-direction: column;
+
+  .industrial-page-content {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
-  .stat-box {
-    min-width: auto;
+
+  .industrial-benefits-section {
+    margin-left: -15px;
+    margin-right: -15px;
+
+    padding-left: 15px;
+    padding-right: 15px;
   }
+
 }

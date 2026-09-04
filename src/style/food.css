@@ -1,329 +1,1461 @@
-/* src/style/food-beverages.css */
-/* ============= FOOD & BEVERAGES PAGE — MATCHES Custom.js STYLE ============= */
+/* =========================================================
+   MAHEGA FOOD & BEVERAGES PAGE
+   SAME STYLE AS COMPUTERS / CLEANING / EXPORT
+   DARK CHARCOAL + GOLD
+   COMPACT SPACING
+   FULL WIDTH - NO SIDEBAR
+   RESPONSIVE
+   ========================================================= */
 
 .food-beverages-page {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #ffffff;
-  color: #333;
+  --mahega-dark: #111415;
+  --mahega-navy: #1d2021;
+  --mahega-accent: #d5a928;
+  --mahega-accent-light: #e3bd45;
+
+  --mahega-bg: #f5f5f3;
+  --mahega-white: #ffffff;
+  --mahega-text: #272a2b;
+  --mahega-muted: #686d6e;
+  --mahega-border: #e2e2df;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  background: var(--mahega-bg);
+  color: var(--mahega-text);
+
+  min-height: 100vh;
+  width: 100%;
+
+  overflow-x: hidden;
 }
 
-/* ============= HERO SECTION ============= */
 
-.hero-section {
+/* =========================================================
+   REMOVE SIDEBAR / OLD LAYOUT
+   ========================================================= */
+
+.food-beverages-page .content-layout,
+.food-beverages-page .product-sidebar,
+.food-beverages-page .product-links,
+.food-beverages-page aside {
+  display: none !important;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.food-beverages-page .food-hero {
   position: relative;
-  height: 60vh;
+
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-              url('https://images.unsplash.com/photo-1555939367-6f5e9c20b6e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  min-height: 500px;
+  height: 500px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: white;
-  margin-bottom: 3rem;
-}
 
-.hero-content h1 {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin: 0 0 1.2rem;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-}
-
-.hero-content p {
-  font-size: 1.4rem;
-  margin: 0;
-  max-width: 800px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-}
-
-/* ============= PAGE LAYOUT ============= */
-
-.page-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem 4rem;
-}
-
-.content-layout {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-/* ============= SIDEBAR ============= */
-
-.product-sidebar {
-  flex: 0 0 260px;
-  background: #fff8e1;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  align-self: flex-start;
-  position: sticky;
-  top: 20px;
-}
-
-.product-sidebar h3 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  color: #e65100;
-  font-size: 1.3rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 2px solid #ffcc80;
-}
-
-.product-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.product-links li {
-  margin-bottom: 0.8rem;
-}
-
-.product-links a {
-  text-decoration: none;
-  color: #e65100;
-  font-weight: 500;
-  transition: color 0.2s, padding-left 0.2s;
-  display: block;
-  padding: 0.3rem 0;
-}
-
-.product-links a:hover {
-  color: #bf360c;
-  padding-left: 8px;
-}
-
-/* ============= MAIN CONTENT ============= */
-
-.main-content {
-  flex: 1;
-  min-width: 300px;
-}
-
-.main-content h2 {
-  font-size: 2rem;
-  margin: 2.2rem 0 1.4rem;
-  color: #e65100;
-}
-
-.main-content p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 1.6rem;
-  color: #263238;
-}
-
-/* ============= STATS ============= */
-
-.product-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
-
-.stat-box {
-  background: #fff3e0;
-  padding: 1.4rem 1.2rem;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 130px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  flex: 1;
-}
-
-.stat-icon {
-  font-size: 2rem;
-  margin-bottom: 0.6rem;
-}
-
-.stat-box h3 {
-  font-size: 1.8rem;
-  margin: 0;
-  color: #f57c00;
-}
-
-.stat-box p {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* ============= FEATURES & BENEFITS ============= */
-
-.feature-list,
-.benefit-list {
-  padding-left: 1.8rem;
-  font-size: 1.05rem;
-  line-height: 1.9;
-}
-
-.feature-list li,
-.benefit-list li {
-  margin-bottom: 0.7rem;
-  position: relative;
-}
-
-.feature-list li::before,
-.benefit-list li::before {
-  content: "✓";
-  color: #f57c00;
-  font-weight: bold;
-  position: absolute;
-  left: -1.8rem;
-}
-
-/* ============= PRODUCT GRID ============= */
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.8rem;
-  margin: 1.5rem 0 2.5rem;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+
+  background: var(--mahega-dark);
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-}
 
-.product-image {
+/* =========================================================
+   HERO SLIDES
+   ========================================================= */
+
+.food-beverages-page .food-hero-slide {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 100%;
+
+  opacity: 0;
+
+  animation: foodHeroSlide 15s infinite;
+
+  overflow: hidden;
+}
+
+
+.food-beverages-page .food-hero-slide img {
+  width: 100%;
+  height: 100%;
+
   display: block;
+
+  object-fit: cover;
+  object-position: center center;
 }
 
-.product-card h3 {
-  padding: 1rem 1rem 0.5rem;
+
+/* =========================================================
+   HERO SLIDE TIMING
+   ========================================================= */
+
+.food-beverages-page .food-slide-one {
+  animation-delay: 0s;
+}
+
+.food-beverages-page .food-slide-two {
+  animation-delay: 5s;
+}
+
+.food-beverages-page .food-slide-three {
+  animation-delay: 10s;
+}
+
+
+/* =========================================================
+   HERO ANIMATION
+   ========================================================= */
+
+@keyframes foodHeroSlide {
+
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   HERO DARK OVERLAY
+   ========================================================= */
+
+.food-beverages-page .food-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 20, 21, 0.82),
+      rgba(17, 20, 21, 0.62),
+      rgba(17, 20, 21, 0.82)
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.food-beverages-page .food-hero-content {
+  position: relative;
+
+  z-index: 3;
+
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+
+  padding: 55px 25px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   GOLD LINE
+   ========================================================= */
+
+.food-beverages-page .hero-gold-line {
+  width: 55px;
+  height: 3px;
+
+  margin: 0 auto 15px;
+
+  background: var(--mahega-accent);
+
+  border-radius: 0;
+}
+
+
+/* =========================================================
+   HERO HEADING
+   ========================================================= */
+
+.food-beverages-page .food-hero-content h1 {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto 15px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+
+  line-height: 1.08;
+
+  font-weight: 800;
+
+  text-align: center;
+
+  text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.food-beverages-page .food-hero-content p {
+  width: 100%;
+  max-width: 720px;
+
+  margin: 0 auto 22px;
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 1rem;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.food-beverages-page .hero-buttons {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  margin-top: 3px;
+}
+
+
+.food-beverages-page .hero-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 23px;
+
+  background: var(--mahega-accent);
+
+  border: 1px solid var(--mahega-accent);
+
+  border-radius: 3px;
+
+  color: var(--mahega-dark);
+
+  text-decoration: none;
+
+  font-size: 0.88rem;
+
+  font-weight: 700;
+
+  transition: all 0.3s ease;
+}
+
+
+.food-beverages-page .hero-btn:hover {
+  background: var(--mahega-accent-light);
+
+  border-color: var(--mahega-accent-light);
+
+  color: var(--mahega-dark);
+
+  transform: translateY(-2px);
+}
+
+
+.food-beverages-page .hero-btn-gold {
+  background: var(--mahega-accent);
+
+  border-color: var(--mahega-accent);
+
+  color: var(--mahega-dark);
+}
+
+
+.food-beverages-page .hero-btn-outline {
+  background: transparent;
+
+  border-color: rgba(255, 255, 255, 0.8);
+
+  color: #ffffff;
+}
+
+
+.food-beverages-page .hero-btn-outline:hover {
+  background: #ffffff;
+
+  border-color: #ffffff;
+
+  color: var(--mahega-dark);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.food-beverages-page .food-main-content {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 5px 25px 45px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SECTION SPACING
+   ========================================================= */
+
+.food-beverages-page .section-spacing {
+  margin-top: 45px;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.food-beverages-page .food-intro {
+  max-width: 850px;
+
+  margin: 38px auto 22px;
+
+  text-align: center;
+}
+
+
+.food-beverages-page .food-intro .section-heading {
+  margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.food-beverages-page .section-heading {
+  text-align: center;
+}
+
+
+.food-beverages-page .section-heading > span,
+.food-beverages-page .section-label {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  color: var(--mahega-accent);
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+
+  text-transform: uppercase;
+
+  text-align: center;
+}
+
+
+.food-beverages-page .section-heading h2,
+.food-beverages-page .info-content h2,
+.food-beverages-page .cta-content h2 {
+  margin: 0 0 10px;
+
+  color: var(--mahega-dark);
+
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  text-align: center;
+}
+
+
+.food-beverages-page .food-intro > p {
+  max-width: 750px;
+
+  margin: 0 auto;
+
+  color: var(--mahega-muted);
+
+  font-size: 0.92rem;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   GOLD HEADING LINE
+   ========================================================= */
+
+.food-beverages-page .heading-line {
+  width: 55px;
+
+  height: 3px;
+
+  margin: 0 auto 15px;
+
+  background: var(--mahega-accent);
+
+  border-radius: 0;
+}
+
+
+.food-beverages-page .heading-line-left {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.food-beverages-page .product-stats {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  margin: 20px 0 38px;
+
+  background: var(--mahega-white);
+
+  border: 1px solid var(--mahega-border);
+
+  border-radius: 5px;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================================
+   STAT BOX
+   ========================================================= */
+
+.food-beverages-page .stat-box {
+  padding: 20px 15px;
+
+  text-align: center;
+
+  border-right: 1px solid var(--mahega-border);
+}
+
+
+.food-beverages-page .stat-box:last-child {
+  border-right: none;
+}
+
+
+/* =========================================================
+   REMOVE ALL STAT ICONS / YELLOW CIRCLES / EMOJIS
+   ========================================================= */
+
+.food-beverages-page .stat-icon {
+  display: none !important;
+}
+
+
+/* =========================================================
+   STAT TEXT
+   ========================================================= */
+
+.food-beverages-page .stat-box h3 {
+  margin: 0 0 3px;
+
+  color: var(--mahega-text);
+
+  font-size: 0.88rem;
+
+  text-align: center;
+}
+
+
+.food-beverages-page .stat-box p {
   margin: 0;
-  font-size: 1.25rem;
-  color: #e65100;
+
+  color: var(--mahega-muted);
+
+  font-size: 0.76rem;
+
+  text-align: center;
 }
 
-.product-card p {
-  padding: 0 1rem 1rem;
-  font-size: 0.95rem;
-  color: #555;
+
+/* =========================================================
+   KEY FEATURES / WHY CHOOSE
+   IMAGE LEFT + CONTENT RIGHT
+   ========================================================= */
+
+.food-beverages-page .info-section {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0;
+
+  margin: 50px 0;
+
+  padding: 0;
+
+  background: #ffffff;
+
+  border: 1px solid var(--mahega-border);
+
+  border-radius: 5px;
+
+  overflow: hidden;
+
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   IMAGE LEFT
+   ========================================================= */
+
+.food-beverages-page .info-image {
+  order: 1;
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 360px;
+
+  overflow: hidden;
+
+  position: relative;
+
+  border-radius: 0;
+
+  box-shadow: none;
+
+  background: var(--mahega-dark);
+}
+
+
+/* =========================================================
+   REMOVE OLD IMAGE DECORATIONS
+   ========================================================= */
+
+.food-beverages-page .info-image::before,
+.food-beverages-page .info-image::after {
+  display: none !important;
+
+  content: none !important;
+}
+
+
+/* =========================================================
+   INFO IMAGE
+   ========================================================= */
+
+.food-beverages-page .info-image img {
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 360px;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+
+.food-beverages-page .info-image:hover img {
+  transform: scale(1.035);
+}
+
+
+/* =========================================================
+   INFO CONTENT RIGHT
+   ========================================================= */
+
+.food-beverages-page .info-content {
+  order: 2;
+
+  padding: 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  text-align: left;
+
+  background: #ffffff;
+}
+
+
+.food-beverages-page .info-content .section-label {
+  text-align: left;
+}
+
+
+.food-beverages-page .info-content h2 {
+  margin: 0 0 11px;
+
+  color: var(--mahega-dark);
+
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+
+  line-height: 1.2;
+
+  font-weight: 750;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   SECTION DESCRIPTION
+   ========================================================= */
+
+.food-beverages-page .section-description {
+  margin: 0 0 13px;
+
+  color: var(--mahega-muted);
+
+  font-size: 0.91rem;
+
+  line-height: 1.6;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   FEATURE LIST
+   NO EMOJIS
+   NO ICONS
+   GOLD DOT ONLY
+   ========================================================= */
+
+.food-beverages-page .feature-list,
+.food-beverages-page .benefit-list {
+  list-style: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  text-align: left;
+}
+
+
+.food-beverages-page .feature-list li,
+.food-beverages-page .benefit-list li {
+  position: relative;
+
+  padding: 9px 0 9px 20px;
+
+  margin: 0;
+
+  border-bottom: 1px solid var(--mahega-border);
+
+  color: #444849;
+
+  font-size: 0.88rem;
+
+  line-height: 1.45;
+
+  text-align: left;
+}
+
+
+.food-beverages-page .feature-list li:last-child,
+.food-beverages-page .benefit-list li:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   GOLD DOT
+   ========================================================= */
+
+.food-beverages-page .feature-list li::before,
+.food-beverages-page .benefit-list li::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 15px;
+
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--mahega-accent);
+}
+
+
+/* =========================================================
+   FEATURE TITLE
+   ========================================================= */
+
+.food-beverages-page .feature-list li strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: var(--mahega-text);
+
+  font-size: 0.88rem;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   FEATURE DESCRIPTION
+   ========================================================= */
+
+.food-beverages-page .feature-list li span {
+  display: block;
+
+  color: var(--mahega-muted);
+
+  font-size: 0.82rem;
+
   line-height: 1.5;
 }
 
-/* ============= CTA BOX ============= */
 
-.cta-box {
-  background: #fff8e1;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  margin: 2.5rem 0;
-  border-left: 4px solid #f57c00;
+/* =========================================================
+   WHY CHOOSE MAHEGA
+   IMAGE ALWAYS LEFT
+   CONTENT ALWAYS RIGHT
+   ========================================================= */
+
+.food-beverages-page .info-section.reverse-mobile .info-image {
+  order: 1;
 }
 
-.cta-box h2 {
-  margin-top: 0;
-  color: #e65100;
+
+.food-beverages-page .info-section.reverse-mobile .info-content {
+  order: 2;
 }
 
-.cta-box p {
-  margin-bottom: 1.2rem;
+
+/* =========================================================
+   PRODUCTS SECTION
+   ========================================================= */
+
+.food-beverages-page .products-section {
+  margin: 45px 0;
 }
 
-.btn-primary {
-  background: #f57c00;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+
+.food-beverages-page .products-section .section-heading {
+  margin-bottom: 20px;
 }
 
-.btn-primary:hover {
-  background: #e65100;
+
+/* =========================================================
+   PRODUCT GRID
+   ========================================================= */
+
+.food-beverages-page .product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
 }
 
-/* ============= CONTACT FORM ============= */
 
-.contact-form-section h2 {
-  margin-top: 2rem;
-}
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
 
-.contact-form {
+.food-beverages-page .product-card {
   display: flex;
+
   flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--mahega-border);
+
+  border-radius: 5px;
+
+  overflow: hidden;
+
+  padding: 0;
+
+  box-shadow: none;
+
+  text-align: center;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 1rem;
+
+.food-beverages-page .product-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.08);
+
+  border-color: #d9d9d5;
 }
 
-.contact-form button {
-  padding: 0.9rem;
-  background: #f57c00;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.food-beverages-page .product-image {
+  width: 100%;
+
+  height: 170px;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+
+/* =========================================================
+   PRODUCT TITLE
+   ========================================================= */
+
+.food-beverages-page .product-card h3 {
+  margin: 15px 15px 6px;
+
+  color: var(--mahega-dark);
+
+  font-size: 0.98rem;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PRODUCT DESCRIPTION
+   ========================================================= */
+
+.food-beverages-page .product-card p {
+  margin: 0;
+
+  padding: 0 15px 15px;
+
+  color: var(--mahega-muted);
+
+  font-size: 0.82rem;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.food-beverages-page .cta-box {
+  margin: 50px 0 38px;
+
+  padding: 45px 25px;
+
+  text-align: center;
+
+  background: var(--mahega-dark);
+
+  border-radius: 5px;
+
+  color: #ffffff;
+
+  box-shadow: none;
+}
+
+
+.food-beverages-page .cta-content {
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+
+.food-beverages-page .cta-content .section-label {
+  color: var(--mahega-accent);
+
+  text-align: center;
+}
+
+
+.food-beverages-page .cta-content h2 {
+  margin: 0 0 9px;
+
+  color: #ffffff;
+
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+
+  text-align: center;
+}
+
+
+.food-beverages-page .cta-content p {
+  max-width: 650px;
+
+  margin: 0 auto 20px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 0.9rem;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.food-beverages-page .btn-primary {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 190px;
+
+  padding: 10px 22px;
+
+  border: 1px solid var(--mahega-accent);
+
+  border-radius: 3px;
+
+  background: var(--mahega-accent);
+
+  color: var(--mahega-dark);
+
   cursor: pointer;
-  transition: background 0.3s;
+
+  font-family: inherit;
+
+  font-size: 0.86rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.3s ease;
 }
 
-.contact-form button:hover:not(:disabled) {
-  background: #e65100;
+
+.food-beverages-page .btn-primary:hover {
+  background: transparent;
+
+  color: var(--mahega-accent);
 }
 
-.contact-form button:disabled {
-  background: #ffcc80;
+
+.food-beverages-page .btn-primary:disabled {
+  opacity: 0.6;
+
   cursor: not-allowed;
 }
 
-/* ============= RESPONSIVE ============= */
 
-@media (max-width: 900px) {
-  .content-layout {
-    flex-direction: column;
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.food-beverages-page .contact-form-section {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 35px 30px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--mahega-border);
+
+  border-radius: 5px;
+
+  text-align: center;
+}
+
+
+.food-beverages-page .contact-form-section .section-heading {
+  margin-bottom: 20px;
+}
+
+
+.food-beverages-page .contact-form-section h2 {
+  margin: 0 0 7px;
+
+  color: var(--mahega-dark);
+
+  font-size: 1.9rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+
+.food-beverages-page .contact-form {
+  display: grid;
+
+  gap: 11px;
+
+  width: 100%;
+
+  max-width: 620px;
+
+  margin: 0 auto;
+}
+
+
+.food-beverages-page .contact-form input,
+.food-beverages-page .contact-form textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 11px 13px;
+
+  border: 1px solid #d8dcd8;
+
+  border-radius: 3px;
+
+  background: #fafafa;
+
+  color: #222;
+
+  font-family: inherit;
+
+  font-size: 0.88rem;
+
+  outline: none;
+}
+
+
+.food-beverages-page .contact-form input:focus,
+.food-beverages-page .contact-form textarea:focus {
+  border-color: var(--mahega-accent);
+
+  background: #ffffff;
+}
+
+
+.food-beverages-page .contact-form textarea {
+  min-height: 115px;
+
+  resize: vertical;
+}
+
+
+.food-beverages-page .contact-form .btn-primary {
+  justify-self: center;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .food-beverages-page .product-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .product-sidebar {
-    position: static;
-    flex: none;
+
+  .food-beverages-page .info-section {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 0;
+  }
+
+
+  .food-beverages-page .info-image {
+    min-height: 330px;
+  }
+
+
+  .food-beverages-page .info-image img {
+    min-height: 330px;
+  }
+
+
+  .food-beverages-page .info-content {
+    padding: 28px;
+  }
+
+
+  .food-beverages-page .product-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .food-beverages-page .stat-box:nth-child(2) {
+    border-right: none;
+  }
+
+
+  .food-beverages-page .stat-box:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--mahega-border);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .food-beverages-page .food-hero {
+    min-height: 470px;
+
+    height: 470px;
+  }
+
+
+  .food-beverages-page .food-hero-content {
+    padding: 45px 18px;
+  }
+
+
+  .food-beverages-page .food-hero-content h1 {
+    font-size: 2.45rem;
+
+    line-height: 1.1;
+  }
+
+
+  .food-beverages-page .food-hero-content p {
+    font-size: 0.92rem;
+
+    line-height: 1.55;
+  }
+
+
+  .food-beverages-page .food-main-content {
+    padding: 5px 17px 35px;
+  }
+
+
+  .food-beverages-page .food-intro {
+    margin: 32px auto 18px;
+  }
+
+
+  /* =======================================================
+     STATS
+     ======================================================= */
+
+  .food-beverages-page .product-stats {
+    grid-template-columns: 1fr;
+
+    margin: 18px 0 32px;
+  }
+
+
+  .food-beverages-page .stat-box {
+    padding: 18px;
+
+    border-right: none;
+
+    border-bottom: 1px solid var(--mahega-border);
+  }
+
+
+  .food-beverages-page .stat-box:last-child {
+    border-bottom: none;
+  }
+
+
+  /* =======================================================
+     KEY FEATURES / WHY CHOOSE
+     ======================================================= */
+
+  .food-beverages-page .info-section {
+    grid-template-columns: 1fr;
+
+    margin: 42px 0;
+
+    gap: 0;
+  }
+
+
+  .food-beverages-page .info-section .info-image,
+  .food-beverages-page .info-section.reverse-mobile .info-image {
+    order: 1;
+
     width: 100%;
+
+    height: 280px;
+
+    min-height: 280px;
   }
 
-  .hero-content h1 {
-    font-size: 2.4rem;
+
+  .food-beverages-page .info-section .info-image img,
+  .food-beverages-page .info-section.reverse-mobile .info-image img {
+    width: 100%;
+
+    height: 280px;
+
+    min-height: 280px;
   }
 
-  .hero-content p {
-    font-size: 1.2rem;
+
+  .food-beverages-page .info-section .info-content,
+  .food-beverages-page .info-section.reverse-mobile .info-content {
+    order: 2;
+
+    padding: 25px 20px;
+
+    min-height: auto;
+
+    text-align: center;
   }
 
-  .product-stats {
+
+  .food-beverages-page .info-section .section-label {
+    text-align: center;
+  }
+
+
+  .food-beverages-page .info-section h2 {
+    text-align: center;
+  }
+
+
+  .food-beverages-page .info-section .heading-line {
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+
+  .food-beverages-page .info-section .section-description {
+    text-align: center;
+  }
+
+
+  .food-beverages-page .info-section .feature-list,
+  .food-beverages-page .info-section .benefit-list {
+    text-align: left;
+  }
+
+
+  /* =======================================================
+     PRODUCTS
+     ======================================================= */
+
+  .food-beverages-page .products-section {
+    margin: 40px 0;
+  }
+
+
+  .food-beverages-page .product-grid {
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+
+  .food-beverages-page .product-image {
+    height: 200px;
+  }
+
+
+  /* =======================================================
+     CTA
+     ======================================================= */
+
+  .food-beverages-page .cta-box {
+    margin: 42px 0 32px;
+
+    padding: 38px 18px;
+  }
+
+
+  /* =======================================================
+     CONTACT
+     ======================================================= */
+
+  .food-beverages-page .contact-form-section {
+    padding: 32px 18px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .food-beverages-page .food-hero {
+    min-height: 450px;
+
+    height: 450px;
+  }
+
+
+  .food-beverages-page .food-hero-content {
+    padding: 40px 15px;
+  }
+
+
+  .food-beverages-page .food-hero-content h1 {
+    font-size: 2.05rem;
+  }
+
+
+  .food-beverages-page .food-hero-content p {
+    font-size: 0.88rem;
+  }
+
+
+  .food-beverages-page .hero-buttons {
+    width: 100%;
+
     flex-direction: column;
+
+    gap: 8px;
   }
 
-  .stat-box {
-    min-width: auto;
+
+  .food-beverages-page .hero-btn {
+    width: 100%;
+
+    max-width: 280px;
+
+    box-sizing: border-box;
+  }
+
+
+  /* =======================================================
+     GENERAL IMAGE
+     ======================================================= */
+
+  .food-beverages-page .info-section .info-image,
+  .food-beverages-page .info-section.reverse-mobile .info-image {
+    height: 230px;
+
+    min-height: 230px;
+  }
+
+
+  .food-beverages-page .info-section .info-image img,
+  .food-beverages-page .info-section.reverse-mobile .info-image img {
+    height: 230px;
+
+    min-height: 230px;
+  }
+
+
+  /* =======================================================
+     PRODUCT IMAGE
+     ======================================================= */
+
+  .food-beverages-page .product-image {
+    height: 190px;
+  }
+
+
+  /* =======================================================
+     CONTACT
+     ======================================================= */
+
+  .food-beverages-page .contact-form-section h2 {
+    font-size: 1.6rem;
+  }
+
+
+  /* =======================================================
+     BUTTON
+     ======================================================= */
+
+  .food-beverages-page .btn-primary {
+    width: 100%;
+
+    max-width: 280px;
   }
 }

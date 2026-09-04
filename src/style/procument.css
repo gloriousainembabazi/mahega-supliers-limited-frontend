@@ -1,567 +1,92 @@
-/* src/pages/Services/Procurement.css */
-
-.procurement-container {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
-}
-
-/* Sidebar Styles - Exact match with Custom Orders */
-.services-sidebar {
-  width: 280px;
-  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-  color: white;
-  padding: 2rem 1.5rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-}
-
-.services-sidebar h3 {
-  margin: 0 0 1.5rem 0;
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-.services-nav {
-  margin-bottom: 2rem;
-}
-
-.services-nav a {
-  display: flex;
-  align-items: center;
-  padding: 0.8rem;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
-  font-weight: 500;
-}
-
-.services-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  transform: translateX(4px);
-}
-
-.services-nav a.active {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: white;
-  font-weight: 600;
-}
-
-.service-icon {
-  margin-right: 0.75rem;
-  font-size: 1.2rem;
-}
-
-.sidebar-cta {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 12px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-}
-
-.sidebar-cta h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
-}
-
-.sidebar-cta p {
-  margin: 0 0 1rem 0;
-  font-size: 0.9rem;
-  opacity: 0.9;
-}
-
-.cta-button {
-  background-color: #f59e0b;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.cta-button:hover {
-  background-color: #d97706;
-  transform: translateY(-2px);
-}
-
-/* Main Content Styles */
-.procurement-main {
-  flex: 1;
-  padding: 0;
-  max-width: calc(100% - 280px);
-}
-
-.hero-section {
-  background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.hero-section h1 {
-  margin: 0 0 1rem 0;
-  font-size: 3rem;
-  font-weight: 800;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-subtitle {
-  font-size: 1.3rem;
-  opacity: 0.9;
-  font-weight: 300;
-  margin: 0;
-}
-
-.intro-section,
-.process-section,
-.industries-section,
-.benefits-section,
-.sourcing-section,
-.contact-section {
-  padding: 3rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.intro-section h2,
-.process-section h2,
-.industries-section h2,
-.benefits-section h2,
-.sourcing-section h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.intro-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #475569;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Process Section - Matching Custom Orders Grid */
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.process-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border-left: 4px solid #dc2626;
-  position: relative;
-}
-
-.process-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.step-number {
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  background: linear-gradient(135deg, #dc2626, #ef4444);
-  color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.step-icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.process-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.process-card p {
-  margin: 0;
-  color: #64748b;
-  line-height: 1.6;
-}
-
-/* Industries Section - Matching Order Types Grid */
-.industries-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.industry-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
-}
-
-.industry-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  border-color: #dc2626;
-}
-
-.industry-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.industry-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.industry-card p {
-  margin: 0;
-  color: #64748b;
-  line-height: 1.6;
-}
-
-/* Benefits Section - Matching Benefits Grid */
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.benefit-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
-}
-
-.benefit-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-}
-
-.benefit-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.benefit-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.benefit-card p {
-  margin: 0;
-  color: #64748b;
-  line-height: 1.6;
-}
-
-/* Sourcing Section - Matching Examples Grid */
-.sourcing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.sourcing-card {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: 2rem;
-  border-radius: 12px;
-  border-left: 4px solid #dc2626;
-  transition: all 0.3s ease;
-}
-
-.sourcing-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.1);
-}
-
-.sourcing-card h3 {
-  margin: 0 0 1rem 0;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #dc2626;
-}
-
-.sourcing-card p {
-  margin: 0 0 0.5rem 0;
-  color: #475569;
-  line-height: 1.6;
-}
-
-/* Contact Section - Exact match with Custom Orders */
-.contact-section {
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-  padding: 4rem 2rem;
-}
-
-.contact-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: start;
-}
-
-.contact-info h2 {
-  margin: 0 0 1.5rem 0;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.contact-info h3 {
-  margin: 2rem 0 1rem 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.contact-info p {
-  font-size: 1.1rem;
-  color: #475569;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-.quote-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-
-.quote-benefit {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  color: #374151;
-}
-
-.benefit-icon {
-  color: #10b981;
-  margin-right: 0.75rem;
-  font-weight: bold;
-}
-
-.contact-methods {
-  background: rgba(255, 255, 255, 0.7);
-  padding: 1.5rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.75rem;
-  font-weight: 500;
-  color: #374151;
-}
-
-.contact-icon {
-  margin-right: 0.75rem;
-  font-size: 1.1rem;
-}
-
-/* Form Styles - Exact match with Custom Orders */
-.contact-form {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e2e8f0;
-}
-
-.form-title {
-  margin: 0 0 2rem 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1e293b;
-  text-align: center;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #374151;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background-color: white;
-  font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #dc2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.submit-button {
-  background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.submit-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.3);
-}
-
-.submit-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.submit-button:disabled:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.form-note {
-  text-align: center;
-  color: #64748b;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-/* Responsive Design - Matching Custom Orders */
-@media (max-width: 1024px) {
-  .procurement-container {
-    flex-direction: column;
-  }
-  
-  .services-sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  
-  .procurement-main {
-    max-width: 100%;
-  }
-  
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section h1 {
-    font-size: 2.2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .intro-section h2,
-  .process-section h2,
-  .industries-section h2,
-  .benefits-section h2,
-  .sourcing-section h2 {
-    font-size: 1.8rem;
-  }
-  
-  .process-grid,
-  .industries-grid,
-  .benefits-grid,
-  .sourcing-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .intro-section,
-  .process-section,
-  .industries-section,
-  .benefits-section,
-  .sourcing-section,
-  .contact-section {
-    padding: 2rem 1rem;
-  }
-  
-  .contact-form {
-    padding: 1.5rem;
-  }
+.pc {
+  --pc-black: #0b0c10;
+  --pc-navy: #131826;
+  --pc-card: #1a1c22;
+  --pc-card-low: #16181f;
+  --pc-yellow: #ffd400;
+  --pc-blue: #2f8fd1;
+  --pc-blue-dark: #256fa3;
+  --pc-white: #f5f6f7;
+  --pc-muted: #a8adb8;
+  --pc-border: rgba(255, 255, 255, 0.08);
+  color: var(--pc-white);
+  background: var(--pc-black);
+}
+.pc * { box-sizing: border-box; }
+.pc-container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.pc-section { padding: 80px 0; }
+.pc-alt-section { background: var(--pc-card-low); border-top: 1px solid var(--pc-border); border-bottom: 1px solid var(--pc-border); }
+
+.pc-section-heading { text-align: center; max-width: 620px; margin: 0 auto 50px; }
+.pc-section-heading h2 { font-size: 28px; font-weight: 700; margin: 0 0 12px; }
+.pc-underline { display: inline-block; width: 56px; height: 3px; background: var(--pc-yellow); }
+
+/* Hero */
+.pc-hero { padding: 90px 0 60px; text-align: center; }
+.pc-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--pc-card); border: 1px solid var(--pc-border); border-radius: 4px; color: var(--pc-yellow); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 22px; }
+.pc-hero h1 { font-size: 40px; font-weight: 700; line-height: 1.25; margin: 0 0 22px; max-width: 720px; margin-left: auto; margin-right: auto; }
+.pc-hero p { color: var(--pc-muted); font-size: 16px; line-height: 1.75; max-width: 680px; margin: 0 auto; }
+
+/* Process */
+.pc-process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pc-process-card { background: var(--pc-card); border: 1px solid var(--pc-border); border-radius: 8px; padding: 26px; }
+.pc-process-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.pc-process-step { font-size: 26px; font-weight: 700; color: var(--pc-border); }
+.pc-process-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--pc-navy); color: var(--pc-yellow); }
+.pc-process-card h3 { font-size: 16px; margin: 0 0 8px; }
+.pc-process-card p { color: var(--pc-muted); font-size: 13px; line-height: 1.6; margin: 0; }
+
+/* Card grids */
+.pc-grid { display: grid; gap: 24px; }
+.pc-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.pc-card { background: var(--pc-card); border: 1px solid var(--pc-border); border-radius: 8px; padding: 30px; transition: border-color .2s ease, transform .2s ease; }
+.pc-card:hover { border-color: rgba(255, 212, 0, 0.4); transform: translateY(-2px); }
+.pc-card-icon { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 8px; background: var(--pc-navy); color: var(--pc-blue); margin-bottom: 18px; }
+.pc-card h3 { font-size: 17px; margin: 0 0 10px; }
+.pc-card p { color: var(--pc-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+
+/* Success story cards */
+.pc-example-card { background: var(--pc-card); border: 1px solid var(--pc-border); border-radius: 8px; padding: 30px; }
+.pc-example-card h3 { font-size: 17px; margin: 12px 0 16px; }
+.pc-example-card dl { margin: 0; }
+.pc-example-card dt { color: var(--pc-yellow); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 14px; }
+.pc-example-card dt:first-child { margin-top: 0; }
+.pc-example-card dd { color: var(--pc-muted); font-size: 14px; line-height: 1.55; margin: 4px 0 0; }
+
+/* Contact */
+.pc-contact-section { border-top: 1px solid var(--pc-border); }
+.pc-contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: start; }
+.pc-contact-info h2 { font-size: 26px; font-weight: 700; margin: 0 0 18px; }
+.pc-contact-info > p { color: var(--pc-muted); font-size: 15px; line-height: 1.7; margin: 0 0 26px; }
+.pc-benefits-list { list-style: none; padding: 0; margin: 0 0 34px; }
+.pc-benefits-list li { display: flex; align-items: center; gap: 10px; color: var(--pc-white); font-size: 14px; margin-bottom: 12px; }
+.pc-benefits-list li svg { color: var(--pc-blue); flex-shrink: 0; }
+.pc-contact-methods { border-top: 1px solid var(--pc-border); padding-top: 24px; }
+.pc-contact-methods h3 { font-size: 15px; margin: 0 0 14px; color: var(--pc-white); }
+.pc-contact-methods p { display: flex; align-items: center; gap: 10px; color: var(--pc-muted); font-size: 14px; margin: 0 0 10px; }
+.pc-contact-methods svg { color: var(--pc-blue); flex-shrink: 0; }
+
+.pc-form { background: var(--pc-card); border: 1px solid var(--pc-border); border-radius: 10px; padding: 34px; }
+.pc-form h3 { display: flex; align-items: center; gap: 10px; font-size: 18px; margin: 0 0 24px; }
+.pc-form-group { margin-bottom: 18px; }
+.pc-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pc-form label { display: block; font-size: 13px; color: var(--pc-muted); margin-bottom: 8px; font-weight: 600; }
+.pc-form input, .pc-form select, .pc-form textarea { width: 100%; background: var(--pc-black); border: 1px solid var(--pc-border); border-radius: 6px; padding: 11px 14px; color: var(--pc-white); font-size: 14px; font-family: inherit; }
+.pc-form input:focus, .pc-form select:focus, .pc-form textarea:focus { outline: none; border-color: var(--pc-blue); }
+.pc-form textarea { resize: vertical; }
+.pc-submit-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--pc-blue); color: #fff; border: none; padding: 14px; border-radius: 6px; font-weight: 700; font-size: 14px; cursor: pointer; transition: background .2s ease; margin-top: 6px; }
+.pc-submit-btn:hover:not(:disabled) { background: var(--pc-blue-dark); }
+.pc-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+.pc-form-note { color: var(--pc-muted); font-size: 12px; text-align: center; margin: 14px 0 0; }
+.pc-spin { animation: pc-spin 1s linear infinite; }
+@keyframes pc-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .pc-process-grid, .pc-grid-3 { grid-template-columns: 1fr 1fr; }
+  .pc-contact-grid { grid-template-columns: 1fr; }
+  .pc-form-row { grid-template-columns: 1fr; }
+  .pc-hero h1 { font-size: 30px; }
+}
+@media (max-width: 560px) {
+  .pc-process-grid, .pc-grid-3 { grid-template-columns: 1fr; }
 }

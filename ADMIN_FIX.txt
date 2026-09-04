@@ -1,0 +1,15 @@
+﻿// Add this at the top of AdminDashboard.js with other imports
+import { getToken } from '../../api';
+
+// Then in your fetch functions, replace getAuthToken() with getToken():
+// Change this:
+// headers: { 'Authorization': Bearer  }
+// To this:
+// headers: { 'Authorization': Bearer  }
+
+// Also check if the token exists:
+const token = getToken();
+if (!token) {
+    console.error('No token found. Please login.');
+    return;
+}

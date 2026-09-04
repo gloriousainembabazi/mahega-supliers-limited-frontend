@@ -1,329 +1,654 @@
-/* src/style/medical.css */
-/* ============= MEDICAL & PPE PAGE — MATCHES OTHER PRODUCT PAGES ============= */
+/* =========================================================
+   MAHEGA MEDICAL PAGE
+   DARK CHARCOAL + GOLD
+   FULL WIDTH
+   NO SIDEBAR
+   ========================================================= */
 
 .medical-page {
+  --mahega-dark: #111415;
+  --mahega-navy: #1d2021;
+  --mahega-gold: #d5a928;
+  --mahega-gold-light: #e3bd45;
+  --mahega-gold-soft: #f7efd5;
+  --mahega-white: #ffffff;
+  --mahega-text: #263238;
+  --mahega-muted: #687176;
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #ffffff;
-  color: #333;
+  color: var(--mahega-text);
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* ============= HERO SECTION ============= */
+/* =========================================================
+   HERO
+   ========================================================= */
 
-.hero-section {
+.medical-page .hero-section {
   position: relative;
-  height: 60vh;
+  height: 62vh;
+  min-height: 500px;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), 
-              url('https://images.unsplash.com/photo-1584433375181-8c3a2e0b1c3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
-  color: white;
-  margin-bottom: 3rem;
+  color: #ffffff;
+
+  margin-bottom: 0;
+
+  transition: background-image 1s ease-in-out;
 }
 
-.hero-content h1 {
-  font-size: 3.2rem;
+.medical-page .hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-bottom: 4px solid var(--mahega-gold);
+}
+
+.medical-page .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 30px;
+}
+
+.hero-label,
+.section-label {
+  display: inline-block;
+  color: var(--mahega-gold);
+  font-size: 0.78rem;
   font-weight: 700;
-  margin: 0 0 1.2rem;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.hero-content p {
-  font-size: 1.4rem;
-  margin: 0;
-  max-width: 800px;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+.medical-page .hero-label {
+  margin-bottom: 18px;
 }
 
-/* ============= PAGE LAYOUT ============= */
+.medical-page .hero-content h1 {
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  color: #ffffff;
+  text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.7);
+}
 
-.page-content {
+.medical-page .hero-content p {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.7;
+  max-width: 780px;
+  margin: 0 auto;
+  color: #ffffff;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* HERO SLIDER INDICATORS */
+
+.hero-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 28px;
+}
+
+.hero-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+  width: 30px;
+  border-radius: 10px;
+  background: var(--mahega-gold);
+}
+
+/* =========================================================
+   PAGE LAYOUT
+   ========================================================= */
+
+.medical-page .page-content {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem 4rem;
+  padding: 0 5% 70px;
+  box-sizing: border-box;
 }
 
-.content-layout {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-/* ============= SIDEBAR ============= */
-
-.product-sidebar {
-  flex: 0 0 260px;
-  background: #f3e5f5;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  align-self: flex-start;
-  position: sticky;
-  top: 20px;
-}
-
-.product-sidebar h3 {
-  margin-top: 0;
-  margin-bottom: 1.2rem;
-  color: #4a148c;
-  font-size: 1.3rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 2px solid #ce93d8;
-}
-
-.product-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.product-links li {
-  margin-bottom: 0.8rem;
-}
-
-.product-links a {
-  text-decoration: none;
-  color: #4a148c;
-  font-weight: 500;
-  transition: color 0.2s, padding-left 0.2s;
+.medical-page .content-layout.medical-full-width {
   display: block;
-  padding: 0.3rem 0;
-}
-
-.product-links a:hover {
-  color: #311b92;
-  padding-left: 8px;
-}
-
-/* ============= MAIN CONTENT ============= */
-
-.main-content {
-  flex: 1;
-  min-width: 300px;
-}
-
-.main-content h2 {
-  font-size: 2rem;
-  margin: 2.2rem 0 1.4rem;
-  color: #4a148c;
-}
-
-.main-content p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 1.6rem;
-  color: #263238;
-}
-
-/* ============= STATS ============= */
-
-.product-stats {
-  display: flex;
-  gap: 1.5rem;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
-
-.stat-box {
-  background: #f3e5f5;
-  padding: 1.4rem 1.2rem;
-  border-radius: 10px;
-  text-align: center;
-  min-width: 130px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  flex: 1;
-}
-
-.stat-icon {
-  font-size: 2rem;
-  margin-bottom: 0.6rem;
-}
-
-.stat-box h3 {
-  font-size: 1.8rem;
-  margin: 0;
-  color: #7b1fa2;
-}
-
-.stat-box p {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* ============= FEATURES & BENEFITS ============= */
-
-.feature-list,
-.benefit-list {
-  padding-left: 1.8rem;
-  font-size: 1.05rem;
-  line-height: 1.9;
-}
-
-.feature-list li,
-.benefit-list li {
-  margin-bottom: 0.7rem;
-  position: relative;
-}
-
-.feature-list li::before,
-.benefit-list li::before {
-  content: "✓";
-  color: #7b1fa2;
-  font-weight: bold;
-  position: absolute;
-  left: -1.8rem;
-}
-
-/* ============= PRODUCT GRID ============= */
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.8rem;
-  margin: 1.5rem 0 2.5rem;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-
-.product-card h3 {
-  padding: 1rem 1rem 0.5rem;
   margin: 0;
-  font-size: 1.25rem;
-  color: #4a148c;
+  padding: 0;
 }
 
-.product-card p {
-  padding: 0 1rem 1rem;
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
+.medical-page .medical-main-content {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
 }
 
-/* ============= CTA BOX ============= */
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
 
-.cta-box {
-  background: #f3e5f5;
-  padding: 2rem;
-  border-radius: 12px;
+.medical-page .medical-main-content section {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.medical-page .intro-section {
+  padding: 65px 0 25px;
+}
+
+.medical-page .main-content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.2;
+  margin: 10px 0 18px;
+  color: var(--mahega-dark);
+}
+
+.medical-page .main-content p {
+  font-size: 1.04rem;
+  line-height: 1.8;
+  color: var(--mahega-text);
+}
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.medical-page .product-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 25px 0 70px;
+}
+
+.medical-page .stat-box {
+  background: var(--mahega-dark);
+  border: 1px solid #252a2b;
+  border-bottom: 4px solid var(--mahega-gold);
+
+  padding: 28px 20px;
+
   text-align: center;
-  margin: 2.5rem 0;
-  border-left: 4px solid #7b1fa2;
-}
 
-.cta-box h2 {
-  margin-top: 0;
-  color: #4a148c;
-}
+  min-height: 120px;
 
-.cta-box p {
-  margin-bottom: 1.2rem;
-}
-
-.btn-primary {
-  background: #7b1fa2;
-  color: white;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.btn-primary:hover {
-  background: #4a148c;
-}
-
-/* ============= CONTACT FORM ============= */
-
-.contact-form-section h2 {
-  margin-top: 2rem;
-}
-
-.contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 600px;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact-form input,
-.contact-form textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 1rem;
+.medical-page .stat-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
 }
 
-.contact-form button {
-  padding: 0.9rem;
-  background: #7b1fa2;
-  color: white;
+.medical-page .stat-box h3 {
+  color: var(--mahega-gold);
+  font-size: 1.7rem;
+  margin: 0 0 6px;
+}
+
+.medical-page .stat-box p {
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* =========================================================
+   IMAGE + INFORMATION CARD
+   ========================================================= */
+
+.medical-page .information-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  margin: 70px 0;
+  align-items: stretch;
+}
+
+.medical-page .information-image {
+  min-height: 460px;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.medical-page .information-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.medical-page .information-section:hover .information-image img {
+  transform: scale(1.03);
+}
+
+.medical-page .information-card {
+  background: var(--mahega-dark);
+  color: #ffffff;
+
+  padding: 48px 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+.medical-page .information-card h2 {
+  color: #ffffff;
+  margin: 8px 0 15px;
+}
+
+.medical-page .information-intro {
+  color: #d8dada !important;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* =========================================================
+   FEATURE / BENEFIT LIST
+   ========================================================= */
+
+.medical-page .feature-list,
+.medical-page .benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.medical-page .feature-list li,
+.medical-page .benefit-list li {
+  position: relative;
+  padding: 11px 0 11px 27px;
+  margin: 0;
+  color: #d39309;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(187, 202, 47, 0.09);
+}
+
+.medical-page .feature-list li:last-child,
+.medical-page .benefit-list li:last-child {
+  border-bottom: none;
+}
+
+.medical-page .feature-list li::before,
+.medical-page .benefit-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+
+  width: 8px;
+  height: 8px;
+
+  background: var(--mahega-gold);
+  border-radius: 50%;
+}
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+.medical-page .products-section {
+  margin: 80px 0;
+}
+
+.medical-page .section-heading {
+  margin-bottom: 28px;
+}
+
+.medical-page .section-heading h2 {
+  margin-bottom: 12px;
+}
+
+.medical-page .section-heading p {
+  max-width: 750px;
+  margin: 0;
+  color: var(--mahega-muted);
+}
+
+/* PRODUCT GRID */
+
+.medical-page .product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+
+  margin: 30px 0 0;
+}
+
+/* PRODUCT CARD */
+
+.medical-page .product-card {
+  background: #ffffff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+
+  overflow: hidden;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.medical-page .product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--mahega-gold);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.medical-page .product-image {
+  width: 100%;
+  height: 190px;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.medical-page .product-card-content {
+  padding: 18px 18px 20px;
+}
+
+.medical-page .product-card h3 {
+  margin: 0 0 9px;
+
+  color: var(--mahega-dark);
+
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+
+.medical-page .product-card p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 0.91rem;
+  line-height: 1.55;
+}
+
+/* =========================================================
+   WHY CHOOSE MAHEGA
+   ========================================================= */
+
+.medical-page .why-section {
+  margin-top: 90px;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.medical-page .cta-box {
+  background: var(--mahega-dark);
+
+  border-left: 5px solid var(--mahega-gold);
+
+  padding: 40px 45px;
+
+  margin: 80px 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  box-sizing: border-box;
+}
+
+.medical-page .cta-box h2 {
+  color: #ffffff;
+  margin: 8px 0 12px;
+}
+
+.medical-page .cta-box p {
+  color: #d5d5d5;
+  margin: 0;
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.medical-page .btn-primary {
+  background: var(--mahega-gold);
+
+  color: var(--mahega-dark);
+
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
+
+  padding: 13px 28px;
+
+  font-size: 0.98rem;
+  font-weight: 700;
+
+  border-radius: 2px;
+
   cursor: pointer;
-  transition: background 0.3s;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+
+  white-space: nowrap;
 }
 
-.contact-form button:hover:not(:disabled) {
-  background: #4a148c;
+.medical-page .btn-primary:hover {
+  background: var(--mahega-gold-light);
+  transform: translateY(-2px);
 }
 
-.contact-form button:disabled {
-  background: #ce93d8;
+.medical-page .btn-primary:disabled {
+  opacity: 0.65;
   cursor: not-allowed;
+  transform: none;
 }
 
-/* ============= RESPONSIVE ============= */
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
 
-@media (max-width: 900px) {
-  .content-layout {
-    flex-direction: column;
+.medical-page .contact-form-section {
+  max-width: 850px;
+  margin: 80px auto 20px;
+}
+
+.medical-page .contact-form-section h2 {
+  margin-bottom: 25px;
+}
+
+.medical-page .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.medical-page .contact-form input,
+.medical-page .contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d7d7d7;
+  border-radius: 2px;
+
+  background: #ffffff;
+
+  color: var(--mahega-text);
+
+  font-family: inherit;
+  font-size: 0.98rem;
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.medical-page .contact-form input:focus,
+.medical-page .contact-form textarea:focus {
+  border-color: var(--mahega-gold);
+
+  box-shadow: 0 0 0 2px rgba(213, 169, 40, 0.12);
+}
+
+.medical-page .contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.medical-page .contact-form button {
+  align-self: flex-start;
+}
+
+/* =========================================================
+   REMOVE SIDEBAR
+   ========================================================= */
+
+.medical-page .product-sidebar {
+  display: none !important;
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .medical-page .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .product-sidebar {
-    position: static;
-    flex: none;
+  .medical-page .information-card {
+    padding: 38px;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .medical-page .hero-section {
+    min-height: 460px;
+    height: 58vh;
+  }
+
+  .medical-page .page-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .medical-page .product-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .medical-page .information-section {
+    grid-template-columns: 1fr;
+  }
+
+  .medical-page .information-image,
+  .medical-page .information-image img {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .medical-page .information-card {
+    padding: 35px 28px;
+  }
+
+  .medical-page .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .medical-page .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 28px;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE - SMALL PHONE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .medical-page .hero-content {
+    padding: 20px;
+  }
+
+  .medical-page .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .medical-page .hero-content p {
+    font-size: 1rem;
+  }
+
+  .medical-page .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .medical-page .product-image {
+    height: 210px;
+  }
+
+  .medical-page .information-card {
+    padding: 30px 22px;
+  }
+
+  .medical-page .intro-section {
+    padding-top: 45px;
+  }
+
+  .medical-page .cta-box .btn-primary {
     width: 100%;
   }
 
-  .hero-content h1 {
-    font-size: 2.4rem;
+  .medical-page .contact-form button {
+    width: 100%;
   }
 
-  .hero-content p {
-    font-size: 1.2rem;
-  }
-
-  .product-stats {
-    flex-direction: column;
-  }
-
-  .stat-box {
-    min-width: auto;
-  }
 }

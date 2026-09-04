@@ -1,26 +1,75 @@
-.services-section {
-  padding: 80px 20px;
-  background-color: #f3f4f6;
+.msvc {
+  --sv-black: #0b0c10;
+  --sv-navy: #131826;
+  --sv-navy-light: #1b2233;
+  --sv-card: #1a1c22;
+  --sv-card-low: #16181f;
+  --sv-yellow: #ffd400;
+  --sv-blue: #2f8fd1;
+  --sv-blue-dark: #256fa3;
+  --sv-white: #f5f6f7;
+  --sv-muted: #a8adb8;
+  --sv-border: rgba(255, 255, 255, 0.08);
+  color: var(--sv-white);
+  background: var(--sv-black);
 }
+.msvc * { box-sizing: border-box; }
+.msvc-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.msvc-section { padding: 80px 0; }
 
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #1c38d6;
-  margin-bottom: 40px;
-  text-align: center;
-}
+.msvc-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 26px; border-radius: 4px; font-weight: 700; font-size: 13px; cursor: pointer; border: none; text-decoration: none; transition: all .2s ease; }
+.msvc-btn-primary { background: var(--sv-blue); color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+.msvc-btn-primary:hover { background: var(--sv-blue-dark); }
+.msvc-btn-outline { background: transparent; border: 2px solid var(--sv-yellow); color: var(--sv-yellow); }
+.msvc-btn-outline:hover { background: rgba(255,212,0,0.1); }
+.msvc-btn-ghost { background: var(--sv-card); border: 1px solid var(--sv-border); color: var(--sv-white); width: 100%; margin-top: auto; }
+.msvc-btn-ghost:hover { border-color: var(--sv-white); }
+.msvc-full-width { width: 100%; }
 
-.services-list {
-  list-style-type: disc;
-  padding-left: 40px;
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: #374151;
-}
+.msvc-section-heading { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.msvc-section-heading h2 { font-size: 30px; font-weight: 700; margin: 0 0 12px; }
+.msvc-section-heading p { color: var(--sv-muted); font-size: 15px; margin: 0; }
 
-.services-list li {
-  margin-bottom: 20px;
+.msvc-hero { padding: 70px 0 20px; }
+.msvc-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.msvc-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: var(--sv-card); border: 1px solid var(--sv-border); border-radius: 4px; color: var(--sv-yellow); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 22px; }
+.msvc-hero-content h1 { font-size: 42px; font-weight: 700; line-height: 1.2; color: var(--sv-yellow); margin: 0 0 20px; }
+.msvc-hero-content p { color: var(--sv-muted); font-size: 16px; line-height: 1.7; margin: 0 0 30px; max-width: 460px; }
+.msvc-hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+.msvc-hero-image { position: relative; height: 400px; border-radius: 8px; overflow: hidden; border: 1px solid var(--sv-border); box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+.msvc-hero-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; filter: grayscale(30%); }
+.msvc-status-panel { position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(40, 42, 43, 0.92); backdrop-filter: blur(6px); border: 1px solid var(--sv-border); border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; }
+.msvc-status-label { color: var(--sv-muted); font-size: 12px; margin: 0 0 4px; }
+.msvc-status-value { color: var(--sv-yellow); font-size: 18px; font-weight: 700; margin: 0; }
+.msvc-status-icon { color: var(--sv-blue); flex-shrink: 0; }
+
+.msvc-services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.msvc-service-card { background: var(--sv-card); border: 1px solid var(--sv-border); border-radius: 8px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; transition: border-color .2s ease; text-decoration: none; }
+.msvc-service-card:hover { border-color: rgba(255, 212, 0, 0.4); }
+.msvc-service-icon { color: var(--sv-yellow); display: inline-block; margin-bottom: 18px; }
+.msvc-service-card h3 { font-size: 19px; margin: 0 0 12px; color: var(--sv-white); }
+.msvc-service-card p { color: var(--sv-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+.msvc-learn-more { display: inline-flex; align-items: center; gap: 6px; color: var(--sv-blue); text-decoration: none; font-size: 14px; font-weight: 700; margin-top: 24px; }
+.msvc-service-card:hover .msvc-learn-more { color: var(--sv-white); }
+
+.msvc-tiers-section { border-top: 1px solid var(--sv-border); }
+.msvc-tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+.msvc-tier-card { background: var(--sv-card-low); border: 1px solid var(--sv-border); border-radius: 8px; padding: 28px; display: flex; flex-direction: column; height: 100%; }
+.msvc-tier-head h3 { font-size: 19px; margin: 0; color: var(--sv-white); }
+.msvc-tier-plan { font-size: 24px; font-weight: 700; color: var(--sv-yellow); margin: 8px 0; }
+.msvc-tier-plan-blue { color: var(--sv-blue); }
+.msvc-tier-head p { color: var(--sv-muted); font-size: 13px; margin: 0 0 20px; }
+.msvc-tier-list { list-style: none; padding: 0; margin: 0 0 28px; flex-grow: 1; }
+.msvc-tier-list li { display: flex; align-items: flex-start; gap: 10px; color: var(--sv-muted); font-size: 14px; line-height: 1.5; margin-bottom: 12px; }
+.msvc-tier-list li svg { color: var(--sv-blue); flex-shrink: 0; margin-top: 2px; }
+.msvc-tier-list-highlight li { color: var(--sv-white); }
+.msvc-tier-list-highlight li svg { color: var(--sv-yellow); }
+
+.msvc-tier-featured { background: var(--sv-navy); border: 2px solid var(--sv-yellow); position: relative; transform: translateY(-14px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+.msvc-tier-recommended { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--sv-yellow); color: #16181f; padding: 5px 14px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .msvc-hero-grid, .msvc-services-grid, .msvc-tiers-grid { grid-template-columns: 1fr; }
+  .msvc-hero-content h1 { font-size: 30px; }
+  .msvc-tier-featured { transform: none; }
 }

@@ -1,442 +1,1351 @@
+/* =========================================================
+   MAHEGA GENERAL SUPPLIERS LIMITED
+   ABOUT US PAGE
+   NAVY BLUE + GOLD + WHITE
+   COMPACT SPACING
+   MATCHED WITH VISION PAGE
+   ========================================================= */
 
-
-/* About.css */
-
-/* General Styles */
 .about-page {
-  font-family: 'Arial', sans-serif;
+  --about-navy: #071d35;
+  --about-navy-2: #0b3158;
+  --about-navy-light: #173f63;
+
+  --about-gold: #d5a928;
+  --about-gold-light: #e3bd45;
+
+  --about-white: #ffffff;
+  --about-text: #263746;
+  --about-muted: #667685;
+
+  --about-light: #f4f7fa;
+  --about-light-blue: #eaf2f8;
+
+  --about-border: #e2e9ef;
+
+  font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+
   line-height: 1.6;
-  color: #333;
-  padding: 0px 0px;
-  gap: between 3rem;
+
+  color: var(--about-text);
+
+  background: #ffffff;
+
+  overflow-x: hidden;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  
+
+/* =========================================================
+   GLOBAL BOX SIZING
+   ========================================================= */
+
+.about-page *,
+.about-page *::before,
+.about-page *::after {
+  box-sizing: border-box;
 }
 
-/* Hero Section */
-.hero-section {
-  position: relative;
-  height: 60vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-              url('../images/office-chair\ 2.jpeg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
 
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+/* =========================================================
+   CONTAINER
+   ========================================================= */
 
-.hero-content p {
-  font-size: 1.5rem;
-}
-
-/* Flex Layouts */
-.flex-row {
-  display: flex;
-  align-items: center;
-  gap: 0px;
-}
-
-.flex-row .text-box,
-.flex-row .image-box {
-  flex: 1;
-
-}
-
-/* Image Styling */
-.section-image,
-
-.contact-image {
+.about-page .container {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  max-width: 1180px;
+
+  margin: 0 auto;
+
+  padding: 0 22px;
 }
 
-.core-values-image,
-.product-main-img {
-  height: 700px;
-  width: 700px;
 
-  object-fit: cover;
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.about-page .hero-section {
+  position: relative;
+
+  min-height: 390px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(4, 20, 38, 0.90),
+      rgba(7, 29, 53, 0.68),
+      rgba(4, 20, 38, 0.88)
+    ),
+    url("../images/office-chair 2.jpeg")
+      center center / cover no-repeat;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  color: var(--about-white);
+
+  padding: 65px 20px;
 }
 
-/* About Company Section */
+
+.about-page .hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 20, 38, 0.72),
+      rgba(7, 29, 53, 0.28),
+      rgba(4, 20, 38, 0.72)
+    );
+}
+
+
+.about-page .hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+
+.about-page .hero-content h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(2.2rem, 5vw, 4rem);
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  text-shadow:
+    0 3px 15px rgba(0, 0, 0, 0.55);
+}
+
+
+.about-page .hero-content h1::after {
+  content: "";
+
+  display: block;
+
+  width: 65px;
+
+  height: 3px;
+
+  margin: 15px auto 0;
+
+  background: var(--about-gold);
+
+  border-radius: 4px;
+}
+
+
+.about-page .hero-content p {
+  margin: 15px auto 0;
+
+  max-width: 700px;
+
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+
+  color: #eeeeee;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   COMPACT SPACING
+   ========================================================= */
+
+.about-company,
+.vision-mission,
+.core-values,
+.why-choose-us,
+.products-services,
+.our-team,
+.clients-partners,
+.contact-cta,
+.privacy-policy {
+  padding: 55px 0;
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.about-page h2 {
+  color: var(--about-navy);
+
+  font-weight: 750;
+}
+
+
+.about-page h2::after {
+  background: var(--about-gold);
+}
+
+
+/* =========================================================
+   ABOUT COMPANY
+   ========================================================= */
+
 .about-company {
-  padding: 50px 0;
-  background-color: #f9f9f9;
+  background: #ffffff;
 }
+
+
+.about-company .flex-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 42px;
+}
+
+
+.about-company .text-box,
+.about-company .image-box {
+  flex: 1;
+}
+
+
+.about-company .text-box {
+  padding-right: 5px;
+}
+
 
 .about-company h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  margin: 0 0 14px;
+
+  color: var(--about-navy);
+
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+
+  line-height: 1.2;
 }
+
+
+.about-company h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+
+  height: 3px;
+
+  margin-top: 10px;
+
+  background: var(--about-gold);
+
+  border-radius: 4px;
+}
+
 
 .about-company p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
+  margin: 0 0 12px;
+
+  color: var(--about-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
 }
 
-/* Vision & Mission Section */
+
+.about-company strong {
+  color: var(--about-gold);
+}
+
+
+/* =========================================================
+   IMAGES
+   ========================================================= */
+
+.section-image {
+  display: block;
+
+  width: 100%;
+
+  height: 340px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  border: 1px solid var(--about-border);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+}
+
+
+/* =========================================================
+   VISION & MISSION
+   ========================================================= */
+
 .vision-mission {
-  padding: 80px 0;
-  
-  
+  background:
+    linear-gradient(
+      135deg,
+      var(--about-navy),
+      var(--about-navy-2)
+    );
 }
 
-.vision-box, .mission-box {
-  margin-bottom: 5px;
-  
+
+.vision-mission .flex-row {
+  display: flex;
+
+  align-items: center;
+
+  gap: 42px;
 }
 
-.vision-box h3, .mission-box h3 {
-  color: #2c3e50;
-  font-size: 1.8rem;
-  margin-bottom: 0px;
-  gap: between 2rem;
+
+.vision-mission .content-box,
+.vision-mission .image-box {
+  flex: 1;
 }
 
-/* Core Values Section */
+
+.vision-box,
+.mission-box {
+  background: rgba(4, 20, 38, 0.72);
+
+  padding: 22px;
+
+  margin-bottom: 14px;
+
+  border-radius: 5px;
+
+  border-left: 3px solid var(--about-gold);
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.vision-box:hover,
+.mission-box:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+.vision-box:last-child,
+.mission-box:last-child {
+  margin-bottom: 0;
+}
+
+
+.vision-box h3,
+.mission-box h3 {
+  margin: 0 0 7px;
+
+  color: var(--about-gold);
+
+  font-size: 1.3rem;
+}
+
+
+.vision-box p,
+.mission-box p {
+  margin: 0;
+
+  color: #e4ebf0;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+.vision-mission .section-image {
+  height: 350px;
+}
+
+
+/* =========================================================
+   CORE VALUES
+   ========================================================= */
+
 .core-values {
-  padding: 80px 0;
-  background-color: #f9f9f9;
+  background: var(--about-light);
 }
+
 
 .flex-container {
   display: flex;
-  gap: 40px;
+
+  align-items: center;
+
+  gap: 42px;
 }
 
-.image-column, .values-column {
+
+.image-column,
+.values-column {
   flex: 1;
 }
 
-.values-column h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #2c3e50;
+
+.core-values-image {
+  display: block;
+
+  width: 100%;
+
+  height: 370px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  border: 1px solid var(--about-border);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
 }
+
+
+.values-column h2 {
+  margin: 0 0 20px;
+
+  color: var(--about-navy);
+
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+
+  line-height: 1.2;
+}
+
+
+.values-column h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+
+  height: 3px;
+
+  margin-top: 10px;
+
+  background: var(--about-gold);
+}
+
+
+.values-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
 
 .value-item {
-  margin-bottom: 15px;
-  padding: 15px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 13px 17px;
+
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  border-left: 3px solid var(--about-gold);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
-/* Why Choose Us Section */
+
+.value-item:hover {
+  transform: translateX(4px);
+
+  background: var(--about-light-blue);
+}
+
+
+.value-item h3 {
+  margin: 0;
+
+  color: var(--about-navy);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.value-item:hover h3 {
+  color: var(--about-gold);
+}
+
+
+/* =========================================================
+   WHY CHOOSE US
+   ========================================================= */
+
 .why-choose-us {
-  padding: 80px 0;
+  background: var(--about-navy);
 }
 
-.why-choose-us h2 {
+
+.why-choose-us h2,
+.products-services h2,
+.our-team h2,
+.clients-partners h2 {
+  margin: 0 0 12px;
+
+  color: #ffffff;
+
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+
+  line-height: 1.2;
+
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  color: #2c3e50;
 }
+
+
+.why-choose-us h2::after,
+.products-services h2::after,
+.our-team h2::after,
+.clients-partners h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+
+  height: 3px;
+
+  margin: 10px auto 25px;
+
+  background: var(--about-gold);
+
+  border-radius: 4px;
+}
+
+
+/* =========================================================
+   BENEFITS
+   ========================================================= */
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
 }
+
 
 .benefit-card {
-  padding: 30px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  padding: 21px 20px;
+
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  border: 1px solid var(--about-border);
+
+  border-top: 3px solid var(--about-gold);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
 
 .benefit-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 20px rgba(7, 29, 53, 0.10);
 }
+
 
 .benefit-card h3 {
-  color: #2c3e50;
-  margin-bottom: 15px;
+  margin: 0 0 7px;
+
+  color: var(--about-navy);
+
+  font-size: 1.05rem;
 }
 
-/* Products & Services Section */
-.products-services {
-  padding: 80px 0;
-  background-color: #f9f9f9;
+
+.benefit-card p {
+  margin: 0;
+
+  color: var(--about-muted);
+
+  font-size: 13px;
+
+  line-height: 1.65;
 }
+
+
+/* =========================================================
+   PRODUCTS & SERVICES
+   ========================================================= */
+
+.products-services {
+  background: #ffffff;
+}
+
 
 .product-section-layout {
   display: flex;
-  gap: 30px;
+
+  align-items: center;
+
+  gap: 42px;
 }
+
 
 .product-image-wrapper,
 .product-content-wrapper {
   flex: 1;
 }
 
-.product-content-wrapper h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #2c3e50;
+
+.product-main-img {
+  display: block;
+
+  width: 100%;
+
+  height: 400px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  border: 1px solid var(--about-border);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
 }
 
-.section-subtitle {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #666;
+
+.product-content-wrapper h2 {
+  color: var(--about-navy);
+
+  text-align: left;
+
+  margin-bottom: 8px;
 }
+
+
+.product-content-wrapper h2::after {
+  margin-left: 0;
+
+  margin-right: 0;
+
+  margin-bottom: 15px;
+}
+
+
+.section-subtitle {
+  margin: 0 0 15px;
+
+  color: var(--about-muted);
+
+  font-size: 14px;
+}
+
 
 .product-items-column {
   display: flex;
+
   flex-direction: column;
-  gap: 15px;
+
+  gap: 8px;
 }
+
 
 .product-item {
-  padding: 15px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 11px 15px;
+
+  background: var(--about-light);
+
+  border-radius: 4px;
+
+  border-left: 3px solid var(--about-gold);
+
+  color: var(--about-text);
+
+  font-size: 13px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
-/* Team Section */
-.our-team {
-  padding: 80px 0;
+
+.product-item:hover {
+  transform: translateX(4px);
+
+  background: var(--about-light-blue);
 }
+
+
+/* =========================================================
+   TEAM
+   ========================================================= */
+
+.our-team {
+  background: var(--about-light);
+}
+
 
 .our-team h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  color: var(--about-navy);
 }
 
+
 .section-intro {
+  max-width: 760px;
+
+  margin: 0 auto 28px;
+
   text-align: center;
-  max-width: 800px;
-  margin: 0 auto 50px;
-  font-size: 1.2rem;
-  color: #666;
+
+  color: var(--about-muted);
+
+  font-size: 14px;
+
+  line-height: 1.65;
 }
+
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 30px;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 25px;
 }
+
 
 .team-member {
+  padding: 22px 18px;
+
+  background: #ffffff;
+
+  border-radius: 6px;
+
   text-align: center;
+
+  border-top: 3px solid var(--about-gold);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.member-photo {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  overflow: hidden;
+
+.team-member:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 22px rgba(7, 29, 53, 0.10);
 }
+
+
+.member-photo {
+  width: 125px;
+
+  height: 125px;
+
+  margin: 0 auto 14px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  border: 3px solid var(--about-gold);
+}
+
 
 .member-photo img {
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
 }
 
+
 .team-member h4 {
-  font-size: 1.3rem;
-  margin-bottom: 5px;
-  color: #2c3e50;
-}
+  margin: 0 0 4px;
 
-.member-role {
-  color: #666;
-  font-style: italic;
-}
+  color: var(--about-navy);
 
-.team-cta {
-  text-align: center;
   font-size: 1.1rem;
 }
 
-/* Clients & Partners Section */
-.clients-partners {
-  padding: 80px 0;
-  background-color: #f9f9f9;
+
+.member-role {
+  margin: 0;
+
+  color: var(--about-gold);
+
+  font-size: 12px;
+
+  font-weight: 700;
 }
+
+
+.team-cta {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  text-align: center;
+
+  color: var(--about-muted);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   CLIENTS & PARTNERS
+   ========================================================= */
+
+.clients-partners {
+  background: #ffffff;
+}
+
 
 .clients-partners h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  color: var(--about-navy);
 }
+
 
 .partners-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin: 50px 0;
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 12px;
+
+  margin: 25px 0;
 }
+
 
 .partner-item {
+  padding: 14px 10px;
+
   text-align: center;
-  flex: 0 0 180px;
+
+  background: var(--about-light);
+
+  border-radius: 5px;
+
+  border: 1px solid var(--about-border);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
+
+
+.partner-item:hover {
+  transform: translateY(-4px);
+
+  background: var(--about-light-blue);
+
+  border-color: var(--about-gold);
+}
+
 
 .partner-logo {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 15px;
+  width: 100px;
+
+  height: 90px;
+
+  margin: 0 auto 10px;
+
   display: flex;
+
   align-items: center;
+
   justify-content: center;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  background: #ffffff;
+
+  border-radius: 5px;
+
+  overflow: hidden;
 }
 
+
 .partner-logo img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 90%;
+
+  max-height: 90%;
+
   object-fit: contain;
 }
 
-.partner-cta {
-  text-align: center;
-  font-size: 1.1rem;
+
+.partner-item h4 {
+  margin: 0;
+
+  color: var(--about-navy);
+
+  font-size: 12px;
 }
 
-/* Contact Section */
-.contact-cta {
-  padding: 80px 0;
-  margin: top 100%; ;
+
+.partner-cta {
+  text-align: center;
+
+  color: var(--about-muted);
+
+  font-size: 13px;
 }
+
+
+/* =========================================================
+   CONTACT CTA
+   ========================================================= */
+
+.contact-cta {
+  background:
+    linear-gradient(
+      135deg,
+      var(--about-navy),
+      var(--about-navy-2)
+    );
+
+  color: #ffffff;
+}
+
 
 .contact-content {
   display: flex;
-  gap: 40px;
+
   align-items: center;
+
+  gap: 42px;
 }
 
-.contact-image-wrapper {
-  flex: 1;
-}
 
+.contact-image-wrapper,
 .contact-info {
   flex: 1;
 }
 
-.contact-info h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
+
+.contact-image {
+  display: block;
+
+  width: 100%;
+
+  height: 320px;
+
+  object-fit: cover;
+
+  border-radius: 6px;
+
+  border: 1px solid rgba(213, 169, 40, 0.35);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
 }
+
+
+.contact-info h2 {
+  margin: 0 0 15px;
+
+  color: #ffffff;
+
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+}
+
+
+.contact-info h2::after {
+  content: "";
+
+  display: block;
+
+  width: 55px;
+
+  height: 3px;
+
+  margin-top: 10px;
+
+  background: var(--about-gold);
+}
+
 
 .contact-info p {
-  margin-bottom: 15px;
-  font-size: 1.1rem;
+  margin: 0 0 10px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 13px;
+
+  line-height: 1.65;
 }
+
+
+.contact-info strong {
+  color: var(--about-gold);
+}
+
+
+.contact-info a {
+  color: var(--about-gold-light);
+
+  text-decoration: none;
+}
+
+
+.contact-info a:hover {
+  color: #ffffff;
+}
+
 
 .contact-btn {
-  padding: 12px 30px;
-  background-color: #2c3e50;
-  color: white;
-  border: none;
+  margin-top: 8px;
+
+  padding: 11px 23px;
+
+  background: var(--about-gold);
+
+  color: var(--about-navy);
+
+  border: 1px solid var(--about-gold);
+
   border-radius: 4px;
-  font-size: 1.1rem;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
+
 
 .contact-btn:hover {
-  background-color: #1a252f;
+  background: transparent;
+
+  color: var(--about-gold);
+
+  transform: translateY(-2px);
 }
 
-/* Privacy Policy Section */
+
+/* =========================================================
+   PRIVACY POLICY
+   ========================================================= */
+
 .privacy-policy {
-  padding: 50px 0;
-  background-color: #f1f1f1;
+  background: var(--about-navy);
 }
+
 
 .privacy-policy h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  margin: 0 0 10px;
+
+  color: var(--about-gold);
+
+  font-size: 1.25rem;
 }
 
-/* Responsive Design */
+
+.privacy-policy p {
+  max-width: 1000px;
+
+  margin: 0 0 8px;
+
+  color: #c8d2da;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+.privacy-policy a {
+  color: var(--about-gold-light);
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+.privacy-policy a:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   GOLD TEXT
+   ========================================================= */
+
+.about-page .gold,
+.about-page strong {
+  color: var(--about-gold);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+  .about-page .container {
+    padding: 0 20px;
+  }
+
+  .benefits-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .partners-row {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .about-company .flex-row,
+  .vision-mission .flex-row,
+  .flex-container,
+  .product-section-layout,
+  .contact-content {
+    gap: 30px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 768px) {
-  .flex-row,
+
+  .about-page .container {
+    padding: 0 18px;
+  }
+
+  .about-company,
+  .vision-mission,
+  .core-values,
+  .why-choose-us,
+  .products-services,
+  .our-team,
+  .clients-partners,
+  .contact-cta,
+  .privacy-policy {
+    padding: 42px 0;
+  }
+
+  .about-page .hero-section {
+    min-height: 350px;
+
+    padding: 50px 18px;
+  }
+
+  .about-page .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-page .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .about-company .flex-row,
+  .vision-mission .flex-row,
   .flex-container,
   .product-section-layout,
   .contact-content {
     flex-direction: column;
+
+    gap: 28px;
   }
-  
-  .hero-content h1 {
-    font-size: 2rem;
+
+  .about-company .text-box,
+  .about-company .image-box,
+  .vision-mission .content-box,
+  .vision-mission .image-box,
+  .image-column,
+  .values-column,
+  .product-image-wrapper,
+  .product-content-wrapper,
+  .contact-image-wrapper,
+  .contact-info {
+    width: 100%;
   }
-  
-  .hero-content p {
-    font-size: 1.2rem;
-  }
-  
+
   .about-company h2,
-  .vision-mission h2,
-  .core-values h2,
+  .values-column h2,
   .why-choose-us h2,
   .products-services h2,
   .our-team h2,
   .clients-partners h2,
   .contact-info h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1000px !important;
-    padding-bottom: 0 !important;
-    padding-top: 0;
-    
+    font-size: 1.9rem;
   }
-  .vision-mission h2,
-  .core-values h2,
-  .why-choose-us h2,
-  .products-services h2,
-  .our-team h2,
-  .clients-partners h2,
-  .contact-info h2 {
-    font-size: 0rem;
-    padding-top: 0 0px;
+
+  .section-image,
+  .core-values-image,
+  .product-main-img {
+    height: 290px;
   }
-  
+
+  .vision-mission .section-image {
+    height: 290px;
+  }
+
   .benefits-grid {
     grid-template-columns: 1fr;
+
+    gap: 12px;
   }
-  
+
   .team-grid {
     grid-template-columns: 1fr;
+
+    gap: 14px;
   }
-  
+
   .partners-row {
-    gap: 20px;
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 10px;
   }
-  
-  .partner-item {
-    flex: 0 0 140px;
+
+  .contact-info h2 {
+    font-size: 1.9rem;
+  }
+
+  .contact-btn {
+    width: 100%;
   }
 }
 
 
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .about-page .container {
+    padding: 0 15px;
+  }
+
+  .about-page .hero-section {
+    min-height: 330px;
+  }
+
+  .about-page .hero-content h1 {
+    font-size: 1.9rem;
+  }
+
+  .about-page .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .about-company h2,
+  .values-column h2,
+  .why-choose-us h2,
+  .products-services h2,
+  .our-team h2,
+  .clients-partners h2,
+  .contact-info h2 {
+    font-size: 1.7rem;
+  }
+
+  .vision-box,
+  .mission-box,
+  .benefit-card {
+    padding: 18px 16px;
+  }
+
+  .section-image,
+  .core-values-image,
+  .product-main-img {
+    height: 260px;
+  }
+
+  .vision-mission .section-image {
+    height: 260px;
+  }
+
+  .member-photo {
+    width: 110px;
+
+    height: 110px;
+  }
+
+  .partners-row {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 9px;
+  }
+
+  .partner-logo {
+    width: 80px;
+
+    height: 75px;
+  }
+}

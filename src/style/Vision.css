@@ -1,0 +1,1141 @@
+/* =========================================================
+   MAHEGA GENERAL SUPPLIERS LIMITED
+   VISION PAGE
+   NAVY BLUE + WHITE + GOLD THEME
+   COMPACT SPACING
+   SLIDING HERO
+   ========================================================= */
+
+.vision-page {
+  --vision-navy: #071d35;
+  --vision-navy-dark: #041426;
+  --vision-blue: #0b3158;
+
+  --vision-gold: #d5a928;
+  --vision-gold-light: #e3bd45;
+
+  --vision-white: #ffffff;
+  --vision-text: #263746;
+  --vision-muted: #667685;
+
+  --vision-light: #f4f7fa;
+  --vision-light-blue: #eaf2f8;
+
+  --vision-border: #e2e9ef;
+
+  --vision-accent: #1d6fa5;
+
+  min-height: 100vh;
+
+  background: #ffffff;
+
+  color: var(--vision-text);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.vision-container {
+  width: min(1180px, 92%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.vision-hero {
+  position: relative;
+
+  height: 420px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO SLIDESHOW
+   ========================================================= */
+
+.vision-slideshow {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+
+.vision-slide {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  opacity: 0;
+
+  transform: scale(1.04);
+
+  animation: visionSlideShow 15s infinite;
+}
+
+
+.vision-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+
+.vision-slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+
+.vision-slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+
+@keyframes visionSlideShow {
+
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  8% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+
+  38% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+   ========================================================= */
+
+.vision-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 20, 38, 0.90),
+      rgba(7, 29, 53, 0.58),
+      rgba(4, 20, 38, 0.88)
+    );
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.vision-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(800px, 90%);
+
+  text-align: center;
+}
+
+
+.vision-eyebrow {
+  display: inline-block;
+
+  color: var(--vision-gold);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  margin-bottom: 10px;
+}
+
+
+.vision-hero h1 {
+  margin: 0;
+
+  color: var(--vision-white);
+
+  font-size: clamp(38px, 5vw, 62px);
+
+  line-height: 1.05;
+
+  font-weight: 800;
+}
+
+
+.vision-hero h1 span {
+  color: var(--vision-gold);
+}
+
+
+.vision-hero-content p {
+  max-width: 680px;
+
+  margin: 16px auto 0;
+
+  color: #e5edf3;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
+
+.vision-hero-line {
+  width: 60px;
+
+  height: 3px;
+
+  background: var(--vision-gold);
+
+  margin: 18px auto 0;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
+
+.vision-introduction {
+  padding: 55px 0;
+
+  background: #ffffff;
+}
+
+
+.vision-intro-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(350px, 0.9fr);
+
+  gap: 45px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   SMALL TITLES
+   ========================================================= */
+
+.vision-small-title {
+  display: block;
+
+  color: var(--vision-gold);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   INTRO HEADINGS
+   ========================================================= */
+
+.vision-intro-content h2 {
+  color: var(--vision-navy);
+
+  font-size: clamp(29px, 3.5vw, 42px);
+
+  line-height: 1.15;
+
+  margin: 0;
+}
+
+
+.vision-intro-content h2 strong {
+  color: var(--vision-gold);
+}
+
+
+.vision-heading-line {
+  width: 55px;
+
+  height: 3px;
+
+  background: var(--vision-gold);
+
+  margin: 15px 0 20px;
+}
+
+
+/* =========================================================
+   INTRO TEXT
+   ========================================================= */
+
+.vision-intro-content p {
+  color: var(--vision-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin: 0 0 12px;
+}
+
+
+.vision-intro-content .vision-lead {
+  color: var(--vision-text);
+
+  font-size: 17px;
+
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  margin-bottom: 16px;
+}
+
+
+/* =========================================================
+   INTRO IMAGE
+   ========================================================= */
+
+.vision-intro-image {
+  position: relative;
+
+  height: 390px;
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+}
+
+
+.vision-intro-image img {
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+}
+
+
+.vision-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(4, 20, 38, 0.85),
+      transparent 60%
+    );
+}
+
+
+.vision-image-label {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 25px;
+
+  right: 25px;
+
+  bottom: 22px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.vision-image-label span {
+  color: var(--vision-gold);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+.vision-image-label strong {
+  color: var(--vision-white);
+
+  font-size: 21px;
+}
+
+
+/* =========================================================
+   VISION STATEMENT
+   ========================================================= */
+
+.vision-statement-section {
+  padding: 55px 0;
+
+  background: var(--vision-light-blue);
+}
+
+
+.vision-statement-card {
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 42px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid var(--vision-border);
+
+  border-top: 4px solid var(--vision-gold);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+}
+
+
+.vision-statement-icon {
+  width: 55px;
+
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin: 0 auto 16px;
+
+  color: var(--vision-gold);
+
+  background: #f8f3e5;
+
+  border: 1px solid rgba(213, 169, 40, 0.28);
+}
+
+
+.vision-statement-card > span {
+  display: block;
+
+  color: var(--vision-gold);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 9px;
+}
+
+
+.vision-statement-card h2 {
+  color: var(--vision-navy);
+
+  font-size: clamp(28px, 3.5vw, 40px);
+
+  line-height: 1.15;
+
+  margin: 0;
+}
+
+
+.vision-statement-card h2 strong {
+  color: var(--vision-gold);
+}
+
+
+.vision-statement-card p {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  color: var(--vision-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+.centered-line {
+  margin-left: auto;
+
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   STRATEGIC PILLARS
+   ========================================================= */
+
+.strategic-section {
+  padding: 55px 0;
+
+  background: #ffffff;
+}
+
+
+.vision-section-heading {
+  max-width: 720px;
+
+  margin: 0 auto 30px;
+
+  text-align: center;
+}
+
+
+.vision-section-heading > span {
+  display: block;
+
+  color: var(--vision-gold);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 9px;
+}
+
+
+.vision-section-heading h2 {
+  color: var(--vision-navy);
+
+  font-size: clamp(29px, 3.5vw, 40px);
+
+  line-height: 1.15;
+
+  margin: 0;
+}
+
+
+.vision-section-heading h2 strong {
+  color: var(--vision-gold);
+}
+
+
+.vision-section-heading p {
+  color: var(--vision-muted);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  margin: 13px auto 0;
+}
+
+
+/* =========================================================
+   STRATEGIC GRID
+   ========================================================= */
+
+.strategic-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   STRATEGIC CARD
+   ========================================================= */
+
+.strategic-card {
+  padding: 23px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--vision-border);
+
+  border-top: 3px solid transparent;
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.strategic-card:hover {
+  transform: translateY(-5px);
+
+  border-top-color: var(--vision-gold);
+
+  box-shadow:
+    0 10px 24px rgba(7, 29, 53, 0.1);
+}
+
+
+.strategic-card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+
+.strategic-icon {
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: var(--vision-gold);
+
+  background: #f8f3e5;
+
+  border: 1px solid rgba(213, 169, 40, 0.28);
+}
+
+
+.strategic-card-top > span {
+  color: #c7d3dc;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+
+.strategic-card h3 {
+  color: var(--vision-navy);
+
+  font-size: 18px;
+
+  line-height: 1.3;
+
+  margin: 0;
+}
+
+
+.strategic-line {
+  width: 35px;
+
+  height: 2px;
+
+  background: var(--vision-gold);
+
+  margin: 11px 0;
+}
+
+
+.strategic-card p {
+  color: var(--vision-muted);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   2030 GOALS
+   ========================================================= */
+
+.vision-goals-section {
+  padding: 55px 0;
+
+  background: var(--vision-light-blue);
+}
+
+
+.vision-goals-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(350px, 0.95fr);
+
+  gap: 45px;
+
+  align-items: center;
+}
+
+
+.vision-goals-content h2 {
+  color: var(--vision-navy);
+
+  font-size: clamp(29px, 3.5vw, 40px);
+
+  line-height: 1.15;
+
+  margin: 0;
+}
+
+
+.vision-goals-content h2 strong {
+  color: var(--vision-gold);
+}
+
+
+.vision-goals-content p {
+  color: var(--vision-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin: 0 0 12px;
+}
+
+
+/* =========================================================
+   GOALS LIST
+   ========================================================= */
+
+.vision-goals-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+
+.vision-goal-item {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 17px;
+
+  background: #ffffff;
+
+  border: 1px solid var(--vision-border);
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.vision-goal-item:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 18px rgba(7, 29, 53, 0.09);
+}
+
+
+.vision-goal-icon {
+  flex: 0 0 40px;
+
+  width: 40px;
+
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: var(--vision-gold);
+
+  background: #f8f3e5;
+
+  border: 1px solid rgba(213, 169, 40, 0.28);
+}
+
+
+.vision-goal-item h3 {
+  color: var(--vision-navy);
+
+  font-size: 14px;
+
+  margin: 0 0 5px;
+}
+
+
+.vision-goal-item p {
+  color: var(--vision-muted);
+
+  font-size: 11px;
+
+  line-height: 1.55;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   FUTURE SECTION
+   ========================================================= */
+
+.future-section {
+  padding: 55px 0;
+
+  background: #ffffff;
+}
+
+
+.future-content {
+  max-width: 780px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+.future-content > span {
+  display: block;
+
+  color: var(--vision-gold);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+
+.future-content h2 {
+  color: var(--vision-navy);
+
+  font-size: clamp(30px, 4vw, 43px);
+
+  line-height: 1.1;
+
+  margin: 0;
+}
+
+
+.future-content h2 strong {
+  color: var(--vision-gold);
+}
+
+
+.future-content p {
+  color: var(--vision-muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin: 12px auto 0;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.vision-cta {
+  padding: 60px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--vision-navy),
+      #0b3158
+    );
+}
+
+
+.vision-cta-content {
+  max-width: 800px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+
+.vision-cta-content > span {
+  display: block;
+
+  color: var(--vision-gold);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+
+.vision-cta h2 {
+  color: #ffffff;
+
+  font-size: clamp(31px, 4.5vw, 47px);
+
+  line-height: 1.1;
+
+  margin: 0 0 15px;
+}
+
+
+.vision-cta h2 strong {
+  color: var(--vision-gold);
+}
+
+
+.vision-cta p {
+  max-width: 650px;
+
+  color: #d8e5ed;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  margin: 0 auto 22px;
+}
+
+
+.vision-cta-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  min-width: 150px;
+
+  padding: 12px 24px;
+
+  color: var(--vision-navy);
+
+  background: var(--vision-gold);
+
+  border: 1px solid var(--vision-gold);
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.vision-cta-button:hover {
+  color: var(--vision-gold);
+
+  background: transparent;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   GENERAL GOLD HIGHLIGHTS
+   ========================================================= */
+
+.vision-page h1 span,
+.vision-page h2 strong,
+.vision-page .vision-small-title,
+.vision-page .vision-eyebrow,
+.vision-page .vision-section-heading > span,
+.vision-page .future-content > span,
+.vision-page .vision-cta-content > span {
+  color: var(--vision-gold);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+  .strategic-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .vision-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-intro-image {
+    height: 350px;
+  }
+
+  .vision-goals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .vision-container {
+    width: 90%;
+  }
+
+  .vision-hero {
+    height: 370px;
+  }
+
+  .vision-hero h1 {
+    font-size: 43px;
+  }
+
+  .vision-introduction,
+  .vision-statement-section,
+  .strategic-section,
+  .vision-goals-section,
+  .future-section {
+    padding: 40px 0;
+  }
+
+  .strategic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-goals-list {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-statement-card {
+    padding: 30px 22px;
+  }
+
+  .vision-cta {
+    padding: 45px 0;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .vision-hero {
+    height: 345px;
+  }
+
+  .vision-hero h1 {
+    font-size: 37px;
+  }
+
+  .vision-hero-content p {
+    font-size: 13px;
+  }
+
+  .vision-intro-image {
+    height: 300px;
+  }
+
+  .strategic-card {
+    padding: 20px;
+  }
+
+  .vision-statement-card {
+    padding: 25px 18px;
+  }
+
+  .vision-cta h2 {
+    font-size: 31px;
+  }
+}

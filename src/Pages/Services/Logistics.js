@@ -1,496 +1,469 @@
 // src/pages/Services/Logistics.js
-import React, { useState } from 'react';
-import '../../style/Logistics.css';
+import React, { useState } from "react";
+import {
+  Package,
+  Clock,
+  Truck,
+  Headset,
+  MapPin,
+  Building2,
+  Home,
+  Mountain,
+  Globe,
+  Snowflake,
+  Lock,
+  Moon,
+  Check,
+  Mail,
+  Smartphone,
+  Phone,
+  Send,
+  Loader2,
+} from "lucide-react";
+import "../../style/Logistics.css";
 
 function Logistics() {
-  const [activeService, setActiveService] = useState('logistics');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    deliveryType: '',
-    pickupLocation: '',
-    deliveryLocation: '',
-    packageType: '',
-    weight: '',
-    urgency: '',
-    specialRequirements: ''
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    deliveryType: "",
+    pickupLocation: "",
+    deliveryLocation: "",
+    packageType: "",
+    weight: "",
+    urgency: "",
+    specialRequirements: "",
   });
 
-  const services = [
-    { id: 'consulting', name: 'Supply Chain Consulting', icon: '📊' },
-    { id: 'custom-orders', name: 'Custom Orders', icon: '🛒' },
-    { id: 'export-logistics', name: 'Export Logistics', icon: '🚢' },
-    { id: 'logistics', name: 'Logistics Management', icon: '🚛' },
-    { id: 'procurement', name: 'Procurement Services', icon: '📋' }
-  ];
-
   const stats = [
-    {
-      number: '500+',
-      label: 'Deliveries Weekly',
-      icon: '📦'
-    },
-    {
-      number: '98%',
-      label: 'On-Time Rate',
-      icon: '⏱️'
-    },
-    {
-      number: '50+',
-      label: 'Vehicles in Fleet',
-      icon: '🚚'
-    },
-    {
-      number: '24/7',
-      label: 'Support Team',
-      icon: '📞'
-    }
+    { number: "500+", label: "Deliveries Weekly", icon: Package },
+    { number: "98%", label: "On-Time Rate", icon: Clock },
+    { number: "50+", label: "Vehicles in Fleet", icon: Truck },
+    { number: "24/7", label: "Support Team", icon: Headset },
   ];
 
   const coverageAreas = [
     {
-      area: '🏙️ Within Kampala',
-      description: 'Same-day delivery (orders placed before 12 PM)'
+      icon: Building2,
+      area: "Within Kampala",
+      desc: "Same-day delivery (orders placed before 12 PM).",
     },
     {
-      area: '🏘️ Major Cities',
-      description: 'Jinja, Mbale, Mbarara, Gulu, Fort Portal (24–48 hours)'
+      icon: Home,
+      area: "Major Cities",
+      desc: "Jinja, Mbale, Mbarara, Gulu, Fort Portal (24–48 hours).",
     },
     {
-      area: '🏞️ Rural & Remote Areas',
-      description: '3–5 business days, with SMS tracking'
+      icon: Mountain,
+      area: "Rural & Remote Areas",
+      desc: "3–5 business days, with SMS tracking.",
     },
     {
-      area: '🌍 East Africa',
-      description: 'Kenya, Tanzania, Rwanda, South Sudan (5–7 days, by road or air)'
-    }
+      icon: Globe,
+      area: "East Africa",
+      desc: "Kenya, Tanzania, Rwanda, South Sudan (5–7 days, by road or air).",
+    },
+  ];
+
+  const fleetFeatures = [
+    "Order confirmation SMS/email",
+    "Live tracking link (where applicable)",
+    "Driver contact details before delivery",
+    "Proof of delivery (signed receipt or photo)",
   ];
 
   const specializedSolutions = [
     {
-      title: 'Bulk Deliveries',
-      description: 'For schools, hospitals, factories, and events — handled with precision.',
-      icon: '📦'
+      icon: Package,
+      title: "Bulk Deliveries",
+      desc: "For schools, hospitals, factories, and events — handled with precision.",
     },
     {
-      title: 'Temperature-Sensitive',
-      description: 'Medical supplies, beverages, perishables — delivered under controlled conditions.',
-      icon: '❄️'
+      icon: Snowflake,
+      title: "Temperature-Sensitive",
+      desc: "Medical supplies, beverages, perishables — delivered under controlled conditions.",
     },
     {
-      title: 'High-Value Items',
-      description: 'Sealed, tracked, and insured delivery for maximum security.',
-      icon: '🔒'
+      icon: Lock,
+      title: "High-Value Items",
+      desc: "Sealed, tracked, and insured delivery for maximum security.",
     },
     {
-      title: 'After-Hours/Weekend',
-      description: 'Available on request for urgent or special timing needs.',
-      icon: '🌙'
-    }
+      icon: Moon,
+      title: "After-Hours/Weekend",
+      desc: "Available on request for urgent or special timing needs.",
+    },
   ];
 
   const benefits = [
-    'On-Time Guarantee — We meet 98% of promised delivery windows',
-    'No Hidden Fees — Transparent pricing based on weight, volume, and distance',
-    'Dedicated Account Manager — For corporate and recurring clients',
-    'Flexible Scheduling — Morning, afternoon, or after-hours delivery slots',
-    'Damage-Free Promise — Careful handling and secure packaging'
+    { title: "On-Time Guarantee", desc: "We meet 98% of promised delivery windows." },
+    { title: "No Hidden Fees", desc: "Transparent pricing based on weight, volume, and distance." },
+    { title: "Dedicated Account Manager", desc: "For corporate and recurring clients." },
+    { title: "Flexible Scheduling", desc: "Morning, afternoon, or after-hours delivery slots." },
+    { title: "Damage-Free Promise", desc: "Careful handling and secure packaging." },
   ];
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleQuoteRequest = () => {
-    document.getElementById('contact-form').scrollIntoView({ 
-      behavior: 'smooth' 
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Logistics Quote Request:', formData);
-      alert('Thank you for your logistics quote request! We will contact you within 1 hour with pricing and options.');
-      
-      // Reset form
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      console.log("Logistics Quote Request:", formData);
+      alert("Thank you for your logistics quote request! We will contact you within 1 hour with pricing and options.");
+
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        deliveryType: '',
-        pickupLocation: '',
-        deliveryLocation: '',
-        packageType: '',
-        weight: '',
-        urgency: '',
-        specialRequirements: ''
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        deliveryType: "",
+        pickupLocation: "",
+        deliveryLocation: "",
+        packageType: "",
+        weight: "",
+        urgency: "",
+        specialRequirements: "",
       });
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error submitting your request. Please try again.');
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting your request. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="logistics-container">
-      {/* Sidebar */}
-      <aside className="services-sidebar">
-        <h3>Our Services</h3>
-        <nav className="services-nav">
-          {services.map(service => (
-            <a
-              key={service.id}
-              href={`/services/${service.id}`}
-              className={activeService === service.id ? 'active' : ''}
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveService(service.id);
-              }}
-            >
-              <span className="service-icon">{service.icon}</span>
-              {service.name}
-            </a>
+    <div className="lg">
+      {/* Hero */}
+      <section className="lg-hero">
+        <div className="lg-container">
+          <span className="lg-badge"><Truck size={15} /> Logistics & Delivery</span>
+          <h1>Reliable. Timely. Nationwide.</h1>
+          <p>
+            At Mahega General Suppliers Limited, we don't just supply products
+            — we ensure they reach you, wherever you are, on time and in
+            perfect condition. Our logistics network covers every region in
+            Uganda and extends to key East African markets.
+          </p>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="lg-stats">
+        <div className="lg-container lg-stats-grid">
+          {stats.map(({ number, label, icon: Icon }) => (
+            <div className="lg-stat" key={label}>
+              <span className="lg-stat-icon"><Icon size={22} /></span>
+              <div className="lg-stat-value">{number}</div>
+              <div className="lg-stat-label">{label}</div>
+            </div>
           ))}
-        </nav>
-        
-        <div className="sidebar-cta">
-          <h4>Need Delivery?</h4>
-          <p>Get a free quote for your logistics needs.</p>
-          <button className="cta-button" onClick={handleQuoteRequest}>
-            Get Quote
-          </button>
         </div>
-      </aside>
+      </section>
 
-      {/* Main Content */}
-      <main className="logistics-main">
-        <div className="hero-section">
-          <h1>Logistics & Delivery</h1>
-          <p className="hero-subtitle">🚛 Reliable. ⏱️ Timely. 🌍 Nationwide.</p>
-        </div>
-
-        <section className="intro-section">
-          <h2>Your Trusted Logistics Partner</h2>
-          <p>
-            At Mahega General Suppliers Limited, we don't just supply products — we ensure they reach you, 
-            wherever you are, on time and in perfect condition. Our logistics network covers every region 
-            in Uganda and extends to key East African markets.
-          </p>
-        </section>
-
-        <section className="stats-section">
-          <h2>Our Logistics Performance</h2>
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="stat-card">
-                <div className="stat-icon">{stat.icon}</div>
-                <h3>{stat.number}</h3>
-                <p>{stat.label}</p>
+      {/* Coverage */}
+      <section className="lg-section">
+        <div className="lg-container">
+          <div className="lg-section-heading">
+            <span className="lg-heading-icon"><MapPin size={20} /></span>
+            <h2>Our Delivery Coverage</h2>
+            <span className="lg-underline" />
+          </div>
+          <div className="lg-coverage-grid">
+            {coverageAreas.map(({ icon: Icon, area, desc }) => (
+              <div className="lg-coverage-card" key={area}>
+                <span className="lg-card-icon"><Icon size={24} /></span>
+                <div>
+                  <h3>{area}</h3>
+                  <p>{desc}</p>
+                </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="coverage-section">
-          <h2>📍 Our Delivery Coverage</h2>
-          <ul className="coverage-list">
-            {coverageAreas.map((area, index) => (
-              <li key={index} className="coverage-item">
-                <strong>{area.area}</strong> — {area.description}
-              </li>
-            ))}
-          </ul>
-        </section>
+      {/* Fleet */}
+      <section className="lg-section lg-alt-section">
+        <div className="lg-container lg-fleet-grid">
+          <div className="lg-fleet-content">
+            <div className="lg-section-heading lg-section-heading-left">
+              <span className="lg-heading-icon"><Truck size={20} /></span>
+              <h2>Our Fleet & Technology</h2>
+              <span className="lg-underline" />
+            </div>
+            <p>
+              We operate a modern fleet of delivery vans, trucks, and
+              refrigerated vehicles — all GPS-tracked and maintained to the
+              highest standards. Our logistics team uses real-time route
+              optimization software to ensure speed and fuel efficiency.
+            </p>
+            <p className="lg-fleet-lead">Every client receives:</p>
+            <ul className="lg-fleet-list">
+              {fleetFeatures.map((f) => (
+                <li key={f}><Check size={17} /> {f}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
-        <section className="fleet-section">
-          <h2>🚗 Our Fleet & Technology</h2>
-          <p>
-            We operate a modern fleet of delivery vans, trucks, and refrigerated vehicles — all GPS-tracked 
-            and maintained to the highest standards. Our logistics team uses real-time route optimization 
-            software to ensure speed and fuel efficiency.
-          </p>
-          <p>
-            Every client receives:
-          </p>
-          <ul className="feature-list">
-            <li> Order confirmation SMS/email</li>
-            <li> Live tracking link (where applicable)</li>
-            <li> Driver contact details before delivery</li>
-            <li> Proof of delivery (signed receipt or photo)</li>
-          </ul>
-        </section>
-
-        <section className="solutions-section">
-          <h2>🎯 Specialized Logistics Solutions</h2>
-          <div className="solutions-grid">
-            {specializedSolutions.map((solution, index) => (
-              <div key={index} className="solution-card">
-                <div className="solution-icon">{solution.icon}</div>
-                <h3>{solution.title}</h3>
-                <p>{solution.description}</p>
+      {/* Specialized Solutions */}
+      <section className="lg-section">
+        <div className="lg-container">
+          <div className="lg-section-heading">
+            <h2>Specialized Logistics Solutions</h2>
+            <span className="lg-underline" />
+          </div>
+          <div className="lg-grid lg-grid-4">
+            {specializedSolutions.map(({ icon: Icon, title, desc }) => (
+              <div className="lg-card" key={title}>
+                <span className="lg-card-icon"><Icon size={26} /></span>
+                <h3>{title}</h3>
+                <p>{desc}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="benefits-section">
-          <h2> Why Clients Choose Our Logistics</h2>
-          <ul className="benefits-list">
-            {benefits.map((benefit, index) => (
-              <li key={index} className="benefit-item">
-                ✔ <strong>{benefit.split('—')[0]}</strong> — {benefit.split('—')[1]}
+      {/* Benefits */}
+      <section className="lg-section lg-alt-section">
+        <div className="lg-container">
+          <div className="lg-section-heading">
+            <h2>Why Clients Choose Our Logistics</h2>
+            <span className="lg-underline" />
+          </div>
+          <ul className="lg-benefits-list">
+            {benefits.map(({ title, desc }) => (
+              <li key={title}>
+                <Check size={18} />
+                <span><strong>{title}</strong> — {desc}</span>
               </li>
             ))}
           </ul>
-        </section>
+        </div>
+      </section>
 
-        {/* New Contact Form Section */}
-        <section className="contact-section" id="contact-form">
-          <div className="contact-wrapper">
-            <div className="contact-info">
-              <h2>📦 Get Your Logistics Quote</h2>
-              <p>
-                Ready to ship your items? Fill out the form with your delivery details, and our team 
-                will get back to you with pricing and options within 1 hour.
-              </p>
-              
-              <div className="quote-benefits">
-                <div className="quote-benefit">
-                  <span className="benefit-icon">✓</span>
-                  <span>Free, no-obligation quote</span>
-                </div>
-                <div className="quote-benefit">
-                  <span className="benefit-icon">✓</span>
-                  <span>Response within 1 hour</span>
-                </div>
-                <div className="quote-benefit">
-                  <span className="benefit-icon">✓</span>
-                  <span>Flexible pickup & delivery times</span>
-                </div>
-                <div className="quote-benefit">
-                  <span className="benefit-icon">✓</span>
-                  <span>Insurance options available</span>
-                </div>
+      {/* Contact */}
+      <section className="lg-section lg-contact-section" id="contact-form">
+        <div className="lg-container lg-contact-grid">
+          <div className="lg-contact-info">
+            <h2>Get Your Logistics Quote</h2>
+            <p>
+              Ready to ship your items? Fill out the form with your delivery
+              details, and our team will get back to you with pricing and
+              options within 1 hour.
+            </p>
+            <ul className="lg-quote-benefits">
+              <li><Check size={17} /> Free, no-obligation quote</li>
+              <li><Check size={17} /> Response within 1 hour</li>
+              <li><Check size={17} /> Flexible pickup & delivery times</li>
+              <li><Check size={17} /> Insurance options available</li>
+            </ul>
+
+            <div className="lg-contact-methods">
+              <h3>Or Contact Us Directly</h3>
+              <p><Mail size={16} /> logistics@mahega.co.ug</p>
+              <p><Smartphone size={16} /> +256 700 123 456</p>
+              <p><Phone size={16} /> +256 414 123 456</p>
+              <p><Clock size={16} /> 24/7 Logistics Support</p>
+            </div>
+          </div>
+
+          <form className="lg-form" onSubmit={handleSubmit}>
+            <h3><Truck size={18} /> Logistics Quote Request</h3>
+
+            <div className="lg-form-row">
+              <div className="lg-form-group">
+                <label htmlFor="name">Full Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Enter your full name"
+                  required
+                />
               </div>
-              
-              <div className="contact-methods">
-                <h3>🚚 Or Contact Us Directly</h3>
-                <div className="contact-item">
-                  <span className="contact-icon">📧</span>
-                  <span>logistics@mahega.co.ug</span>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-icon">📱</span>
-                  <span>+256 700 123 456</span>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-icon">📞</span>
-                  <span>+256 414 123 456</span>
-                </div>
-                <div className="contact-item">
-                  <span className="contact-icon">🕒</span>
-                  <span>24/7 Logistics Support</span>
-                </div>
+              <div className="lg-form-group">
+                <label htmlFor="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="your.email@company.com"
+                  required
+                />
               </div>
             </div>
-            
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <h3 className="form-title">🚛 Logistics Quote Request</h3>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your full name"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email Address *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="your.email@company.com"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone">Phone Number *</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="+256 700 000 000"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="company">Company/Organization</label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    placeholder="Your company name"
-                  />
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="deliveryType">Delivery Type *</label>
-                  <select
-                    id="deliveryType"
-                    name="deliveryType"
-                    value={formData.deliveryType}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">-- Select delivery type --</option>
-                    <option value="same-day">Same Day Delivery</option>
-                    <option value="next-day">Next Day Delivery</option>
-                    <option value="express">Express Delivery</option>
-                    <option value="standard">Standard Delivery</option>
-                    <option value="bulk">Bulk Delivery</option>
-                    <option value="international">International Delivery</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label htmlFor="packageType">Package Type *</label>
-                  <select
-                    id="packageType"
-                    name="packageType"
-                    value={formData.packageType}
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">-- Select package type --</option>
-                    <option value="documents">Documents</option>
-                    <option value="small-package">Small Package (&lt;5kg)</option>
-                    <option value="medium-package">Medium Package (5-20kg)</option>
-                    <option value="large-package">Large Package (20-50kg)</option>
-                    <option value="bulk-items">Bulk Items</option>
-                    <option value="furniture">Furniture</option>
-                    <option value="equipment">Equipment</option>
-                    <option value="perishable">Perishable Goods</option>
-                    <option value="fragile">Fragile Items</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="pickupLocation">Pickup Location *</label>
-                  <input
-                    type="text"
-                    id="pickupLocation"
-                    name="pickupLocation"
-                    value={formData.pickupLocation}
-                    onChange={handleInputChange}
-                    placeholder="Enter pickup address"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="deliveryLocation">Delivery Location *</label>
-                  <input
-                    type="text"
-                    id="deliveryLocation"
-                    name="deliveryLocation"
-                    value={formData.deliveryLocation}
-                    onChange={handleInputChange}
-                    placeholder="Enter delivery address"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="weight">Approximate Weight (kg)</label>
-                  <input
-                    type="number"
-                    id="weight"
-                    name="weight"
-                    value={formData.weight}
-                    onChange={handleInputChange}
-                    placeholder="e.g., 10"
-                    min="0"
-                    step="0.1"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="urgency">Urgency</label>
-                  <select
-                    id="urgency"
-                    name="urgency"
-                    value={formData.urgency}
-                    onChange={handleInputChange}
-                  >
-                    <option value="">-- Select urgency --</option>
-                    <option value="standard">Standard (3-5 days)</option>
-                    <option value="urgent">Urgent (1-2 days)</option>
-                    <option value="express">Express (Same day)</option>
-                    <option value="emergency">Emergency (Within hours)</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div className="form-group">
-                <label htmlFor="specialRequirements">Special Requirements</label>
-                <textarea
-                  id="specialRequirements"
-                  name="specialRequirements"
-                  rows="4"
-                  value={formData.specialRequirements}
+
+            <div className="lg-form-row">
+              <div className="lg-form-group">
+                <label htmlFor="phone">Phone Number *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="Any special handling instructions, delivery time preferences, access restrictions, or other requirements..."
-                ></textarea>
+                  placeholder="+256 700 000 000"
+                  required
+                />
               </div>
-              
-              <button 
-                type="submit" 
-                className="submit-button"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? '⏳ Getting Your Quote...' : '🚀 Get Free Quote Now'}
-              </button>
-              
-              <p className="form-note">
-                * Required fields. We'll respond with pricing and options within 1 hour.
-              </p>
-            </form>
-          </div>
-        </section>
-      </main>
+              <div className="lg-form-group">
+                <label htmlFor="company">Company/Organization</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  placeholder="Your company name"
+                />
+              </div>
+            </div>
+
+            <div className="lg-form-row">
+              <div className="lg-form-group">
+                <label htmlFor="deliveryType">Delivery Type *</label>
+                <select
+                  id="deliveryType"
+                  name="deliveryType"
+                  value={formData.deliveryType}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">-- Select delivery type --</option>
+                  <option value="same-day">Same Day Delivery</option>
+                  <option value="next-day">Next Day Delivery</option>
+                  <option value="express">Express Delivery</option>
+                  <option value="standard">Standard Delivery</option>
+                  <option value="bulk">Bulk Delivery</option>
+                  <option value="international">International Delivery</option>
+                </select>
+              </div>
+              <div className="lg-form-group">
+                <label htmlFor="packageType">Package Type *</label>
+                <select
+                  id="packageType"
+                  name="packageType"
+                  value={formData.packageType}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">-- Select package type --</option>
+                  <option value="documents">Documents</option>
+                  <option value="small-package">Small Package (&lt;5kg)</option>
+                  <option value="medium-package">Medium Package (5-20kg)</option>
+                  <option value="large-package">Large Package (20-50kg)</option>
+                  <option value="bulk-items">Bulk Items</option>
+                  <option value="furniture">Furniture</option>
+                  <option value="equipment">Equipment</option>
+                  <option value="perishable">Perishable Goods</option>
+                  <option value="fragile">Fragile Items</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="lg-form-row">
+              <div className="lg-form-group">
+                <label htmlFor="pickupLocation">Pickup Location *</label>
+                <input
+                  type="text"
+                  id="pickupLocation"
+                  name="pickupLocation"
+                  value={formData.pickupLocation}
+                  onChange={handleInputChange}
+                  placeholder="Enter pickup address"
+                  required
+                />
+              </div>
+              <div className="lg-form-group">
+                <label htmlFor="deliveryLocation">Delivery Location *</label>
+                <input
+                  type="text"
+                  id="deliveryLocation"
+                  name="deliveryLocation"
+                  value={formData.deliveryLocation}
+                  onChange={handleInputChange}
+                  placeholder="Enter delivery address"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="lg-form-row">
+              <div className="lg-form-group">
+                <label htmlFor="weight">Approximate Weight (kg)</label>
+                <input
+                  type="number"
+                  id="weight"
+                  name="weight"
+                  value={formData.weight}
+                  onChange={handleInputChange}
+                  placeholder="e.g., 10"
+                  min="0"
+                  step="0.1"
+                />
+              </div>
+              <div className="lg-form-group">
+                <label htmlFor="urgency">Urgency</label>
+                <select
+                  id="urgency"
+                  name="urgency"
+                  value={formData.urgency}
+                  onChange={handleInputChange}
+                >
+                  <option value="">-- Select urgency --</option>
+                  <option value="standard">Standard (3-5 days)</option>
+                  <option value="urgent">Urgent (1-2 days)</option>
+                  <option value="express">Express (Same day)</option>
+                  <option value="emergency">Emergency (Within hours)</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="lg-form-group">
+              <label htmlFor="specialRequirements">Special Requirements</label>
+              <textarea
+                id="specialRequirements"
+                name="specialRequirements"
+                rows="4"
+                value={formData.specialRequirements}
+                onChange={handleInputChange}
+                placeholder="Any special handling instructions, delivery time preferences, access restrictions, or other requirements..."
+              ></textarea>
+            </div>
+
+            <button type="submit" className="lg-submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <><Loader2 size={16} className="lg-spin" /> Getting Your Quote...</>
+              ) : (
+                <><Send size={16} /> Get Free Quote Now</>
+              )}
+            </button>
+
+            <p className="lg-form-note">
+              * Required fields. We'll respond with pricing and options within 1 hour.
+            </p>
+          </form>
+        </div>
+      </section>
     </div>
   );
 }

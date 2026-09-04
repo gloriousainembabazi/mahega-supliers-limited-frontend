@@ -1,270 +1,690 @@
-// src/pages/Products/Industrial.js
-import React, { useState } from 'react';
+﻿// src/Pages/Products/Industrial.js
+
+import React, { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import '../../style/industrial.css';
 
-// ✅ IMPORT REAL INDUSTRIAL MATERIAL IMAGES
+// =========================================================
+// INDUSTRIAL PRODUCT IMAGES
+// =========================================================
+
 import pipesFittingsImg from '../../images/pipes fittings.jpeg';
 import plywoodTimberImg from '../../images/timber plywood.jpeg';
 import metalsHardwareImg from '../../images/metal bars.jpeg';
 import safetyMaterialsImg from '../../images/safety gears.jpeg';
+
 import hdpePipesImg from '../../images/hdpe pipes.jpeg';
 import pvcPipesImg from '../../images/pvc pipes.jpeg';
 import steelPipesImg from '../../images/steel pipes.jpeg';
 import galvanizedFittingsImg from '../../images/galvanised-fittings.jpeg';
+
 import marinePlywoodImg from '../../images/marine plywood.jpeg';
 import structuralTimberImg from '../../images/structural timbers.jpeg';
 import commercialPlywoodImg from '../../images/commercial plywood.jpeg';
+
 import steelBarsImg from '../../images/steel bars.jpeg';
 import metalSheetsImg from '../../images/metal hard ware.jpeg';
 import constructionHardwareImg from '../../images/construction handware.jpeg';
+
 import safetySignageImg from '../../images/safety gears.jpeg';
 import ppeGearImg from '../../images/ppe gears.jpeg';
 
+// =========================================================
+// HERO BACKGROUND IMAGES
+// These use images already available in your project.
+// =========================================================
+
+const heroImages = [
+  pipesFittingsImg,
+  metalsHardwareImg,
+  safetyMaterialsImg,
+  steelBarsImg,
+  constructionHardwareImg
+];
+
 function Industrial() {
   const [loading, setLoading] = useState(false);
+  const [heroIndex, setHeroIndex] = useState(0);
+
+  // =========================================================
+  // CHANGE HERO IMAGE AUTOMATICALLY
+  // =========================================================
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroIndex((currentIndex) => {
+        return (currentIndex + 1) % heroImages.length;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // =========================================================
+  // CONTACT FORM
+  // =========================================================
 
   const sendContactForm = (e) => {
     e.preventDefault();
+
     const name = e.target.name.value;
     const email = e.target.email.value;
     const message = e.target.message.value;
 
     setLoading(true);
 
-    emailjs.send(
-      'service_xyz123',     // 👉 REPLACE WITH YOUR EMAILJS SERVICE ID
-      'template_abc456',    // 👉 REPLACE WITH YOUR TEMPLATE ID
-      { name, email, message },
-      'user_789def012'      // 👉 REPLACE WITH YOUR PUBLIC KEY
-    )
-    .then(() => {
-      alert('✅ Message sent successfully! We’ll contact you soon.');
-      e.target.reset();
-    })
-    .catch(() => {
-      alert('❌ Failed to send. Please try again or contact us via WhatsApp.');
-    })
-    .finally(() => {
-      setLoading(false);
-    });
+    emailjs
+      .send(
+        'service_xyz123',
+        'template_abc456',
+        {
+          name,
+          email,
+          message
+        },
+        'user_789def012'
+      )
+      .then(() => {
+        alert(
+          'Message sent successfully! We will contact you soon.'
+        );
+
+        e.target.reset();
+      })
+      .catch(() => {
+        alert(
+          'Failed to send. Please try again or contact us via WhatsApp.'
+        );
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   return (
     <div className="industrial-page">
-      
 
-      {/* ✅ Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1>🏗️ Industrial & Construction Materials</h1>
-          <p>Premium pipes, metals, timber, and safety gear for contractors, factories, and infrastructure projects.</p>
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
+
+      <section
+        className="industrial-hero-section"
+        style={{
+          backgroundImage: `
+            linear-gradient(
+              rgba(17, 20, 21, 0.78),
+              rgba(17, 20, 21, 0.78)
+            ),
+            url("${heroImages[heroIndex]}")
+          `
+        }}
+      >
+        <div className="industrial-hero-content">
+
+          <span className="industrial-hero-label">
+            MAHEGA GENERAL SUPPLIERS LIMITED
+          </span>
+
+          <h1>
+            Industrial & Construction Materials
+          </h1>
+
+          <p>
+            Premium pipes, metals, timber, hardware and safety
+            materials for contractors, factories and infrastructure
+            projects across Uganda.
+          </p>
+
+          <div className="industrial-hero-indicators">
+            {heroImages.map((_, index) => (
+              <span
+                key={index}
+                className={
+                  index === heroIndex
+                    ? 'hero-indicator active'
+                    : 'hero-indicator'
+                }
+              ></span>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* ✅ Main Content with Sidebar */}
-      <div className="page-content">
-        <div className="content-layout">
-          
-          {/* ✅ SIDEBAR — All Products (same as other pages) */}
-          <aside className="product-sidebar">
-            <h3>📦 All Products</h3>
-            <ul className="product-links">
-              <li><a href="/products/stationery">Stationery & Office Supplies</a></li>
-              <li><a href="/products/computers">Computers & Printers</a></li>
-              <li><a href="/products/furniture">Office & Hotel Furniture</a></li>
-              <li><a href="/products/cleaning">Cleaning Materials</a></li>
-              <li><a href="/products/agricultural">Agricultural Inputs</a></li>
-              <li><a href="/products/livestock">Livestock & Rearing</a></li>
-              <li><a href="/products/food-beverages">Food & Beverages</a></li>
-              <li><a href="/products/medical">Medical & PPE</a></li>
-              <li><a href="/products/industrial">Industrial Materials</a></li>
-              <li><a href="/products/branding">Custom Branding</a></li>
-              <li><a href="/products/export">Exported Goods</a></li>
-              <li><a href="/products/custom">Custom Orders</a></li>
-            </ul>
-          </aside>
+      {/* =====================================================
+          MAIN PAGE CONTENT
+      ===================================================== */}
 
-          {/* ✅ MAIN CONTENT */}
-          <main className="main-content">
-            <section>
-              <h2>🏗️ Premium Materials for Construction & Manufacturing</h2>
+      <div className="industrial-page-content">
+
+        <main className="industrial-main-content">
+
+          {/* =================================================
+              INTRODUCTION
+          ================================================= */}
+
+          <section className="industrial-intro-section">
+
+            <div className="industrial-section-heading">
+              <span className="section-line"></span>
+
+              <div>
+                <span className="section-label">
+                  INDUSTRIAL SUPPLY
+                </span>
+
+                <h2>
+                  Premium Materials for Construction & Manufacturing
+                </h2>
+              </div>
+            </div>
+
+            <p>
+              Source pipes, plywood, metals, hardware and safety
+              equipment from trusted suppliers. Our materials are
+              selected for durability, safety and performance in
+              industrial and construction environments.
+            </p>
+
+          </section>
+
+          {/* =================================================
+              STATS
+          ================================================= */}
+
+          <section className="industrial-stats">
+
+            <div className="industrial-stat-box">
+              <h3>500+</h3>
+              <p>Projects Supplied</p>
+            </div>
+
+            <div className="industrial-stat-box">
+              <h3>Custom</h3>
+              <p>Sizing Available</p>
+            </div>
+
+            <div className="industrial-stat-box">
+              <h3>Heavy-Duty</h3>
+              <p>Delivery</p>
+            </div>
+
+          </section>
+
+          {/* =================================================
+              KEY FEATURES
+          ================================================= */}
+
+          <section className="industrial-feature-section">
+
+            <div className="industrial-feature-image">
+
+              <img
+                src={safetyMaterialsImg}
+                alt="Industrial safety materials"
+              />
+
+            </div>
+
+            <div className="industrial-feature-content">
+
+              <span className="section-label">
+                WHAT WE PROVIDE
+              </span>
+
+              <h2>
+                Key Features
+              </h2>
+
               <p>
-                Source pipes, plywood, metals, and hardware from trusted suppliers — built for durability, 
-                safety, and performance in industrial and construction environments.
+                We provide dependable industrial materials and
+                professional supply support for projects of different
+                sizes.
               </p>
-            </section>
 
-            <section className="product-stats">
-              <div className="stat-box">
-                <div className="stat-icon">🔩</div>
-                <h3>500+</h3>
-                <p>Projects Supplied</p>
-              </div>
-              <div className="stat-box">
-                <div className="stat-icon">📏</div>
-                <h3>Custom</h3>
-                <p>Sizing</p>
-              </div>
-              <div className="stat-box">
-                <div className="stat-icon">🚛</div>
-                <h3>Heavy-Duty</h3>
-                <p>Delivery</p>
-              </div>
-            </section>
+              <ul className="industrial-feature-list">
 
-            <section>
-              <h2>✨ Key Features</h2>
-              <ul className="feature-list">
-                <li> Grade-certified materials with test reports</li>
-                <li> On-site cutting, bending, and fabrication services</li>
-                <li> Site delivery with crane or forklift offloading</li>
-                <li> Bulk pricing and volume discounts for contractors</li>
-                <li> Just-in-time supply for ongoing projects</li>
-                <li> Technical support for material selection</li>
+                <li>
+                  Grade-certified materials with test reports
+                </li>
+
+                <li>
+                  On-site cutting, bending and fabrication services
+                </li>
+
+                <li>
+                  Site delivery with crane or forklift offloading
+                </li>
+
+                <li>
+                  Bulk pricing and volume discounts for contractors
+                </li>
+
+                <li>
+                  Just-in-time supply for ongoing projects
+                </li>
+
+                <li>
+                  Technical support for material selection
+                </li>
+
               </ul>
-            </section>
 
-            <section>
-              <h2>⚙️ Product Categories</h2>
-              <div className="product-grid">
-                <div className="product-card">
-                  <img src={pipesFittingsImg} alt="Pipes & Fittings" className="product-image" />
+            </div>
+
+          </section>
+
+          {/* =================================================
+              PRODUCT CATEGORIES
+          ================================================= */}
+
+          <section className="industrial-products-section">
+
+            <div className="industrial-section-title">
+
+              <span className="section-label">
+                OUR PRODUCTS
+              </span>
+
+              <h2>
+                Product Categories
+              </h2>
+
+              <p>
+                Explore our range of industrial and construction
+                materials available for wholesale supply.
+              </p>
+
+            </div>
+
+            <div className="industrial-product-grid">
+
+              <div className="industrial-product-card">
+                <img
+                  src={pipesFittingsImg}
+                  alt="Pipes and fittings"
+                />
+                <div className="product-card-content">
                   <h3>Pipes & Fittings</h3>
-                  <p>HDPE, PVC, steel, galvanized — for water, gas, and drainage.</p>
-                </div>
-                <div className="product-card">
-                  <img src={plywoodTimberImg} alt="Plywood & Timber" className="product-image" />
-                  <h3>Plywood & Timber</h3>
-                  <p>Marine, commercial, and structural grades available.</p>
-                </div>
-                <div className="product-card">
-                  <img src={metalsHardwareImg} alt="Metals & Hardware" className="product-image" />
-                  <h3>Metals & Hardware</h3>
-                  <p>Steel bars, sheets, nails, screws, hinges, locks.</p>
-                </div>
-                <div className="product-card">
-                  <img src={safetyMaterialsImg} alt="Safety Materials" className="product-image" />
-                  <h3>Safety Materials</h3>
-                  <p>Signage, barricades, harnesses, helmets, vests.</p>
-                </div>
-                <div className="product-card">
-                  <img src={hdpePipesImg} alt="HDPE Pipes" className="product-image" />
-                  <h3>HDPE Pipes</h3>
-                  <p>Pressure-rated for water, irrigation, and sewer lines.</p>
-                </div>
-                <div className="product-card">
-                  <img src={pvcPipesImg} alt="PVC Pipes" className="product-image" />
-                  <h3>PVC Pipes</h3>
-                  <p>Schedule 40 & 80 — for drainage and electrical conduits.</p>
-                </div>
-                <div className="product-card">
-                  <img src={steelPipesImg} alt="Steel Pipes" className="product-image" />
-                  <h3>Steel Pipes</h3>
-                  <p>Black, galvanized, seamless — for structural and fluid use.</p>
-                </div>
-                <div className="product-card">
-                  <img src={galvanizedFittingsImg} alt="Galvanized Fittings" className="product-image" />
-                  <h3>Galvanized Fittings</h3>
-                  <p>Elbows, tees, couplings — corrosion-resistant.</p>
-                </div>
-                <div className="product-card">
-                  <img src={marinePlywoodImg} alt="Marine Plywood" className="product-image" />
-                  <h3>Marine Plywood</h3>
-                  <p>BS1088 certified — waterproof and durable.</p>
-                </div>
-                <div className="product-card">
-                  <img src={structuralTimberImg} alt="Structural Timber" className="product-image" />
-                  <h3>Structural Timber</h3>
-                  <p>Hardwood and treated softwood for framing.</p>
-                </div>
-                <div className="product-card">
-                  <img src={commercialPlywoodImg} alt="Commercial Plywood" className="product-image" />
-                  <h3>Commercial Plywood</h3>
-                  <p>For furniture, partitions, and interior use.</p>
-                </div>
-                <div className="product-card">
-                  <img src={steelBarsImg} alt="Steel Bars" className="product-image" />
-                  <h3>Steel Bars</h3>
-                  <p>Deformed and round bars — 8mm to 32mm.</p>
-                </div>
-                <div className="product-card">
-                  <img src={metalSheetsImg} alt="Metal Sheets" className="product-image" />
-                  <h3>Metal Sheets</h3>
-                  <p>Aluminum, galvanized, stainless — various gauges.</p>
-                </div>
-                <div className="product-card">
-                  <img src={constructionHardwareImg} alt="Construction Hardware" className="product-image" />
-                  <h3>Construction Hardware</h3>
-                  <p>Nails, screws, anchors, hinges, locks, handles.</p>
-                </div>
-                <div className="product-card">
-                  <img src={safetySignageImg} alt="Safety Signage" className="product-image" />
-                  <h3>Safety Signage</h3>
-                  <p>Warning, prohibition, mandatory, and emergency signs.</p>
-                </div>
-                <div className="product-card">
-                  <img src={ppeGearImg} alt="PPE Gear" className="product-image" />
-                  <h3>PPE Gear</h3>
-                  <p>Helmets, vests, gloves, harnesses, goggles.</p>
+                  <p>
+                    HDPE, PVC, steel and galvanized pipes for water,
+                    gas and drainage.
+                  </p>
                 </div>
               </div>
-            </section>
 
-            <section>
-              <h2>🌟 Why Choose Us?</h2>
-              <ul className="benefit-list">
-                <li> Technical support for material selection and compliance</li>
-                <li> Just-in-time delivery directly to your construction site</li>
-                <li> Credit terms for registered contractors and companies</li>
-                <li> Dedicated account manager for large projects</li>
-                <li> Quality assurance with material test certificates</li>
-                <li> Nationwide delivery across Uganda</li>
+              <div className="industrial-product-card">
+                <img
+                  src={plywoodTimberImg}
+                  alt="Plywood and timber"
+                />
+                <div className="product-card-content">
+                  <h3>Plywood & Timber</h3>
+                  <p>
+                    Marine, commercial and structural grades
+                    available.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={metalsHardwareImg}
+                  alt="Metals and hardware"
+                />
+                <div className="product-card-content">
+                  <h3>Metals & Hardware</h3>
+                  <p>
+                    Steel bars, sheets, nails, screws, hinges and
+                    locks.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={safetyMaterialsImg}
+                  alt="Safety materials"
+                />
+                <div className="product-card-content">
+                  <h3>Safety Materials</h3>
+                  <p>
+                    Signage, barricades, harnesses, helmets and
+                    protective equipment.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={hdpePipesImg}
+                  alt="HDPE pipes"
+                />
+                <div className="product-card-content">
+                  <h3>HDPE Pipes</h3>
+                  <p>
+                    Pressure-rated pipes for water, irrigation and
+                    sewer lines.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={pvcPipesImg}
+                  alt="PVC pipes"
+                />
+                <div className="product-card-content">
+                  <h3>PVC Pipes</h3>
+                  <p>
+                    Pipes for drainage and electrical conduit
+                    applications.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={steelPipesImg}
+                  alt="Steel pipes"
+                />
+                <div className="product-card-content">
+                  <h3>Steel Pipes</h3>
+                  <p>
+                    Black, galvanized and seamless steel pipes for
+                    structural and fluid applications.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={galvanizedFittingsImg}
+                  alt="Galvanized fittings"
+                />
+                <div className="product-card-content">
+                  <h3>Galvanized Fittings</h3>
+                  <p>
+                    Elbows, tees and couplings designed for
+                    corrosion resistance.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={marinePlywoodImg}
+                  alt="Marine plywood"
+                />
+                <div className="product-card-content">
+                  <h3>Marine Plywood</h3>
+                  <p>
+                    Waterproof and durable plywood for demanding
+                    construction applications.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={structuralTimberImg}
+                  alt="Structural timber"
+                />
+                <div className="product-card-content">
+                  <h3>Structural Timber</h3>
+                  <p>
+                    Hardwood and treated softwood for structural
+                    framing.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={commercialPlywoodImg}
+                  alt="Commercial plywood"
+                />
+                <div className="product-card-content">
+                  <h3>Commercial Plywood</h3>
+                  <p>
+                    Suitable for furniture, partitions and interior
+                    construction.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={steelBarsImg}
+                  alt="Steel bars"
+                />
+                <div className="product-card-content">
+                  <h3>Steel Bars</h3>
+                  <p>
+                    Deformed and round steel bars in different sizes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={metalSheetsImg}
+                  alt="Metal sheets"
+                />
+                <div className="product-card-content">
+                  <h3>Metal Sheets</h3>
+                  <p>
+                    Aluminum, galvanized and stainless steel sheets.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={constructionHardwareImg}
+                  alt="Construction hardware"
+                />
+                <div className="product-card-content">
+                  <h3>Construction Hardware</h3>
+                  <p>
+                    Nails, screws, anchors, hinges, locks and
+                    handles.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={safetySignageImg}
+                  alt="Safety signage"
+                />
+                <div className="product-card-content">
+                  <h3>Safety Signage</h3>
+                  <p>
+                    Warning, mandatory, emergency and prohibition
+                    signs.
+                  </p>
+                </div>
+              </div>
+
+              <div className="industrial-product-card">
+                <img
+                  src={ppeGearImg}
+                  alt="PPE gear"
+                />
+                <div className="product-card-content">
+                  <h3>PPE Gear</h3>
+                  <p>
+                    Helmets, vests, gloves, harnesses and goggles.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </section>
+
+          {/* =================================================
+              WHY CHOOSE MAHEGA
+          ================================================= */}
+
+          <section className="industrial-benefits-section">
+
+            <div className="industrial-benefits-content">
+
+              <span className="section-label">
+                WHY MAHEGA
+              </span>
+
+              <h2>
+                Why Choose Mahega?
+              </h2>
+
+              <p>
+                We combine dependable product sourcing, responsive
+                service and project-focused delivery to help our
+                customers complete their work efficiently.
+              </p>
+
+              <ul className="industrial-benefit-list">
+
+                <li>
+                  Technical support for material selection and
+                  compliance
+                </li>
+
+                <li>
+                  Just-in-time delivery directly to your
+                  construction site
+                </li>
+
+                <li>
+                  Credit terms for registered contractors and
+                  companies
+                </li>
+
+                <li>
+                  Dedicated account management for large projects
+                </li>
+
+                <li>
+                  Quality assurance with material test certificates
+                </li>
+
+                <li>
+                  Nationwide delivery across Uganda
+                </li>
+
               </ul>
-            </section>
 
-            <section className="cta-box">
-              <h2>📐 Request Material Quote</h2>
-              <p>Send your BOQ or specifications — we’ll quote within 1 hour.</p>
-              <button className="btn-primary">Upload BOQ</button>
-            </section>
+            </div>
 
-            {/* ✅ CONTACT FORM */}
-            <section className="contact-form-section">
-              <h2>📞 Contact Industrial Supply Team</h2>
-              <form className="contact-form" onSubmit={sendContactForm}>
-                <input 
-                  type="text" 
-                  name="name" 
-                  placeholder="Your Name" 
-                  required 
-                />
-                <input 
-                  type="email" 
-                  name="email" 
-                  placeholder="Your Email" 
-                  required 
-                />
-                <textarea 
-                  name="message" 
-                  placeholder="Describe your project, required materials, quantities, and delivery location..." 
-                  rows="5" 
-                  required
-                ></textarea>
-                <button 
-                  type="submit" 
-                  className="btn-primary"
-                  disabled={loading}
-                >
-                  {loading ? 'Sending...' : 'Send Request'}
-                </button>
-              </form>
-            </section>
-          </main>
-        </div>
+            <div className="industrial-benefits-image">
+
+              <img
+                src={constructionHardwareImg}
+                alt="Construction hardware supplied by Mahega"
+              />
+
+            </div>
+
+          </section>
+
+          {/* =================================================
+              CTA
+          ================================================= */}
+
+          <section className="industrial-cta">
+
+            <div>
+
+              <span className="section-label">
+                PROJECT SUPPLY
+              </span>
+
+              <h2>
+                Request a Material Quote
+              </h2>
+
+              <p>
+                Send your BOQ or material specifications and our
+                team will prepare a quotation for your project.
+              </p>
+
+            </div>
+
+            <button className="industrial-btn">
+              Upload BOQ
+            </button>
+
+          </section>
+
+          {/* =================================================
+              CONTACT FORM
+          ================================================= */}
+
+          <section className="industrial-contact-section">
+
+            <div className="industrial-section-title">
+
+              <span className="section-label">
+                GET IN TOUCH
+              </span>
+
+              <h2>
+                Contact Industrial Supply Team
+              </h2>
+
+              <p>
+                Tell us about your project, required materials,
+                quantities and delivery location.
+              </p>
+
+            </div>
+
+            <form
+              className="industrial-contact-form"
+              onSubmit={sendContactForm}
+            >
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+
+              <textarea
+                name="message"
+                placeholder="Describe your project, required materials, quantities and delivery location..."
+                rows="6"
+                required
+              ></textarea>
+
+              <button
+                type="submit"
+                className="industrial-btn"
+                disabled={loading}
+              >
+                {loading ? 'Sending...' : 'Send Request'}
+              </button>
+
+            </form>
+
+          </section>
+
+        </main>
+
       </div>
 
-  
     </div>
   );
 }

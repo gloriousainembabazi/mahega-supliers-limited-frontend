@@ -1,25 +1,1195 @@
-/* src/pages/About/History.css */
-.history-section {
-  padding: 2rem;
-  max-width: 900px;
+/* =========================================================
+   MAHEGA GENERAL SUPPLIERS
+   COMPANY HISTORY PAGE
+   DARK BLUE + GOLD
+   COMPACT PROFESSIONAL DESIGN
+   ========================================================= */
+
+.history-page {
+  --history-blue: #071d35;
+  --history-dark-blue: #06182b;
+  --history-blue-light: #123b65;
+  --history-gold: #d5a928;
+  --history-gold-light: #e5c45b;
+  --history-white: #ffffff;
+  --history-light: #f5f7fa;
+  --history-text: #3f4a56;
+  --history-muted: #687482;
+
+  width: 100%;
+  overflow: hidden;
+
+  background: #ffffff;
+  color: var(--history-text);
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.history-container {
+  width: 92%;
+  max-width: 1250px;
+
   margin: 0 auto;
 }
 
-.history-section h2 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
+
+/* =========================================================
+   HERO SECTION
+   ========================================================= */
+
+.history-hero {
+  position: relative;
+
+  min-height: 430px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      rgba(5, 23, 43, 0.78),
+      rgba(5, 23, 43, 0.82)
+    ),
+    url("../images/exported goods.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-align: center;
+
+  color: #ffffff;
 }
 
-.history-section p {
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+
+.history-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(5, 25, 48, 0.72),
+      rgba(10, 43, 75, 0.66)
+    );
+
+  z-index: 1;
 }
 
-.history-section ul {
-  padding-left: 1.5rem;
+
+.history-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+
+  padding: 45px 20px;
+
+  text-align: center;
 }
 
-.history-section li {
-  margin-bottom: 0.5rem;
+
+.history-hero .history-label {
+  display: inline-block;
+
+  margin-bottom: 14px;
+}
+
+
+.history-hero h1 {
+  max-width: 850px;
+
+  margin: 0 auto 17px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.2rem, 4vw, 3.7rem);
+
+  line-height: 1.12;
+
+  font-weight: 800;
+}
+
+
+.history-hero h1 span {
+  display: block;
+
+  color: var(--history-gold-light);
+}
+
+
+.history-hero p {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.91);
+
+  font-size: 1.04rem;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   LABELS
+   ========================================================= */
+
+.history-label {
+  display: inline-block;
+
+  color: var(--history-gold);
+
+  font-size: 0.78rem;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   GENERAL HEADINGS
+   ========================================================= */
+
+.history-page h2 {
+  margin: 7px 0 12px;
+
+  color: var(--history-blue);
+
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+
+  line-height: 1.2;
+
+  font-weight: 800;
+}
+
+
+.history-page h3 {
+  margin: 0 0 7px;
+
+  color: var(--history-blue);
+
+  font-size: 1.15rem;
+
+  font-weight: 750;
+}
+
+
+.history-page p {
+  margin: 0 0 13px;
+
+  color: var(--history-text);
+
+  font-size: 0.98rem;
+
+  line-height: 1.68;
+}
+
+
+/* =========================================================
+   GOLD UNDERLINE
+   ========================================================= */
+
+.history-gold-line {
+  width: 55px;
+
+  height: 4px;
+
+  margin: 9px 0 17px;
+
+  background: var(--history-gold);
+
+  border-radius: 3px;
+}
+
+
+.history-gold-line.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* =========================================================
+   COMPANY STORY
+   WHERE IT ALL BEGAN
+   ========================================================= */
+
+.history-story {
+  padding: 50px 0;
+
+  background: #ffffff;
+}
+
+
+.history-story-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 42px;
+
+  /*
+    IMPORTANT:
+    This makes the image and text column
+    stretch to the same height.
+  */
+  align-items: stretch;
+}
+
+
+/* ---------------------------------------------------------
+   WHERE IT ALL BEGAN IMAGE
+   --------------------------------------------------------- */
+
+.history-story-image {
+  width: 100%;
+
+  /*
+    Do NOT use a fixed height here.
+    The grid determines the height.
+  */
+  height: auto;
+
+  min-height: 100%;
+
+  overflow: hidden;
+
+  position: relative;
+
+  border-radius: 10px;
+
+  background: #e9edf2;
+
+  box-shadow:
+    0 10px 28px rgba(7, 29, 53, 0.14);
+}
+
+
+.history-story-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border: 4px solid rgba(213, 169, 40, 0.16);
+
+  border-radius: 10px;
+
+  pointer-events: none;
+}
+
+
+.history-story-image img {
+  display: block;
+
+  width: 100%;
+
+  /*
+    Fill the entire image column.
+  */
+  height: 100%;
+
+  min-height: 100%;
+
+  /*
+    Keep the original image.
+    Cover prevents distortion.
+  */
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 10px;
+
+  transition: transform 0.45s ease;
+}
+
+
+.history-story-image:hover img {
+  transform: scale(1.03);
+}
+
+
+/* ---------------------------------------------------------
+   WHERE IT ALL BEGAN CONTENT
+   --------------------------------------------------------- */
+
+.history-story-content {
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.history-story-content strong {
+  color: var(--history-blue);
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   OUR JOURNEY
+   ========================================================= */
+
+.history-journey {
+  padding: 50px 0;
+
+  background: var(--history-light);
+}
+
+
+.history-section-heading {
+  max-width: 800px;
+
+  margin: 0 auto 32px;
+
+  text-align: center;
+}
+
+
+.history-section-heading p {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: var(--history-muted);
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.history-timeline {
+  position: relative;
+
+  max-width: 950px;
+
+  margin: 0 auto;
+}
+
+
+.history-timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 91px;
+
+  top: 0;
+
+  bottom: 0;
+
+  width: 2px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--history-gold),
+      rgba(213, 169, 40, 0.18)
+    );
+}
+
+
+.history-timeline-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 105px 1fr;
+
+  gap: 25px;
+
+  margin-bottom: 20px;
+}
+
+
+.history-timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+
+.history-year {
+  position: relative;
+
+  z-index: 2;
+
+  width: 75px;
+
+  height: 75px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 4px solid var(--history-gold);
+
+  background: var(--history-blue);
+
+  color: #ffffff;
+
+  font-size: 0.92rem;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 5px 15px rgba(7, 29, 53, 0.18);
+}
+
+
+.history-timeline-content {
+  padding: 18px 22px;
+
+  background: #ffffff;
+
+  border-left: 4px solid var(--history-gold);
+
+  border-radius: 7px;
+
+  box-shadow:
+    0 5px 18px rgba(7, 29, 53, 0.06);
+}
+
+
+.history-timeline-content p {
+  margin-bottom: 0;
+
+  color: var(--history-muted);
+}
+
+
+/* =========================================================
+   AGRICULTURE / BUSINESS IMAGE SECTION
+   ========================================================= */
+
+.history-image-section {
+  padding: 50px 0;
+
+  background: #ffffff;
+}
+
+
+.history-image-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 42px;
+
+  align-items: stretch;
+}
+
+
+.history-image-content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.history-large-image {
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 360px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 28px rgba(7, 29, 53, 0.13);
+}
+
+
+.history-large-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   SUPPLY & LOGISTICS
+   BUILT AROUND RELIABLE SUPPLY
+   ========================================================= */
+
+.history-logistics {
+  padding: 50px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5f7fa 0%,
+      #ffffff 100%
+    );
+}
+
+
+.history-logistics-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 42px;
+
+  /*
+    MOST IMPORTANT:
+    Both columns become exactly the
+    same height as the tallest column.
+  */
+  align-items: stretch;
+}
+
+
+/* ---------------------------------------------------------
+   SUPPLY & LOGISTICS IMAGE
+   --------------------------------------------------------- */
+
+.history-logistics-image {
+  width: 100%;
+
+  /*
+    No fixed height.
+    It stretches with the content beside it.
+  */
+  height: auto;
+
+  min-height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #e9edf2;
+
+  box-shadow:
+    0 10px 28px rgba(7, 29, 53, 0.14);
+}
+
+
+.history-logistics-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 100%;
+
+  /*
+    IMPORTANT:
+    The image fills the complete card
+    without becoming distorted.
+  */
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 10px;
+
+  transition: transform 0.45s ease;
+}
+
+
+.history-logistics-image:hover img {
+  transform: scale(1.03);
+}
+
+
+/* ---------------------------------------------------------
+   SUPPLY & LOGISTICS CONTENT
+   --------------------------------------------------------- */
+
+.history-logistics-content {
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   LOGISTICS FEATURES
+   ========================================================= */
+
+.history-feature-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 18px;
+}
+
+
+.history-feature {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  padding: 12px 15px;
+
+  background: #ffffff;
+
+  border-left: 3px solid var(--history-gold);
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 4px 12px rgba(7, 29, 53, 0.06);
+}
+
+
+.history-feature > span {
+  min-width: 36px;
+
+  width: 36px;
+
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--history-blue);
+
+  color: var(--history-gold-light);
+
+  font-size: 0.76rem;
+
+  font-weight: 800;
+}
+
+
+.history-feature h3 {
+  margin-bottom: 2px;
+}
+
+
+.history-feature p {
+  margin: 0;
+
+  color: var(--history-muted);
+
+  font-size: 0.86rem;
+
   line-height: 1.5;
+}
+
+
+/* =========================================================
+   OUR PHILOSOPHY
+   ========================================================= */
+
+.history-philosophy {
+  padding: 50px 0;
+
+  background: var(--history-blue);
+
+  color: #ffffff;
+}
+
+
+.history-philosophy-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
+
+  gap: 55px;
+
+  align-items: start;
+}
+
+
+.history-philosophy h2 {
+  color: #ffffff;
+}
+
+
+.history-philosophy p {
+  color: rgba(255, 255, 255, 0.82);
+
+  margin-bottom: 12px;
+}
+
+
+.history-philosophy .history-label {
+  color: var(--history-gold-light);
+}
+
+
+/* =========================================================
+   TODAY
+   ========================================================= */
+
+.history-today {
+  padding: 50px 0;
+
+  background: #ffffff;
+}
+
+
+.history-today-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
+  gap: 42px;
+
+  align-items: stretch;
+}
+
+
+.history-today-image {
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 360px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 10px 28px rgba(7, 29, 53, 0.14);
+}
+
+
+.history-today-image img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 10px;
+}
+
+
+.history-today-content {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.history-stat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+
+.history-stat-grid > div {
+  padding: 13px 10px;
+
+  text-align: center;
+
+  background: var(--history-light);
+
+  border-top: 3px solid var(--history-gold);
+
+  border-radius: 5px;
+}
+
+
+.history-stat-grid strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: var(--history-blue);
+
+  font-size: 1.2rem;
+
+  font-weight: 800;
+}
+
+
+.history-stat-grid span {
+  display: block;
+
+  color: var(--history-muted);
+
+  font-size: 0.76rem;
+}
+
+
+/* =========================================================
+   CLOSING SECTION
+   ========================================================= */
+
+.history-closing {
+  padding: 55px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--history-dark-blue),
+      var(--history-blue-light)
+    );
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+
+.history-closing .history-container {
+  max-width: 850px;
+}
+
+
+.history-closing h2 {
+  margin-top: 7px;
+
+  color: #ffffff;
+}
+
+
+.history-closing p {
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  color: rgba(255, 255, 255, 0.86);
+
+  font-size: 0.98rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+   ========================================================= */
+
+.history-story-image,
+.history-large-image,
+.history-logistics-image,
+.history-today-image {
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.history-story-image:hover,
+.history-large-image:hover,
+.history-logistics-image:hover,
+.history-today-image:hover {
+  box-shadow:
+    0 15px 34px rgba(7, 29, 53, 0.17);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .history-container {
+    width: 90%;
+  }
+
+
+  .history-story-grid,
+  .history-image-grid,
+  .history-logistics-grid,
+  .history-today-grid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+
+  /*
+    On tablet, give images their own sensible height
+    because the columns are now stacked.
+  */
+
+  .history-story-image,
+  .history-logistics-image {
+    height: 350px;
+
+    min-height: 350px;
+  }
+
+
+  .history-large-image,
+  .history-today-image {
+    height: 350px;
+
+    min-height: 350px;
+  }
+
+
+  .history-story-content,
+  .history-logistics-content,
+  .history-today-content {
+    height: auto;
+  }
+
+
+  .history-philosophy-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+
+  .history-timeline::before {
+    left: 73px;
+  }
+
+
+  .history-timeline-item {
+    grid-template-columns: 85px 1fr;
+
+    gap: 20px;
+  }
+
+
+  .history-year {
+    width: 65px;
+
+    height: 65px;
+
+    font-size: 0.84rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .history-container {
+    width: 92%;
+  }
+
+
+  .history-hero {
+    min-height: 390px;
+  }
+
+
+  .history-hero-content {
+    padding: 38px 15px;
+  }
+
+
+  .history-hero h1 {
+    font-size: 2.05rem;
+  }
+
+
+  .history-hero p {
+    font-size: 0.91rem;
+
+    line-height: 1.6;
+  }
+
+
+  .history-story,
+  .history-journey,
+  .history-image-section,
+  .history-logistics,
+  .history-philosophy,
+  .history-today {
+    padding: 40px 0;
+  }
+
+
+  .history-story-image,
+  .history-logistics-image,
+  .history-large-image,
+  .history-today-image {
+    height: 280px;
+
+    min-height: 280px;
+  }
+
+
+  .history-page h2 {
+    font-size: 1.75rem;
+  }
+
+
+  .history-timeline::before {
+    left: 29px;
+  }
+
+
+  .history-timeline-item {
+    grid-template-columns: 60px 1fr;
+
+    gap: 15px;
+  }
+
+
+  .history-year {
+    width: 58px;
+
+    height: 58px;
+
+    border-width: 3px;
+
+    font-size: 0.74rem;
+  }
+
+
+  .history-timeline-content {
+    padding: 15px;
+  }
+
+
+  .history-timeline-content h3 {
+    font-size: 1rem;
+  }
+
+
+  .history-timeline-content p {
+    font-size: 0.87rem;
+  }
+
+
+  .history-feature {
+    padding: 11px 12px;
+  }
+
+
+  .history-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .history-stat-grid > div {
+    padding: 12px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .history-hero h1 {
+    font-size: 1.8rem;
+  }
+
+
+  .history-hero p {
+    font-size: 0.85rem;
+  }
+
+
+  .history-story-image,
+  .history-logistics-image,
+  .history-large-image,
+  .history-today-image {
+    height: 240px;
+
+    min-height: 240px;
+  }
+
+
+  .history-timeline-item {
+    grid-template-columns: 52px 1fr;
+
+    gap: 10px;
+  }
+
+
+  .history-year {
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 0.68rem;
+  }
+
+
+  .history-timeline::before {
+    left: 25px;
+  }
 }

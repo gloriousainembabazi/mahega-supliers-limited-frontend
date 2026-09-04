@@ -1,13 +1,16 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Login from './Pages/Login';
+import NotFound from './Pages/NotFound';
+import './App.css';  // <-- Changed from '../App.css' to './App.css'
 
 // Layout
 import PageTemplate from './Components/PageTemplate';
 
 // Pages
 import Home from './Pages/Home';
-import AboutPage from './Pages/About'; 
+import AboutPage from './Pages/About';
 import Services from './Pages/Services';
 
 // Admin Pages
@@ -15,7 +18,7 @@ import AdminDashboard from './Pages/Admin/AdminDashboard';
 
 // About Pages
 import Mission from './Pages/About/Mission';
-import Vision from './Pages/About/Vision';    
+import Vision from './Pages/About/Vision';
 import Team from './Pages/About/Team';
 import History from './Pages/About/History';
 import Values from './Pages/About/Values';
@@ -48,67 +51,58 @@ import Clients from './Pages/Clients';
 import Blog from './Pages/Blog';
 import Contact from './Pages/Contact';
 
-// Optional: 404 Page
-const NotFound = () => (
-  <div style={{ padding: '2rem', textAlign: 'center' }}>
-    <h2>404 - Page Not Found</h2>
-    <p>The page you're looking for doesn't exist.</p>
-    <a href="/">Go back home</a>
-  </div>
-);
-
 function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Home */}
-        <Route path="/" element={<PageTemplate><Home /></PageTemplate>} />
+    return (
+        <Routes>
+            {/* YOUR ORIGINAL WEBSITE ROUTES - WITH PageTemplate */}
+            <Route path="/" element={<PageTemplate><Home /></PageTemplate>} />
+            <Route path="/about" element={<PageTemplate><AboutPage /></PageTemplate>} />
+            <Route path="/services" element={<PageTemplate><Services /></PageTemplate>} />
 
-        {/* About */}
-        <Route path="/about" element={<PageTemplate><AboutPage /></PageTemplate>} />
-        <Route path="/about/mission" element={<PageTemplate><Mission /></PageTemplate>} />
-        <Route path="/about/vision" element={<PageTemplate><Vision /></PageTemplate>} />
-        <Route path="/about/team" element={<PageTemplate><Team /></PageTemplate>} />
-        <Route path="/about/history" element={<PageTemplate><History /></PageTemplate>} />
-        <Route path="/about/values" element={<PageTemplate><Values /></PageTemplate>} />
+            {/* About Pages */}
+            <Route path="/about/mission" element={<PageTemplate><Mission /></PageTemplate>} />
+            <Route path="/about/vision" element={<PageTemplate><Vision /></PageTemplate>} />
+            <Route path="/about/team" element={<PageTemplate><Team /></PageTemplate>} />
+            <Route path="/about/history" element={<PageTemplate><History /></PageTemplate>} />
+            <Route path="/about/values" element={<PageTemplate><Values /></PageTemplate>} />
 
-        {/* Products */}
-        <Route path="/products" element={<PageTemplate><Products /></PageTemplate>} />
-        <Route path="/products/stationery" element={<PageTemplate><Stationery /></PageTemplate>} />
-        <Route path="/products/computers" element={<PageTemplate><Computers /></PageTemplate>} />
-        <Route path="/products/furniture" element={<PageTemplate><Furniture /></PageTemplate>} />
-        <Route path="/products/cleaning" element={<PageTemplate><Cleaning /></PageTemplate>} />
-        <Route path="/products/agricultural" element={<PageTemplate><Agricultural /></PageTemplate>} />
-        <Route path="/products/livestock" element={<PageTemplate><Livestock /></PageTemplate>} />
-        <Route path="/products/food-beverages" element={<PageTemplate><FoodBeverages /></PageTemplate>} />
-        <Route path="/products/medical" element={<PageTemplate><Medical /></PageTemplate>} />
-        <Route path="/products/industrial" element={<PageTemplate><Industrial /></PageTemplate>} />
-        <Route path="/products/branding" element={<PageTemplate><Branding /></PageTemplate>} /> 
-        <Route path="/products/export" element={<PageTemplate><Export /></PageTemplate>} />
-        <Route path="/products/custom" element={<PageTemplate><Custom /></PageTemplate>} />
+            {/* Products Pages */}
+            <Route path="/products" element={<PageTemplate><Products /></PageTemplate>} />
+            <Route path="/products/stationery" element={<PageTemplate><Stationery /></PageTemplate>} />
+            <Route path="/products/computers" element={<PageTemplate><Computers /></PageTemplate>} />
+            <Route path="/products/furniture" element={<PageTemplate><Furniture /></PageTemplate>} />
+            <Route path="/products/cleaning" element={<PageTemplate><Cleaning /></PageTemplate>} />
+            <Route path="/products/agricultural" element={<PageTemplate><Agricultural /></PageTemplate>} />
+            <Route path="/products/livestock" element={<PageTemplate><Livestock /></PageTemplate>} />
+            <Route path="/products/food-beverages" element={<PageTemplate><FoodBeverages /></PageTemplate>} />
+            <Route path="/products/medical" element={<PageTemplate><Medical /></PageTemplate>} />
+            <Route path="/products/industrial" element={<PageTemplate><Industrial /></PageTemplate>} />
+            <Route path="/products/branding" element={<PageTemplate><Branding /></PageTemplate>} />
+            <Route path="/products/export" element={<PageTemplate><Export /></PageTemplate>} />
+            <Route path="/products/custom" element={<PageTemplate><Custom /></PageTemplate>} />
 
-        {/* Services */}
-        <Route path="/services" element={<PageTemplate><Services /></PageTemplate>} />
-        <Route path="/services/procurement" element={<PageTemplate><Procurement /></PageTemplate>} />
-        <Route path="/services/logistics" element={<PageTemplate><Logistics /></PageTemplate>} />
-        <Route path="/services/custom-orders" element={<PageTemplate><CustomOrders /></PageTemplate>} />
-        <Route path="/services/consulting" element={<PageTemplate><Consulting /></PageTemplate>} />
-        <Route path="/services/export-logistics" element={<PageTemplate><ExportLogistics /></PageTemplate>} />
+            {/* Services Pages */}
+            <Route path="/services/procurement" element={<PageTemplate><Procurement /></PageTemplate>} />
+            <Route path="/services/logistics" element={<PageTemplate><Logistics /></PageTemplate>} />
+            <Route path="/services/custom-orders" element={<PageTemplate><CustomOrders /></PageTemplate>} />
+            <Route path="/services/consulting" element={<PageTemplate><Consulting /></PageTemplate>} />
+            <Route path="/services/export-logistics" element={<PageTemplate><ExportLogistics /></PageTemplate>} />
 
-        {/* Other Pages */}
-        <Route path="/gallary" element={<PageTemplate><Gallary /></PageTemplate>} />
-        <Route path="/clients" element={<PageTemplate><Clients /></PageTemplate>} />
-        <Route path="/blog" element={<PageTemplate><Blog /></PageTemplate>} />
-        <Route path="/contact" element={<PageTemplate><Contact /></PageTemplate>} />
+            {/* Other Pages */}
+            <Route path="/gallary" element={<PageTemplate><Gallary /></PageTemplate>} />
+            <Route path="/clients" element={<PageTemplate><Clients /></PageTemplate>} />
+            <Route path="/blog" element={<PageTemplate><Blog /></PageTemplate>} />
+            <Route path="/contact" element={<PageTemplate><Contact /></PageTemplate>} />
 
-        
-        <Route path="/admin" element={<PageTemplate><AdminDashboard /></PageTemplate>} />
+            {/* ADMIN ROUTES */}
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
-        
-        <Route path="*" element={<PageTemplate><NotFound /></PageTemplate>} />
-      </Routes>
-    </Router>
-  );
+            {/* 404 Page */}
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    );
 }
 
 export default App;

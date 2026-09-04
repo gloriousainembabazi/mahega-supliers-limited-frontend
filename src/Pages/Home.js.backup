@@ -1,0 +1,228 @@
+﻿// src/Pages/Home.js
+import React from "react";
+import { Link } from "react-router-dom";
+import heroBg from "../images/hero-bg1.jpg";
+import img2 from "../images/hero-bg2.jpg";
+import img3 from "../images/hero-bg3.jpg";
+import img4 from "../images/hero-bg4.jpg";
+import img5 from "../images/hero-bg5.jpg";
+import "./Home.css";
+
+const Home = () => {
+  return (
+    <div className="mh">
+      {/* Hero */}
+      <section className="mh-hero" style={{ backgroundImage: `linear-gradient(180deg, rgba(10,12,20,0.75), rgba(10,12,20,0.9)), url(${heroBg})` }}>
+        <div className="mh-container mh-hero-content">
+          <h1>Advancing Industrial Excellence in East Africa</h1>
+          <p>
+            Trusted supplier of agricultural, industrial, and corporate
+            procurement solutions -- delivering quality equipment and
+            reliable service across the region.
+          </p>
+          <div className="mh-hero-buttons">
+            <Link to="/products" className="mh-btn mh-btn-primary">View Products</Link>
+            <Link to="/contact" className="mh-btn mh-btn-outline">Get a Quote</Link>
+          </div>
+        </div>
+
+        <div className="mh-container">
+          <div className="mh-feature-cards">
+            <div className="mh-feature-card">
+              <img src={img2} alt="Applications" />
+              <div className="mh-feature-body">
+                <h3>Applications</h3>
+                <p>Solutions tailored to farming, industry, and enterprise needs.</p>
+              </div>
+            </div>
+            <div className="mh-feature-card">
+              <img src={img3} alt="Products" />
+              <div className="mh-feature-body">
+                <h3>Products</h3>
+                <p>A wide catalogue of certified, quality-tested equipment.</p>
+              </div>
+            </div>
+            <div className="mh-feature-card">
+              <img src={img4} alt="Services" />
+              <div className="mh-feature-body">
+                <h3>Services</h3>
+                <p>End-to-end logistics, delivery, and after-sales support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Competencies */}
+      <section className="mh-core">
+        <div className="mh-container">
+          <div className="mh-section-heading">
+            <h2>Core Competencies</h2>
+            <span className="mh-underline" />
+          </div>
+          <div className="mh-core-grid">
+            <div className="mh-core-item">
+              <h3>Agriculture Supplies</h3>
+              <p>High-performance farming equipment and inputs for growing operations.</p>
+            </div>
+            <div className="mh-core-item">
+              <h3>Corporate Procurement</h3>
+              <p>Streamlined sourcing and supply chain solutions for businesses.</p>
+            </div>
+            <div className="mh-core-item">
+              <h3>Industrial Tools</h3>
+              <p>Durable tools and machinery built for demanding environments.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="mh-stats">
+        <div className="mh-container mh-stats-grid">
+          <div className="mh-stat">
+            <h3>98%</h3>
+            <p>Client Satisfaction</p>
+          </div>
+          <div className="mh-stat">
+            <h3>500+</h3>
+            <p>Projects Delivered</p>
+          </div>
+          <div className="mh-stat">
+            <h3>24/7</h3>
+            <p>Customer Support</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Categories */}
+      <section className="mh-featured">
+        <div className="mh-container">
+          <div className="mh-featured-header">
+            <div className="mh-section-heading mh-section-heading-left">
+              <h2>Featured Categories</h2>
+              <span className="mh-underline" />
+            </div>
+            <Link to="/products" className="mh-view-all">View All →</Link>
+          </div>
+          <div className="mh-featured-grid">
+            <div className="mh-featured-card">
+              <img src={img3} alt="Industrial Safety Gear" />
+              <div className="mh-featured-overlay"><h3>Industrial Safety Gear</h3></div>
+            </div>
+            <div className="mh-featured-card">
+              <img src={img4} alt="Agriculture Machinery" />
+              <div className="mh-featured-overlay"><h3>Agriculture Machinery</h3></div>
+            </div>
+            <div className="mh-featured-card">
+              <img src={img5} alt="Corporate IT Infrastructure" />
+              <div className="mh-featured-overlay"><h3>Corporate IT Infrastructure</h3></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Business Solutions */}
+      <section className="mh-business-solutions">
+        <div className="mh-container mh-split-section">
+          <div className="mh-split-content">
+            <span className="mh-small-label">BUSINESS SOLUTIONS</span>
+
+            <h2>Solutions Designed for Your Business</h2>
+
+            <span className="mh-underline mh-underline-left" />
+
+            <p>
+              We provide dependable procurement and supply chain solutions
+              designed to help organizations operate efficiently, reduce
+              procurement challenges, and access quality products when they
+              need them.
+            </p>
+
+            <p>
+              From corporate procurement and agricultural supplies to
+              industrial equipment and logistics, Mahega delivers practical
+              solutions tailored to your organization's needs.
+            </p>
+
+            <Link to="/services" className="mh-btn mh-btn-primary">
+              Learn More
+            </Link>
+          </div>
+
+          <div className="mh-split-image">
+            <img src={img4} alt="Mahega Business Solutions" />
+          </div>
+        </div>
+      </section>
+
+      {/* Our Vision */}
+      <section className="mh-vision-section">
+        <div className="mh-container mh-split-section">
+          <div className="mh-split-image">
+            <img src={img5} alt="Mahega Vision" />
+          </div>
+
+          <div className="mh-split-content">
+            <span className="mh-small-label">OUR VISION</span>
+
+            <h2>Building a More Reliable Supply Chain</h2>
+
+            <span className="mh-underline mh-underline-left" />
+
+            <p>
+              Our vision is to become a trusted supply partner across East
+              Africa by connecting businesses with reliable products,
+              dependable logistics, and professional procurement services.
+            </p>
+
+            <p>
+              We are committed to building lasting relationships through
+              consistency, quality, innovation, and service excellence.
+            </p>
+
+            <Link to="/about/vision" className="mh-btn mh-btn-outline-light">
+              Read Our Story
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+
+      {/* Warehouse */}
+      <section className="mh-warehouse">
+        <div className="mh-container mh-warehouse-grid">
+          <div className="mh-warehouse-image">
+            <img src={img5} alt="Warehouse operations" />
+          </div>
+          <div className="mh-warehouse-content">
+            <h2>Warehousing &amp; Reliability</h2>
+            <span className="mh-underline mh-underline-left" />
+            <p>
+              Our fully-equipped warehouse facilities ensure quality, well-tested
+              products are always stored and shipped in optimal condition.
+            </p>
+            <p>
+              With trained staff, organized inventory management, and reliable
+              logistics partners, we guarantee your orders arrive complete,
+              on time, and in the condition you expect -- every time.
+            </p>
+            <Link to="/about" className="mh-btn mh-btn-outline-light">Learn More</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="mh-cta">
+        <div className="mh-container">
+          <h2>Custom Procurement Solutions</h2>
+          <p>Need a tailored sourcing or supply chain solution? Let's discuss your requirements.</p>
+          <Link to="/contact" className="mh-btn mh-btn-primary">Request a Quote</Link>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
+
+
